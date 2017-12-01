@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "quote_id": {
+            "id": "/properties/quote_id",
+            "type": "integer"
+        }
+    },
+    "required": [
+        "quote_id"
+    ],
+    "type": "object"
+}

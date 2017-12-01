@@ -1,0 +1,99 @@
+{
+   "partner_id": "TOGETH",
+  "cover_start_date": "2017-09-30",
+  "cover": {
+    "con": {
+      "risk_yn": "Y",
+      "vol_xs": 0
+    },
+    "legal": "N",
+    "he": "Y",
+    "travel": "N"
+  },
+  "risk_property": {
+    "perm_res": "Y",
+    "sole_occ": "Y",
+    "res_occ": "Y",
+    "bus_use": "0",
+    "refused": "N",
+    "terms": "N",
+    "convs": "N",
+    "bank_ccj": "N",
+    "for_sale": "N",
+    "near_water": "N",
+    "flood": "N",
+    "trees": "N",
+    "subst": "N",
+    "rep_state": "Y",
+    "prop_type2": 3,
+    "no_storeys": 2,
+    "listed": 4,
+    "year_built": 1985,
+    "owner_type": 1,
+    "no_beds": 2,
+    "ext_prop": "N",
+    "wall_type": 1,
+    "roof_type": 2,
+    "alarm_type": 6,
+    "smokers": "N",
+    "smoke_al": "Y",
+    "win_lock": "Y",
+    "door_lock": "Y",
+    "risk_address": {
+      "building_name": " ",
+      "street_no": "82",
+      "street": "Wildwood Lane",
+      "city": "Stevenage",
+      "postcode": "SG1 1TD",
+      "uprn": 100080900837
+    }
+  },
+  "persons_insured": [
+    {
+      "title": "003",
+      "forename": "Wwwww",
+      "surname": "wwwwwwwwww",
+      "birth_date": "1999-02-01",
+      "phone_no": "12312312312",
+      "email_address": "shilpi@espire.com",
+      "occupation_code": 663,
+      "accept_mail": "Y",
+      "accept_phone": "N",
+      "accept_email": "Y"
+    }
+  ],
+  "prev_claims": [
+    {
+      "cla_date": "2014-01-01",
+      "cla_type": 1,
+      "cla_cause": 1,
+      "cla_amt": 45.0,
+      "risk_addr": "Y",
+      "cla_desc": "out of journey"
+    },
+     {
+      "cla_date": "2014-01-01",
+      "cla_type": 1,
+      "cla_cause": 1,
+      "cla_amt": 45.0,
+      "risk_addr": "Y",
+      "cla_desc": "out of journey"
+    },
+     {
+      "cla_date": "2014-01-01",
+      "cla_type": 1,
+      "cla_cause": 1,
+      "cla_amt": 45.0,
+      "risk_addr": "Y",
+      "cla_desc": "out of journey"
+    },
+     {
+      "cla_date": "2014-01-01",
+      "cla_type": 1,
+      "cla_cause": 1,
+      "cla_amt": 45.0,
+      "risk_addr": "Y",
+      "cla_desc": "out of journey"
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.uia.esb</groupId>
+	<artifactId>uiadev</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>mule</packaging>
+	<name>Mule uia Application</name>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<mule.version>3.8.5</mule.version>
+		<mule.module.entension>3.8.5</mule.module.entension>
+		<mule.tools.version>1.3</mule.tools.version>
+		<mule.edi.version>1.2.8</mule.edi.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<munit.version>1.3.5</munit.version>
+		<mule.munit.support.version>3.8.5</mule.munit.support.version>
+		
+	</properties>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-app-maven-plugin</artifactId>
+				<version>${mule.tools.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<copyToAppsDirectory>true</copyToAppsDirectory>
+					<inclusions>
+						<inclusion>
+							<groupId>com.mulesoft.security</groupId>
+							<artifactId>mule-module-security-property-placeholder</artifactId>
+						</inclusion>
+					</inclusions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-resource</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>src/main/app/</directory>
+								</resource>
+								<resource>
+									<directory>mappings/</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+			    <groupId>org.mule.tools.maven</groupId>
+			    <artifactId>mule-maven-plugin</artifactId>
+			    <version>2.0</version>
+			    <configuration>
+			        <deploymentType>arm</deploymentType>
+			        <muleVersion>${mule.version}</muleVersion>
+					<username>mulesof_uia</username>
+					<password>Uia#123</password>
+			        <!-- <target>ESpireMuleDev01</target> -->
+			        <target>${esb.server.name}</target>
+			        <!-- One of: server, serverGroup, cluster: -->
+			        <targetType>server</targetType>
+			        <environment>Production</environment>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <id>deploy</id>
+			            <phase>deploy</phase>
+			            <goals>
+			                <goal>deploy</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
+			
+			<plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>properties-maven-plugin</artifactId>
+      <version>1.0-alpha-2</version>
+      <executions>
+        <!-- Associate the read-project-properties goal with the initialize phase, to read the properties file. -->
+        <execution>
+          <!-- Apart from this test, the phase must be initialize -->
+          <phase>validate</phase>
+          <goals>
+            <goal>read-project-properties</goal>
+          </goals>
+          <configuration>
+            <files>
+              <file>src/main/resources/pom-DEV.properties</file>
+            </files>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-antrun-plugin</artifactId>
+      <version>1.6</version>
+      <executions>
+        <execution>
+          <phase>validate</phase>
+          <goals>
+            <goal>run</goal>
+          </goals>
+          <configuration>
+            <target>
+              <echo>Displaying value of properties</echo>
+              <echo>[foo] ${foo} ${deploymnet.artifactid} ${esb.server.name}</echo>
+              
+            </target>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+			
+				
+			
+		</plugins>
+		<testResources>
+			<testResource>
+				<directory>src/test/munit</directory>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+	</build>
+
+	<!-- Mule Dependencies -->
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- Xml configuration -->
+		<dependency>
+			<groupId>com.mulesoft.muleesb</groupId>
+			<artifactId>mule-core-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Xml configuration -->
+		<dependency>
+			<groupId>com.mulesoft.muleesb.modules</groupId>
+			<artifactId>mule-module-spring-config-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Mule Transports -->
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-file</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-http</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.muleesb.transports</groupId>
+			<artifactId>mule-transport-jdbc-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.muleesb.transports</groupId>
+			<artifactId>mule-transport-jms-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-vm</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Mule Modules -->
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-scripting</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-xml</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- for testing -->
+		<dependency>
+			<groupId>org.mule.tests</groupId>
+			<artifactId>mule-tests-functional</artifactId>
+			<version>${mule.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-validation</artifactId>
+			<version>${mule.module.entension}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-http</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-email</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.weave</groupId>
+			<artifactId>mule-plugin-weave</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-json</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-db</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-ws</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-cxf</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.muleesb.transports</groupId>
+			<artifactId>mule-transport-wmq-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mule.edi</groupId>
+			<artifactId>edi</artifactId>
+			<version>${mule.edi.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mule.edi</groupId>
+			<artifactId>edi-parser</artifactId>
+			<version>${mule.edi.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mulesoft.security</groupId>
+			<artifactId>mule-module-security-property-placeholder</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>mule-munit-support</artifactId>
+			<version>${mule.munit.support.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>${munit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-spring-config</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Repository</name>
+			<url>http://repository.mulesoft.org/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mulesoft-snapshots</id>
+			<name>MuleSoft Snapshot Repository</name>
+			<url>http://repository.mulesoft.org/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+
+	</repositories>
+
+	<pluginRepositories>
+
+		<pluginRepository>
+			<id>mulesoft-release</id>
+			<name>mulesoft release repository</name>
+			<layout>default</layout>
+			<url>http://repository.mulesoft.org/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+
+	</pluginRepositories>
+	
+	<distributionManagement>
+	    <repository>
+	        <id>local</id>
+	        <url>file:///root/.m2/repository/</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>snapshots</id>
+	        <url>file:///root/.m2/repository/</url>
+	    </snapshotRepository>
+	</distributionManagement>
+
+	
+
+
+</project>

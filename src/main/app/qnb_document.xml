@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="qnb_documentFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qnb.document}/{policyNo}" allowedMethods="GET" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.uri.params'.policyNo != null]">
+                <flow-ref name="qnb_documentSub_Flow" doc:name="qnb_documentSub_Flow"/>
+            </when>
+            <otherwise>
+                <set-payload value="{
+&quot;error&quot;:&quot;invalid input&quot;
+}" mimeType="application/json" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <sub-flow name="qnb_documentSub_Flow">
+        <set-variable variableName="functionCall" value="{&quot;function&quot; : &quot;tia_mule.get_documents&quot;, &quot;args&quot; :{&quot;policy_no&quot;: #[message.inboundProperties.'http.uri.params'.policyNo]} }" doc:name="functionCall"/>
+        <db:stored-procedure config-ref="TIADB_Oracle_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[{:documentLink = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+            <db:in-param name="inputJSON" value="#[flowVars.functionCall]"/>
+            <db:out-param name="documentLink" type="VARCHAR"/>
+        </db:stored-procedure>
+        <set-payload value="#[payload['documentLink'].replaceFirst(&quot;result&quot;,&quot;documentDetails&quot;)]" doc:name="Set Payload"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </sub-flow>
+    <flow name="qnb_documentLinkByReference">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qnb.document}/{policyNo}/{documentRef}" allowedMethods="GET" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.uri.params'.policyNo != null &amp;&amp; message.inboundProperties.'http.uri.params'.policyNo != null]">
+                <flow-ref name="qnb_documentLinkSub_Flow" doc:name="qnb_documentLinkSub_Flow"/>
+            </when>
+            <otherwise>
+                <set-payload value="{
+&quot;error&quot;: &quot;incorrect inputs&quot;
+}" mimeType="application/json" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <sub-flow name="qnb_documentLinkSub_Flow">
+        <set-variable variableName="functionCall" value="{&quot;function&quot;: &quot;tia_mule.get_doc_link&quot;,&quot;args&quot;: {&quot;policy_no&quot; : #[message.inboundProperties.'http.uri.params'.policyNo], &quot;request_id&quot; : #[message.inboundProperties.'http.uri.params'.documentRef]}}" doc:name="Variable"/>
+        <db:stored-procedure config-ref="TIADB_Oracle_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[{:documentLink = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+            <db:in-param name="inputJSON" value="#[flowVars.functionCall]"/>
+            <db:out-param name="documentLink" type="VARCHAR"/>
+        </db:stored-procedure>
+        <set-payload value="#[payload.documentLink]" doc:name="Set Payload"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </sub-flow>
+</mule>

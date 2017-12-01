@@ -1,0 +1,99 @@
+{  
+   "args":{  
+      "aggregator_id":"123123",
+      "affinity":"0072",
+      "cover_start_date":"2016-10-31",
+      "first_start_date":"2016-10-31",
+      "year_start_date":"2016-10-31",
+      "payment_method":"CHEQUE",
+      "product_line_ver_no":20,
+      "campaign":15779,
+      "eligibility":{  
+           "hol_home" : "N",
+		  "lodger" : "N",
+		  "nanny" : "N",
+		  "tall_trees" : "N",
+		  "ten_fam" : "N",
+		  "ten_nonfam" : "N",
+		  "unoc_ten" : "N",
+		  "unoc_uia" : "N"
+
+      },
+      "risk_property":{  
+         "res_occ":"1",
+         "perm_res":"Y",
+         "sole_occ":"N",
+         "bus_use":"0",
+         "refused":"N",
+         "terms":"N",
+         "convs":"N",
+         "bank_ccj":"N",
+         "for_sale":"N",
+         "flood":"N",
+         "subst":"N",
+         "rep_state":"Y",
+         "prop_type":4,
+         "prop_type2" : 3,
+         "no_storeys" : 2
+         "listed":4,
+         "year_built":1987,
+         "owner_type":1,
+         "no_beds":4,
+         "ext_prop":"N",
+         "wall_type":4,
+         "roof_type":2,
+         "alarm_type":0,
+         "smokers":"N",
+         "smoke_al":"Y",
+         "win_lock":"Y",
+         "door_lock":"Y",
+         "risk_address":{  
+            "street":"Meadow Close",
+            "building_name" : "",
+            "building_no":"1",
+            "postcode":"HA4 8AP"
+             "uprn" : null
+         }
+      },
+      "persons_insured":[  
+         {  
+            "title":"003",
+            "forename":"Batch",
+            "surname":"Ta-Aitc-Gocn0055",
+            "birth_date":"1990-01-01"
+         }
+      ],
+      "tier":"SILVER",
+      "zzchannel_yr":"AGGREGATOR",
+      "channel_yr":"INBOUND",
+      "together":"Y",
+      "policy_year":1,
+      "cover":{  
+         "bld":{  
+            "risk_yn":"Y",
+            "vol_xs":250
+         },
+         "bld_ad":{  
+            "risk_yn":"Y"
+         },
+         "con":{  
+            "risk_yn":"Y",
+            "vol_xs":250
+         },
+         "con_ad":{  
+            "risk_yn":"Y"
+         },
+         "spec_items":{  
+            "risk_yn":"Y",
+            "risk_sum":1500
+         },
+         "cycles":{  
+            "risk_yn":"N",
+            "risk_sum":900
+         },
+         "legal":"Y",
+         "he":"Y",
+         "travel":"Y"
+      }
+   }
+}

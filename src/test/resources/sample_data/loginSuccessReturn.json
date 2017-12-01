@@ -1,0 +1,46 @@
+{  
+   "login":"success",
+   "error":null,
+   "QuoteSummary":[  
+      {  
+         "reference_number":4567,
+         "cover_type":"Buildings & Contents",
+         "property_to_be_insured":"X Example Street, Test Town",
+         "policy_start_date":"17/02/2017",
+         "type":"Quote",
+         "premium":"457"
+      },
+      {  
+         "reference_number":4567,
+         "cover_type":"Contents",
+         "property_to_be_insured":"Y Example Street, Test Town",
+         "policy_start_date":"11/05/2017",
+         "type":"Quote",
+         "premium":"458"
+      },
+      {  
+         "reference_number":4567,
+         "cover_type":"Buildings",
+         "property_to_be_insured":"A Example Street, Test Town",
+         "policy_start_date":"12/07/2017",
+         "type":"Quote",
+         "premium":"459"
+      },
+      {  
+         "reference_number":4567,
+         "cover_type":"Buildings & Contents",
+         "property_to_be_insured":"B Example Street, Test Town",
+         "policy_start_date":"14/03/2017",
+         "type":"Policy",
+         "premium":"460"
+      },
+      {  
+         "reference_number":4567,
+         "cover_type":"Buildings & Contents",
+         "property_to_be_insured":"C Example Street, Test Town",
+         "policy_start_date":"18/05/2017",
+         "type":"Policy",
+         "premium":"461"
+      }
+   ]
+}

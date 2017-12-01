@@ -1,0 +1,140 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+	
+	
+	
+	<servers>
+			<server>
+				<id>MuleRepository</id>
+				<username>uia.nexus</username>
+				<password>JHanf857Ahfg58Xzu</password>
+			</server>
+		</servers>	
+		
+	<pluginGroups>
+			<pluginGroup>org.mule.tools</pluginGroup>
+		</pluginGroups>	
+		
+		
+	
+	
+  <profiles>
+    <profile>
+      <id>jboss-public-repository</id>
+      <repositories>
+        <repository>
+          <id>jboss-public-repository</id>
+          <name>JBoss Public</name>
+          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>jboss-public-repository</id>
+          <name>JBoss Public</name>
+          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+    <profile>
+      <id>redhat-ga-repository</id>
+      <repositories>
+        <repository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+						
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+	
+	<profile>
+      <id>mule-extra-repos</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>mule-public</id>
+          <url> https://repository.mulesoft.org/nexus/content/repositories/public</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>mule-public</id>
+          <url> https://repository.mulesoft.org/nexus/content/repositories/public</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+	
+	<profile>
+		<id>Mule</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+                <id>MuleRepository</id>
+                <name>MuleRepository</name>
+                <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+                <layout>default</layout>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+            </repository>
+        </repositories>
+    </profile>
+	
+  </profiles>
+  
+  <activeProfiles>
+    <activeProfile>jboss-public-repository</activeProfile>
+    <activeProfile>redhat-ga-repository</activeProfile>
+    <activeProfile>Mule</activeProfile>
+  </activeProfiles>
+  
+</settings>

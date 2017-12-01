@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+	<http:listener-config name="Quote_HTTP_Listener_Configuration"
+		host="${quote.http.host}" port="${quote.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Listener Configuration" />
+	<mulexml:jaxb-context name="JAXB_Context"
+		packageNames="com.uia.iwounder.dto" doc:name="JAXB Context" />
+	<flow name="getQuotePrice">
+		<http:listener config-ref="Quote_HTTP_Listener_Configuration"
+			path="/${quote.quoteprice.http.path}" doc:name="HTTP" />
+
+		<dw:transform-message doc:name="Transform Message">
+			<dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	([quote_id: payload.quote_id] when (null!=payload.quote_id) otherwise ({})),
+	
+	([partner_id: payload.partner_id] when (null!=payload.partner_id) otherwise ({})),
+	
+	([cover_start_date: payload.cover_start_date] when (null!=payload.cover_start_date) otherwise ({})),
+	
+	([payment_method: payload.payment_method] when (null!=payload.payment_method) otherwise ({})),
+	
+	([dd_details: payload.dd_details] when (null!=payload.dd_details) otherwise (nodd_details : {})),
+	
+	([cc_details: payload.cc_details] when (null!=payload.cc_details) otherwise (nocc_details : {})),
+	
+	([eligibility: payload.eligibility] when (null!=payload.eligibility) otherwise (noeligibility : {})),
+	
+	 risk_property: {
+		perm_res: "N" when (null==payload.risk_property.perm_res or (sizeOf (trim payload.risk_property.perm_res))==0) otherwise payload.risk_property.perm_res,
+		prop_use: "N" when (null==payload.risk_property.prop_use or (sizeOf (trim payload.risk_property.prop_use))==0) otherwise payload.risk_property.prop_use,
+		sole_occ: "N" when (null==payload.risk_property.sole_occ or (sizeOf (trim payload.risk_property.sole_occ))==0) otherwise payload.risk_property.sole_occ,
+		who_occ: "N" when (null==payload.risk_property.who_occ or (sizeOf (trim payload.risk_property.who_occ))==0) otherwise payload.risk_property.who_occ,
+		res_occ: "N" when (null==payload.risk_property.res_occ or (sizeOf (trim payload.risk_property.res_occ))==0) otherwise payload.risk_property.res_occ,
+		res_occ_type: 0 when (null==payload.risk_property.res_occ_type) otherwise payload.risk_property.res_occ_type as :number,
+		bus_use: "0" when (null==payload.risk_property.bus_use or (sizeOf (trim payload.risk_property.bus_use))==0) otherwise payload.risk_property.bus_use,
+		refused: "N" when (null==payload.risk_property.refused or (sizeOf (trim payload.risk_property.refused))==0) otherwise payload.risk_property.refused,
+		terms:  "N" when (null==payload.risk_property.terms or (sizeOf (trim payload.risk_property.terms))==0) otherwise payload.risk_property.terms,
+		convs:   "N" when (null==payload.risk_property.convs or (sizeOf (trim payload.risk_property.convs))==0) otherwise payload.risk_property.convs,
+		bank_ccj:   "N" when (null==payload.risk_property.bank_ccj or (sizeOf (trim payload.risk_property.bank_ccj))==0) otherwise payload.risk_property.bank_ccj,
+		for_sale:   "N" when (null==payload.risk_property.for_sale or (sizeOf (trim payload.risk_property.for_sale))==0) otherwise payload.risk_property.for_sale,
+		flood:   "N" when (null==payload.risk_property.flood or (sizeOf (trim payload.risk_property.flood))==0) otherwise payload.risk_property.flood,
+		subst:   "N" when (null==payload.risk_property.subst or (sizeOf (trim payload.risk_property.subst))==0) otherwise payload.risk_property.subst,
+		rep_state: "N" when (null==payload.risk_property.rep_state or (sizeOf (trim payload.risk_property.rep_state))==0) otherwise payload.risk_property.rep_state,
+		prop_type: 0 when (null==payload.risk_property.prop_type) otherwise payload.risk_property.prop_type as :number,
+		//prop_type2: 0 when (null==payload.risk_property.prop_type2) otherwise payload.risk_property.prop_type2 as :number,
+		no_storeys: 0 when (null==payload.risk_property.no_storeys) otherwise payload.risk_property.no_storeys as :number,
+		listed: 0 when (null==payload.risk_property.listed) otherwise payload.risk_property.listed as :number,
+		year_built: 0 when (null==payload.risk_property.year_built) otherwise payload.risk_property.year_built as :number,
+		owner_type: 0 when (null==payload.risk_property.owner_type) otherwise payload.risk_property.owner_type as :number,
+		no_beds: 0 when (null==payload.risk_property.no_beds) otherwise payload.risk_property.no_beds as :number,
+		//ext_prop: "N" when (null==payload.risk_property.ext_prop or (sizeOf (trim payload.risk_property.ext_prop))==0) otherwise payload.risk_property.ext_prop,
+		([ext_prop: payload.risk_property.ext_prop] when (null!=payload.risk_property.ext_prop) otherwise ({})),
+		wall_type: 0 when (null==payload.risk_property.wall_type) otherwise payload.risk_property.wall_type as :number,
+		roof_type: 0 when (null==payload.risk_property.roof_type) otherwise payload.risk_property.roof_type as :number,
+		alarm_type: 0 when (null==payload.risk_property.alarm_type) otherwise payload.risk_property.alarm_type as :number,
+		smokers: "Y" when (null==payload.risk_property.smokers or (sizeOf (trim payload.risk_property.smokers))==0) otherwise payload.risk_property.smokers,
+		smoke_al: "Y" when (null==payload.risk_property.smoke_al or (sizeOf (trim payload.risk_property.smoke_al))==0) otherwise payload.risk_property.smoke_al,
+		win_lock: "Y" when (null==payload.risk_property.win_lock or (sizeOf (trim payload.risk_property.win_lock))==0) otherwise payload.risk_property.win_lock,
+		door_lock: "Y" when (null==payload.risk_property.door_lock or (sizeOf (trim payload.risk_property.door_lock))==0) otherwise payload.risk_property.door_lock,
+		risk_address: {
+			building_name: "" when (null==payload.risk_property.risk_address.building_name) otherwise payload.risk_property.risk_address.building_name,
+			street_no: "" when (null==payload.risk_property.risk_address.street_no) otherwise payload.risk_property.risk_address.street_no,
+			street: "" when (null==payload.risk_property.risk_address.street) otherwise payload.risk_property.risk_address.street,
+			postal_region: "" when (null==payload.risk_property.risk_address.postal_region) otherwise payload.risk_property.risk_address.postal_region,
+			city: "" when (null==payload.risk_property.risk_address.city) otherwise payload.risk_property.risk_address.city,
+			postcode: "" when (null==payload.risk_property.risk_address.postcode) otherwise payload.risk_property.risk_address.postcode,
+			uprn: 0 when (payload.risk_property.risk_address.uprn ==null) otherwise payload.risk_property.risk_address.uprn as :number
+		}
+	},
+	
+	([persons_insured: payload.persons_insured] when (null!=payload.persons_insured) otherwise (nopersons_insured : {})),
+	
+	([tier: payload.tier] when (null!=payload.tier) otherwise ({})),
+	
+	([trans_id: payload.trans_id] when (null!=payload.trans_id) otherwise ({})),
+	
+	([security_token: payload.security_token] when (null!=payload.security_token) otherwise ({})),
+	
+	([session_id: payload.session_id] when (null!=payload.session_id) otherwise ({})),
+	
+	([transaction_type: payload.transaction_type] when (null!=payload.transaction_type) otherwise ({})),
+	
+	([prev_claims: payload.prev_claims] when (null!=payload.prev_claims) otherwise (noprev_claims : {})),
+		
+	cover: {
+		([bld: payload.cover.bld] when (null!=payload.cover.bld) otherwise ({})),
+		
+		([bld_ad: payload.cover.bld_ad] when (null!=payload.cover.bld_ad) otherwise ({})),
+			
+		([con: payload.cover.con] when (null!=payload.cover.con) otherwise ({})),	
+		
+		([con_ad: payload.cover.con_ad] when (null!=payload.cover.con_ad) otherwise ({})),	
+				
+		([unspec: payload.cover.unspec] when (null!=payload.cover.unspec) otherwise (nounspec : {})),
+		
+		//spec_items: payload.cover.spec_items map ((specifiedItem , indexOfSpecifiedItem) -> {
+			//itm_type: 0 when (null==specifiedItem.itm_type) otherwise specifiedItem.itm_type as :number,
+			//itm_desc: specifiedItem.itm_desc,
+			//itm_value: 0 when (null == specifiedItem.itm_value) otherwise specifiedItem.itm_value as :number
+		//}),
+		
+		([spec_items: payload.cover.spec_items] when (null!=payload.cover.spec_items) otherwise (nospec_items : {})),
+			
+		([cycles: payload.cover.cycles] when (null!=payload.cover.cycles) otherwise (nocycles : {})),
+		
+		([legal: payload.cover.legal] when (null!=payload.cover.legal) otherwise ({})),
+		
+		([he: payload.cover.he] when (null!=payload.cover.he) otherwise ({})),
+		
+		([travel: payload.cover.travel] when (null!=payload.cover.travel) otherwise ({}))
+		
+	}
+}]]></dw:set-payload>
+		</dw:transform-message>
+
+
+		<byte-array-to-string-transformer
+			doc:name="Byte Array to String" />
+
+
+
+
+
+		<json:validate-schema schemaLocation="/JsonSchema/get_price_requestSchemaV11.json"
+			doc:name="Validate JSON Schema for Quote Request" />
+
+		<set-variable variableName="quotePriceFunction"
+			value="{&quot;function&quot; : &quot;tia_mule_aitc.get_price&quot;, &quot;args&quot; : #[payload]}"
+			doc:name="quote price function" />
+		<set-variable variableName="quoteId" value="#[json:quote_id]"
+			doc:name="quoteId" />
+		<set-variable variableName="partenerId" value="#[json:partner_id]"
+			doc:name="partenerId" />
+		<logger
+			message="The quotePriceFunction is #[flowVars.quotePriceFunction] and DB is  ${tia.db.database}"
+			level="INFO" doc:name="Logger" />
+        <round-robin doc:name="Round Robin">
+            <flow-ref name="aggregatorTerif1Flow" doc:name="aggregatorTerif1Flow"/>
+           <!--  <flow-ref name="aggregatorTerif2Flow" doc:name="aggregatorTerif2Flow"/>
+            <flow-ref name="aggregatorTerif3Flow" doc:name="aggregatorTerif3Flow"/> -->
+        </round-robin>
+
+	</flow>
+	
+	<flow name="aggregatorTerif1Flow">
+        <logger message="called Terrif1 called" level="INFO" doc:name="Logger"/>
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_GetPrice1_Oracle_Configuration"
+				doc:name="Database">
+                <db:parameterized-query><![CDATA[{:fncResult = call apps.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" value="#[flowVars.quotePriceFunction]"/>
+                <db:out-param name="fncResult" type="CLOB"/>
+
+
+			</db:stored-procedure>
+            <custom-transformer class="com.uia.transformer.ClobTransformer" doc:name="Java Transformer (oracle.sql.CLOB to String) "/>
+		</transactional>
+		<json:object-to-json-transformer
+			mimeType="application/json" doc:name="Object to JSON" />
+        <flow-ref name="aggregatorNotificationSub_Flow" doc:name="aggregatorNotificationSub_Flow"/>
+
+	</flow>
+	
+	<flow name="aggregatorTerif2Flow">
+        <logger message="called Terrif2 called" level="INFO" doc:name="Logger"/>
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_GetPrice2_Oracle_Configuration"
+				doc:name="Database">
+                <db:parameterized-query><![CDATA[{:fncResult = call apps.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" value="#[flowVars.quotePriceFunction]"/>
+                <db:out-param name="fncResult" type="CLOB"/>
+
+
+			</db:stored-procedure>
+			<custom-transformer class="com.uia.transformer.ClobTransformer"
+				doc:name="Java Transformer (oracle.sql.CLOB to String) " />
+		</transactional>
+		<json:object-to-json-transformer
+			mimeType="application/json" doc:name="Object to JSON" />
+        <flow-ref name="aggregatorNotificationSub_Flow" doc:name="aggregatorNotificationSub_Flow"/>
+
+	</flow>
+	
+	<flow name="aggregatorTerif3Flow">
+        <logger message="called Terrif3called" level="INFO" doc:name="Logger"/>
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_GetPrice3_Oracle_Configuration"
+				doc:name="Terrif3">
+                <db:parameterized-query><![CDATA[{:fncResult = call apps.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" value="#[flowVars.quotePriceFunction]"/>
+                <db:out-param name="fncResult" type="CLOB"/>
+
+
+			</db:stored-procedure>
+			<custom-transformer class="com.uia.transformer.ClobTransformer"
+				doc:name="Java Transformer (oracle.sql.CLOB to String) " />
+		</transactional>
+		<json:object-to-json-transformer
+			mimeType="application/json" doc:name="Object to JSON" />
+        <flow-ref name="aggregatorNotificationSub_Flow" doc:name="aggregatorNotificationSub_Flow"/>
+
+	</flow>
+	
+    <sub-flow name="aggregatorNotificationSub_Flow">
+      <async doc:name="Async"> <set-variable variableName="tiadb_result_status" 
+			value="#[json:header/result_status]" doc:name="tiadb_result_status"/> <set-variable 
+			variableName="tiadb_err_reason" value="#[json:header/err_reason]" doc:name="tiadb_err_reason"/> 
+			<logger message="The result_Status and erro-reason #[flowVars.tiadb_result_status] 
+			: #[flowVars.tiadb_err_reason]" level="INFO" doc:name="Logger"/> <choice 
+			doc:name="Choice"> <when expression="#[flowVars.tiadb_result_status == 'FAIL' 
+			and flowVars.tiadb_err_reason =='CAUGHT_EXCEPTION']"> <set-payload value="Hi 
+			, &lt;br/&gt; &lt;br/&gt; Database SID name is ${tia.db.database} &lt;br/&gt; 
+			&lt;br/&gt; Timestamp : #[server.dateTime] &lt;br/&gt;&lt;br/&gt; Exception 
+			Message : &lt;br/&gt;&lt;br/&gt; #[payload] &lt;br/&gt;&lt;br/&gt; &lt;br/&gt; 
+			&lt;br/&gt;Thanks and Regards &lt;br/&gt;&lt;br/&gt;UIA ESB Exception handling 
+			&lt;br/&gt;" mimeType="text/plain" doc:name="Set Payload"/> <flow-ref name="global_notifyOnExceptionSub_Flow" 
+			doc:name="global_notifyOnExceptionSub_Flow"/> </when> <otherwise> <set-payload 
+			value="#[payload]" mimeType="application/json" doc:name="Set Payload"/> </otherwise> 
+			</choice> </async>
+    
+    
+    </sub-flow>
+
+
+</mule>

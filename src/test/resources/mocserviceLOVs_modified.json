@@ -1,0 +1,41 @@
+{
+  "LOVs": {
+    
+      "Title": [
+        {
+          "ID": "1",
+          "Description": "Mr"
+        },
+        {
+          "ID": "2",
+          "Description": "Mrs"
+        },
+        {
+          "ID": "3",
+          "Description": "Ms"
+        },
+        {
+          "ID": "4",
+          "Description": "Mis"
+        }
+      ],
+   
+   
+      "Joint Policyholder Title": [
+        {
+          "ID": "1",
+          "Description": "Mr"
+        },
+        {
+          "ID": "2",
+          "Description": "Mrs"
+        },
+        {
+          "ID": "3",
+          "Description": "Ms and Mis"
+        }
+      ]
+
+    }
+  
+}

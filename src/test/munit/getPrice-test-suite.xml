@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xmlns:mock="http://www.mulesoft.org/schema/mule/mock" 
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit"
+	xmlns="http://www.mulesoft.org/schema/mule/core" 
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:aggregator.xml"/>
+        <spring:import resource="classpath:global.xml"/>
+        <spring:import resource="classpath:global_exception.xml"/>
+        <spring:bean id="loadFile" class="org.apache.commons.io.IOUtils" factory-method="toString">
+    		<spring:constructor-arg value="classpath:MUnit/getPricePayload.json" type="java.io.InputStream"/>
+		</spring:bean>
+    </spring:beans>
+    <munit:test name="getPrice-test-suiteTest" description="MUnit Test">
+        <set-payload value="#[app.registry.loadFile]" doc:name="Set Payload"/>
+        <flow-ref name="getQuotePrice" doc:name="getQuotePrice"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-payload value="#[payload.header.result_status]" doc:name="Set Payload"/>
+        <munit:assert-payload-equals expectedValue="SUCCESS" doc:name="Assert Payload" message="Sorry, didn't got expected value"/>
+    </munit:test>
+    
+</mule>
+

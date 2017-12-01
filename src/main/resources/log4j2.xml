@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="log-path">../logs</Property>
+	</Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %d [%t] %c: %m%n"/>
+        </Console>
+        <RollingFile fileName="${log-path}/uia-esb.log" filePattern="${log-path}/%d{MMMM-yy}/Week-%d{W}/uia-esb-%d{yyyy-MM-dd}.log" name="file-log">
+			<PatternLayout pattern="%-5p %d [%t] %c: %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- CXF is used heavily by Mule for web services -->
+        <AsyncLogger name="org.apache.cxf" level="WARN"/>
+
+        <!-- Apache Commons tend to make a lot of noise which can clutter the log-->
+        <AsyncLogger name="org.apache" level="WARN"/>
+
+        <!-- Reduce startup noise -->
+        <AsyncLogger name="org.springframework.beans.factory" level="WARN"/>
+
+        <!-- Mule classes -->
+        <AsyncLogger name="org.mule" level="INFO"/>
+        <AsyncLogger name="com.mulesoft" level="INFO"/>
+
+        <!-- Reduce DM verbosity -->
+        <AsyncLogger name="org.jetel" level="WARN"/>
+        <AsyncLogger name="Tracking" level="WARN"/>
+
+        <!--- Gateway Related Loggers -->
+        <AsyncLogger name="com.mulesoft.analytics" level="INFO" />
+        <AsyncLogger name="com.mulesoft.module.client" level="INFO"/>
+        <AsyncLogger name="com.mulesoft.module.policies" level="INFO"/>
+        <AsyncLogger name="org.mule.module.http.internal.HttpMessageLogger" level="DEBUG"/>
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="Console"/>
+             <AppenderRef ref="file-log"/>
+        </AsyncRoot>
+    </Loggers>
+
+</Configuration>

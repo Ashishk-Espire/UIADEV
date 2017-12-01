@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:email="http://www.mulesoft.org/schema/mule/email"
+	xmlns:secure-property-placeholder="http://www.mulesoft.org/schema/mule/secure-property-placeholder" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/secure-property-placeholder http://www.mulesoft.org/schema/mule/secure-property-placeholder/current/mule-secure-property-placeholder.xsd">
+
+	<configuration defaultTransactionTimeout="90000" defaultResponseTimeout="90000" doc:name="Configuration">
+    	<default-threading-profile poolExhaustedAction="RUN"/>
+	</configuration>
+	
+	<!-- <context:property-placeholder location="uia-DEV.properties" /> -->
+	
+	<db:oracle-config name="TIADB_Oracle_Configuration"
+		host="${tia.db.host}" port="${tia.db.port}" instance="${tia.db.database}"
+		user="${tia.db.user}" password="${tia.db.password}" doc:name="Oracle Configuration"
+		driverClassName="oracle.jdbc.driver.OracleDriver" useXaTransactions="true" >
+		<db:pooling-profile maxPoolSize="50" minPoolSize="10" acquireIncrement="5" />
+	</db:oracle-config>	
+		
+	<db:oracle-config name="TIADB_GetPrice1_Oracle_Configuration"
+		host="${tia.getprice1.db.host}" port="${tia.getprice1.db.port}" instance="${tia.getprice1.db.database}"
+		user="${tia.getprice1.db.user}" password="${tia.getprice1.db.password}" doc:name="Get Price1 Oracle Configuration"
+		driverClassName="oracle.jdbc.driver.OracleDriver" useXaTransactions="true">
+		<db:pooling-profile maxPoolSize="50" minPoolSize="10" acquireIncrement="5" />
+    </db:oracle-config>	
+    
+    <db:oracle-config name="TIADB_GetPrice2_Oracle_Configuration"
+		host="${tia.getprice2.db.host}" port="${tia.getprice2.db.port}" instance="${tia.getprice2.db.database}"
+		user="${tia.getprice2.db.user}" password="${tia.getprice2.db.password}" doc:name="Get Price2 Oracle Configuration"
+		driverClassName="oracle.jdbc.driver.OracleDriver" useXaTransactions="true">
+		<db:pooling-profile maxPoolSize="50" minPoolSize="10" acquireIncrement="5" />
+    </db:oracle-config>
+    
+    <db:oracle-config name="TIADB_GetPrice3_Oracle_Configuration"
+		host="${tia.getprice3.db.host}" port="${tia.getprice3.db.port}" instance="${tia.getprice3.db.database}"
+		user="${tia.getprice3.db.user}" password="${tia.getprice3.db.password}" doc:name="Get Price3 Oracle Configuration"
+		driverClassName="oracle.jdbc.driver.OracleDriver" useXaTransactions="true">
+		<db:pooling-profile maxPoolSize="50" minPoolSize="10" acquireIncrement="5" />
+    </db:oracle-config>
+		
+
+	<http:request-config name="Quote_LOVs_HTTP_Request_Configuration"
+		host="${quotelovs.http.host}" port="${quotelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Request Configuration" />
+	
+
+	<db:generic-config name="Generic_Database_Configuration_QUOTEDB01"
+		url="jdbc:sqlserver://${qdb1.db.host};user=${qdb1.db.user};password=${qdb1.db.password}"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		doc:name="Generic Database Configuration" />
+		
+	<!-- Samrat Change -->
+	<http:listener-config name="HTTP_Listener_Configuration"
+		host="0.0.0.0" port="${http.port}" doc:name="HTTP Listener Configuration" />
+	<http:request-config name="QAS_Request_Configuration"
+		host="ws.ondemand.qas.com" port="443" usePersistentConnections="false"
+		doc:name="HTTP Request Configuration" protocol="HTTPS" />
+	<smtp:connector name="SMTP" fromAddress="${smtp.fromaddress}"
+		replyToAddresses="${smtp.replyaddress}" validateConnections="true"
+		doc:name="SMTP" contentType="text/html" />
+    <secure-property-placeholder:config name="Secure_Property_Placeholder" key="${uia.vault.encryp.key}" location="uia-DEV.properties" doc:name="Secure Property Placeholder"/>
+	 <email:string-to-email-transformer mimeType="text/html" name="String_to_Email" doc:name="String to Email"/>
+	<http:request-config name="EmailService" basePath="${uia.http.basepath}" doc:name="HTTP Request Configuration" host="localhost" port="${http.port}"/>
+
+</mule>

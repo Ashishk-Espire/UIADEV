@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<http:listener-config name="Bank_Details_HTTP_Listener_Configuration"
+		host="${bankdetail.http.host}" port="${bankdetail.http.port}"
+		basePath="${uia.http.basepath}" doc:name="HTTP Listener Configuration" />
+	<flow name="bankdetailFlow">
+		<http:listener config-ref="Bank_Details_HTTP_Listener_Configuration"
+			path="/${bankdetail.http.path}" allowedMethods="POST" doc:name="HTTP" />
+		<json:validate-schema schemaLocation="/JsonSchema/bankdetailsRequestSchema.json"
+			doc:name="Validate JSON Schema" />
+		<set-variable variableName="bankDetailsFunction"
+			value="{&quot;function&quot; : &quot;tia_mule.get_bank_detail&quot;, &quot;args&quot; : #[payload]}"
+			doc:name="Bank details function " />
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+				doc:name="Database">
+				<db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+				<db:in-param name="inputJSON" value="#[flowVars.bankDetailsFunction]" />
+				<db:out-param name="fncResult" type="CLOB" />
+			</db:stored-procedure>
+			<custom-transformer class="com.uia.transformer.ClobTransformer"
+				doc:name="Java Transformer (oracle.sql.CLOB to String) " />
+		</transactional>
+        <json:object-to-json-transformer returnClass="java.lang.String" doc:name="Object to JSON"/>
+	</flow>
+</mule>

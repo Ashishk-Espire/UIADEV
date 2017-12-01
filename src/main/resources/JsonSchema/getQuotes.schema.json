@@ -1,0 +1,950 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "id": "",
+  "properties": {
+    "affinity": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "affinity",
+      "title": "The Affinity schema.",
+      "type": "string"
+    },
+    "campaign": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "campaign",
+      "title": "The Campaign schema.",
+      "type": "integer"
+    },
+    "cc_details": {
+      "additionalProperties": false,
+      "id": "cc_details",
+      "properties": {
+        "cc_token": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "cc_details/cc_token",
+          "title": "The Cc_token schema.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cc_token"
+      ],
+      "type": "object"
+    },
+    "channel_yr": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "channel_yr",
+      "title": "The Channel_yr schema.",
+      "type": "string"
+    },
+    "claims": {
+      "additionalProperties": false,
+      "id": "claims",
+      "properties": {
+        "cla_free": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "claims/cla_free",
+          "title": "The Cla_free schema.",
+          "type": "integer"
+        },
+        "cla_points": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "claims/cla_points",
+          "title": "The Cla_points schema.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cla_points",
+        "cla_free"
+      ],
+      "type": "object"
+    },
+    "cover": {
+      "additionalProperties": false,
+      "id": "cover",
+      "properties": {
+        "bld": {
+          "additionalProperties": false,
+          "id": "cover/bld",
+          "properties": {
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/bld/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            },
+            "vol_xs": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/bld/vol_xs",
+              "title": "The Vol_xs schema.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "vol_xs",
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "bld_ad": {
+          "additionalProperties": false,
+          "id": "cover/bld_ad",
+          "properties": {
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/bld_ad/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "con": {
+          "additionalProperties": false,
+          "id": "cover/con",
+          "properties": {
+            "risk_yn": {
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/con/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            },
+            "vol_xs": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/con/vol_xs",
+              "title": "The Vol_xs schema.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "vol_xs",
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "con_ad": {
+          "additionalProperties": false,
+          "id": "cover/con_ad",
+          "properties": {
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/con_ad/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "cycles": {
+          "additionalProperties": false,
+          "id": "cover/cycles",
+          "properties": {
+            "cycles": {
+              "id": "cover/cycles/cycles",
+              "items": {
+                "additionalProperties": false,
+                "id": "cover/cycles/cycles/0",
+                "properties": {
+                  "cyc_make": {
+                    
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/cycles/cycles/0/cyc_make",
+                    "title": "The Cyc_make schema.",
+                    "type": "integer"
+                  },
+                  "cyc_model": {
+                    
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/cycles/cycles/0/cyc_model",
+                    "title": "The Cyc_model schema.",
+                    "type": "string"
+                  },
+                  "value": {
+                    
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/cycles/cycles/0/value",
+                    "title": "The Value schema.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "cyc_make",
+                  "cyc_model",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "risk_sum": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/cycles/risk_sum",
+              "title": "The Risk_sum schema.",
+              "type": "integer"
+            },
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/cycles/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "risk_sum",
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "he": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "cover/he",
+          "title": "The He schema.",
+          "type": "string"
+        },
+        "legal": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "cover/legal",
+          "title": "The Legal schema.",
+          "type": "string"
+        },
+        "spec_items": {
+          "additionalProperties": false,
+          "id": "cover/spec_items",
+          "properties": {
+            "risk_sum": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/spec_items/risk_sum",
+              "title": "The Risk_sum schema.",
+              "type": "integer"
+            },
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/spec_items/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            },
+            "spec_items": {
+              "id": "cover/spec_items/spec_items",
+              "items": {
+                "additionalProperties": false,
+                "id": "cover/spec_items/spec_items/0",
+                "properties": {
+                  "itm_desc": {
+
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/spec_items/spec_items/0/itm_desc",
+                    "title": "The Itm_desc schema.",
+                    "type": "string"
+                  },
+                  "itm_type": {
+                    
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/spec_items/spec_items/0/itm_type",
+                    "title": "The Itm_type schema.",
+                    "type": "integer"
+                  },
+                  "itm_value": {
+                    
+                    "description": "An explanation about the purpose of this instance.",
+                    "id": "cover/spec_items/spec_items/0/itm_value",
+                    "title": "The Itm_value schema.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "itm_desc",
+                  "itm_type",
+                  "itm_value"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "risk_sum",
+            "risk_yn"
+          ],
+          "type": "object"
+        },
+        "travel": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "cover/travel",
+          "title": "The Travel schema.",
+          "type": "string"
+        },
+        "unspec": {
+          "additionalProperties": false,
+          "id": "cover/unspec",
+          "properties": {
+            "risk_sum": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/unspec/risk_sum",
+              "title": "The Risk_sum schema.",
+              "type": "integer"
+            },
+            "risk_yn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "cover/unspec/risk_yn",
+              "title": "The Risk_yn schema.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "risk_sum",
+            "risk_yn"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "travel",
+        "legal",
+        "spec_items",
+        "cycles",
+        "unspec",
+        "he"
+      ],
+      "type": "object"
+    },
+    "cover_start_date": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "cover_start_date",
+      "title": "The Cover_start_date schema.",
+      "type": "string"
+    },
+    "dd_details": {
+      "additionalProperties": false,
+      "id": "dd_details",
+      "properties": {
+        "account_holder_name": {
+
+          "description": "An explanation about the purpose of this instance.",
+          "id": "dd_details/account_holder_name",
+          "title": "The Account_holder_name schema.",
+          "type": "string"
+        },
+        "bank_account_no": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "dd_details/bank_account_no",
+          "title": "The Bank_account_no schema.",
+          "type": "string"
+        },
+        "bank_sort_code": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "dd_details/bank_sort_code",
+          "title": "The Bank_sort_code schema.",
+          "type": "string"
+        },
+        "ddi_collection_day": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "dd_details/ddi_collection_day",
+          "title": "The Ddi_collection_day schema.",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "eligibility": {
+      "additionalProperties": false,
+      "id": "eligibility",
+      "properties": {
+        "cob_wall": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/cob_wall",
+          "title": "The Cob_wall schema.",
+          "type": "string"
+        },
+        "flat_roof": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/flat_roof",
+          "title": "The Flat_roof schema.",
+          "type": "string"
+        },
+        "hol_home": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/hol_home",
+          "title": "The Hol_home schema.",
+          "type": "string"
+        },
+        "lodger": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/lodger",
+          "title": "The Lodger schema.",
+          "type": "string"
+        },
+        "nanny": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/nanny",
+          "title": "The Nanny schema.",
+          "type": "string"
+        },
+        "tall_trees": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/tall_trees",
+          "title": "The Tall_trees schema.",
+          "type": "string"
+        },
+        "ten_fam": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/ten_fam",
+          "title": "The Ten_fam schema.",
+          "type": "string"
+        },
+        "ten_nonfam": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/ten_nonfam",
+          "title": "The Ten_nonfam schema.",
+          "type": "string"
+        },
+        "unoc_ten": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/unoc_ten",
+          "title": "The Unoc_ten schema.",
+          "type": "string"
+        },
+        "unoc_uia": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "eligibility/unoc_uia",
+          "title": "The Unoc_uia schema.",
+          "type": "string"
+        }
+      },
+      
+      "type": "object"
+    },
+    "first_start_date": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "first_start_date",
+      "title": "The First_start_date schema.",
+      "type": "string"
+    },
+    "payment_method": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "payment_method",
+      "title": "The Payment_method schema.",
+      "type": "string"
+    },
+    "persons_insured": {
+      "id": "persons_insured",
+      "items": {
+        "additionalProperties": false,
+        "id": "persons_insured/0",
+        "properties": {
+          "birth_date": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "persons_insured/0/birth_date",
+            "title": "The Birth_date schema.",
+            "type": "string"
+          },
+          "forename": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "persons_insured/0/forename",
+            "title": "The Forename schema.",
+            "type": "string"
+          },
+          "post_address": {
+            "additionalProperties": false,
+            "id": "persons_insured/0/post_address",
+            "properties": {
+              "post_area": {
+                
+                "description": "An explanation about the purpose of this instance.",
+                "id": "persons_insured/0/post_address/post_area",
+                "title": "The Post_area schema.",
+                "type": "string"
+              },
+              "post_street": {
+                
+                "description": "An explanation about the purpose of this instance.",
+                "id": "persons_insured/0/post_address/post_street",
+                "title": "The Post_street schema.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "surname": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "persons_insured/0/surname",
+            "title": "The Surname schema.",
+            "type": "string"
+          },
+          "title": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "persons_insured/0/title",
+            "title": "The Title schema.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "birth_date",
+          "title",
+          "surname",
+          "forename"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policy_year": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "policy_year",
+      "title": "The Policy_year schema.",
+      "type": "integer"
+    },
+    "prev_claims": {
+      "id": "prev_claims",
+      "items": {
+        "additionalProperties": false,
+        "id": "prev_claims/0",
+        "properties": {
+          "cla_amt": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/cla_amt",
+            "title": "The Cla_amt schema.",
+            "type": "integer"
+          },
+          "cla_cause": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/cla_cause",
+            "title": "The Cla_cause schema.",
+            "type": "integer"
+          },
+          "cla_date": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/cla_date",
+            "title": "The Cla_date schema.",
+            "type": "string"
+          },
+          "cla_desc": {
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/cla_desc",
+            "title": "The Cla_desc schema.",
+            "type": "string"
+          },
+          "cla_type": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/cla_type",
+            "title": "The Cla_type schema.",
+            "type": "integer"
+          },
+          "risk_addr": {
+            
+            "description": "An explanation about the purpose of this instance.",
+            "id": "prev_claims/0/risk_addr",
+            "title": "The Risk_addr schema.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "product_line_ver_no": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "product_line_ver_no",
+      "title": "The Product_line_ver_no schema.",
+      "type": "integer"
+    },
+    "quote_id": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "quote_id",
+      "title": "The Quote_id schema.",
+      "type": "integer"
+    },
+    "risk_property": {
+      "additionalProperties": false,
+      "id": "risk_property",
+      "properties": {
+        "alarm_type": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/alarm_type",
+          "title": "The Alarm_type schema.",
+          "type": "integer"
+        },
+        "bank_ccj": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/bank_ccj",
+          "title": "The Bank_ccj schema.",
+          "type": "string"
+        },
+        "bus_use": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/bus_use",
+          "title": "The Bus_use schema.",
+          "type": "integer"
+        },
+        "convs": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/convs",
+          "title": "The Convs schema.",
+          "type": "string"
+        },
+        "door_lock": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/door_lock",
+          "title": "The Door_lock schema.",
+          "type": "string"
+        },
+        "ext_prop": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/ext_prop",
+          "title": "The Ext_prop schema.",
+          "type": "string"
+        },
+        "flood": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/flood",
+          "title": "The Flood schema.",
+          "type": "string"
+        },
+        "for_sale": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/for_sale",
+          "title": "The For_sale schema.",
+          "type": "string"
+        },
+        "listed": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/listed",
+          "title": "The Listed schema.",
+          "type": "integer"
+        },
+        "near_water": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/near_water",
+          "title": "The Near_water schema.",
+          "type": "string"
+        },
+        "no_beds": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/no_beds",
+          "title": "The No_beds schema.",
+          "type": "integer"
+        },
+        "no_storeys": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/no_storeys",
+          "title": "The No_storeys schema.",
+          "type": "integer"
+        },
+        "owner_type": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/owner_type",
+          "title": "The Owner_type schema.",
+          "type": "integer"
+        },
+        "perm_res": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/perm_res",
+          "title": "The Perm_res schema.",
+          "type": "string"
+        },
+        "prop_type": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/prop_type",
+          "title": "The Prop_type schema.",
+          "type": "integer"
+        },
+        "prop_type2": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/prop_type2",
+          "title": "The Prop_type2 schema.",
+          "type": "integer"
+        },
+        "refused": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/refused",
+          "title": "The Refused schema.",
+          "type": "string"
+        },
+        "rep_state": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/rep_state",
+          "title": "The Rep_state schema.",
+          "type": "string"
+        },
+        "res_occ": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/res_occ",
+          "title": "The Res_occ schema.",
+          "type": "string"
+        },
+        "risk_address": {
+          "additionalProperties": false,
+          "id": "risk_property/risk_address",
+          "properties": {
+            "building_name": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/building_name",
+              "title": "The Building_name schema.",
+              "type": "string"
+            },
+            "building_no": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/building_no",
+              "title": "The Building_no schema.",
+              "type": "string"
+            },
+            "post_area": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/post_area",
+              "title": "The Post_area schema.",
+              "type": "string"
+            },
+            "post_street": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/post_street",
+              "title": "The Post_street schema.",
+              "type": "string"
+            },
+            "postcode": {
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/postcode",
+              "title": "The Postcode schema.",
+              "type": "string"
+            },
+            "street": {
+
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/street",
+              "title": "The Street schema.",
+              "type": "string"
+            },
+            "uprn": {
+              
+              "description": "An explanation about the purpose of this instance.",
+              "id": "risk_property/risk_address/uprn",
+              "title": "The Uprn schema.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "post_street",
+            "post_area",
+            "street",
+            "uprn"
+          ],
+          "type": "object"
+        },
+        "roof_type": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/roof_type",
+          "title": "The Roof_type schema.",
+          "type": "integer"
+        },
+        "smoke_al": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/smoke_al",
+          "title": "The Smoke_al schema.",
+          "type": "string"
+        },
+        "smokers": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/smokers",
+          "title": "The Smokers schema.",
+          "type": "string"
+        },
+        "sole_occ": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/sole_occ",
+          "title": "The Sole_occ schema.",
+          "type": "string"
+        },
+        "subst": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/subst",
+          "title": "The Subst schema.",
+          "type": "string"
+        },
+        "terms": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/terms",
+          "title": "The Terms schema.",
+          "type": "string"
+        },
+        "trees": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/trees",
+          "title": "The Trees schema.",
+          "type": "string"
+        },
+        "wall_type": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/wall_type",
+          "title": "The Wall_type schema.",
+          "type": "integer"
+        },
+        "win_lock": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/win_lock",
+          "title": "The Win_lock schema.",
+          "type": "string"
+        },
+        "year_built": {
+          
+          "description": "An explanation about the purpose of this instance.",
+          "id": "risk_property/year_built",
+          "title": "The Year_built schema.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "rep_state",
+        "prop_type",
+        "bank_ccj",
+        "risk_address",
+        "flood",
+        "subst",
+        "listed",
+        "ext_prop",
+        "smoke_al",
+        "no_beds",
+        "terms",
+        "alarm_type",
+        "trees",
+        "refused",
+        "bus_use",
+        "near_water",
+        "wall_type",
+        "roof_type",
+        "year_built",
+        "door_lock",
+        "win_lock",
+        "convs",
+        "for_sale",
+        "sole_occ",
+        "smokers",
+        "perm_res",
+        "owner_type"
+      ],
+      "type": "object"
+    },
+    "tier": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "tier",
+      "title": "The Tier schema.",
+      "type": "string"
+    },
+    "together": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "together",
+      "title": "The Together schema.",
+      "type": "string"
+    },
+    "year_start_date": {
+      
+      "description": "An explanation about the purpose of this instance.",
+      "id": "year_start_date",
+      "title": "The Year_start_date schema.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cover_start_date",
+    "quote_id",
+    "year_start_date",
+    "campaign",
+    "persons_insured",
+    "cover",
+    "product_line_ver_no",
+    "together",
+    "affinity",
+    "channel_yr",
+    "tier",
+    "claims",
+    "risk_property",
+    "first_start_date",
+    "policy_year"
+  ],
+  "type": "object"
+}

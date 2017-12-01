@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"id": "",
+	"properties": {
+		"username": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "username",
+			"title": "The username of cover_summary.",
+			"type": "string"
+		}
+	},
+	"required": [
+		"username"
+
+	],
+	"type": "object"
+}

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+	<flow name="qnb_BuyAndRenewPolicyImplFlow">
+		<!-- <http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.qnb.buyrenewpolicyimpl}"
+			allowedMethods="POST" doc:name="HTTP" /> -->
+		<byte-array-to-string-transformer
+			doc:name="Byte Array to String" />
+			
+		<json:validate-schema
+			schemaLocation="/JsonSchema/buyAndRenewPolicyRequestSchema.json"
+			doc:name="Validate JSON Schema for Buy and Renew Policy" />
+        <logger message="The payload to call TIA buy and renew in Buyand RenewImpl #[payload]" level="INFO" doc:name="Logger"/>
+		<set-variable variableName="buyAndRenewPolicyFunction"
+			value="{&quot;function&quot; : &quot;tia_mule.buy_policy&quot;, &quot;args&quot; : #[payload]}"
+			doc:name="buyAndRenewPolicyFunction" />
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+				doc:name="Database">
+				<db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+				<db:in-param name="inputJSON" type="VARCHAR"
+					value="#[flowVars.buyAndRenewPolicyFunction]" />
+				<db:out-param name="fncResult" type="VARCHAR" />
+			</db:stored-procedure>
+            <set-payload value="#[payload.fncResult]" mimeType="application/json" doc:name="Set Payload"/>
+            <logger message="the payload after excetion of TIA buy_renew policy #[payload]" level="INFO" doc:name="Logger"/>
+		</transactional>
+        <async doc:name="Async">
+            <flow-ref name="qnb_emailSub_Flow" doc:name="qnb_emailSub_Flow"/>
+        </async>
+		
+	</flow>
+    <flow name="qnb_BuyAndRenewPolicyFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qnb.buyrenewpolicy}" doc:name="HTTP"/>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <json:validate-schema schemaLocation="/JsonSchema/buyAndRenewPolicyPreRequestSchema.json" doc:name="Validate JSON Schema"/>
+        <flow-ref name="qnb_setBuyPolicyFlowVariableSub_Flow" doc:name="qnb_setBuyPolicyFlowVariableSub_Flow"/>
+        <flow-ref name="security_validate_user_quoteFlow" doc:name="security_validate_user_quoteFlow"/>
+        <set-variable variableName="quoteValidation" value="#[payload.valid.toString()]" doc:name="quoteValidation"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.quoteValidation != &quot;0&quot;]">
+                <set-payload value="#[flowVars.orignalPayload]" doc:name="Set Payload"/>
+                <choice doc:name="Choice">
+                    <when expression="#[flowVars.paymentType == &quot;CC&quot;]">
+                        <flow-ref name="qnb_ccSub_Flow" doc:name="qnb_ccSub_Flow"/>
+                    </when>
+                    <otherwise>
+                        <flow-ref name="qnb_ddSub_Flow" doc:name="qnb_ddSub_Flow"/>
+                    </otherwise>
+                </choice>
+            </when>
+            <otherwise>
+                <set-payload value="#[payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer returnClass="java.lang.String" doc:name="Object to JSON"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <sub-flow name="qnb_setBuyPolicyFlowVariableSub_Flow">
+        <set-variable variableName="orignalPayload" value="#[payload]" doc:name="orignalPayload"/>
+        <set-variable variableName="paymentType" value="#[json:payment_method]" doc:name="paymentType"/>
+        <set-variable variableName="policy_no" value="#[json:policy_id]" doc:name="policy_no"/>
+        <set-variable variableName="quote_id" value="#[json:quote_id]" doc:name="quote_id"/>
+        <set-variable variableName="email_address" value="#[json:security_token]" doc:name="email_address"/>
+        <set-variable variableName="transaction_type" value="#[json:transaction_type]" doc:name="transaction_type"/>
+        <set-variable variableName="transNo" value="#[json:transNo]" doc:name="transNo"/>
+        <set-variable variableName="trans_id" value="#[json:trans_id]" doc:name="trans_id"/>
+        <set-variable variableName="nextTansactionId" value="" doc:name="nextTansactionId"/>
+        <set-variable variableName="emailTemplate" value="#[(flowVars.transaction_type == &quot;P&quot; ? &quot;ET3&quot; : &quot;ET7&quot;)]" doc:name="emailTemplate"/>
+        <enricher doc:name="Message Enricher" target="#[flowVars.nextTansactionId]">
+        	<flow-ref name="qnb_getNextTransactionSub_Flow" doc:name="qnb_getNextTransactionSub_Flow"/>
+        </enricher>
+	
+    </sub-flow>
+    <sub-flow name="qnb_ddSub_Flow">
+        <set-payload value="#[payload]" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="payload in Dd subflow before expression modification  #[payload]" level="INFO" doc:name="Logger"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <expression-component doc:name="Expression"><![CDATA[#[
+   	payload.remove('security_token');
+	payload.remove('policy_id');
+	payload.remove('transaction_type');
+  	
+	//payload.put('quote_id', Integer.parseInt(flowVars.policy_no));
+	payload.put('trans_id',Integer.parseInt(flowVars.nextTansactionId));
+	
+ ]]]></expression-component>
+        <expression-component doc:name="Expression"><![CDATA[#[
+(flowVars.transaction_type == "R") ? payload.put('policy_no', Integer.parseInt(flowVars.policy_no)) : payload.put('quote_id', Integer.parseInt(flowVars.quote_id));
+]]]></expression-component>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+
+        <flow-ref name="qnb_BuyAndRenewPolicyImplFlow" doc:name="qnb_BuyAndRenewPolicyImplFlow"/>
+    </sub-flow>
+    <sub-flow name="qnb_ccSub_Flow">
+        <flow-ref name="qnb_getCCTokenDetails" doc:name="qnb_getCCTokenDetails"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.payment_status == &quot;SUCCESS&quot;]">
+                <set-payload value="#[flowVars.orignalPayload]" doc:name="Set Payload" mimeType="application/json"/>
+                <logger message="origanal json payload after get CC details : #[payload]" level="INFO" doc:name="Logger"/>
+
+                <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+               <expression-component doc:name="Expression"><![CDATA[#[
+    payload.remove('security_token');
+	payload.remove('policy_id');
+	payload.remove('transaction_type');
+	payload.remove('transNo');
+	payload.put('trans_id',Integer.parseInt(flowVars.nextTansactionId));
+
+	//payload.put('policy_no', Integer.parseInt(flowVars.policy_no));
+	
+    if(flowVars.paymentType == "CC")
+         {
+			payload.remove('cc_details');
+			payload.put('cc_details',flowVars.ccToken);
+		}
+ ]]]></expression-component>
+                <expression-component doc:name="Expression"><![CDATA[#[
+(flowVars.transaction_type == "R") ? payload.put('policy_no', Integer.parseInt(flowVars.policy_no)) : payload.put('quote_id', Integer.parseInt(flowVars.quote_id));
+]]]></expression-component>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+
+                <flow-ref name="qnb_BuyAndRenewPolicyImplFlow" doc:name="qnb_BuyAndRenewPolicyImplFlow"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[payload]" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </sub-flow>
+    <sub-flow name="qnb_getCCTokenDetails">
+        <flow-ref name="tlg_getPaymentStatusSubFlow" doc:name="tlg_getPaymentStatusSubFlow"/>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <set-variable variableName="tlgResponse" value="#[payload]" doc:name="tlgResponse"/>
+        <logger message="Tlgresponse is #[flowVars.tlgResponse]" level="INFO" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://schemas.xmlsoap.org/soap/envelope/
+%namespace ns1 http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0
+---
+{
+result : payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.status
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="tlgResult" value="#[(null !=payload.result)  ? payload.result.toString() : &quot;UNKNOWN&quot;]" doc:name="tlgResult"/>
+        <logger message="After tlgResponse transformation the playload is #[payload] and tlgResult is #[flowVars.tlgResult]" level="INFO" doc:name="Logger"/>
+
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.tlgResult == &quot;CAPTURED&quot;]">
+                <set-variable variableName="payment_status" value="SUCCESS" doc:name="payment_status"/>
+                <flow-ref name="qnb_getCCToken" doc:name="qnb_getCCToken"/>
+            </when>
+            <when expression="#[flowVars.tlgResult == &quot;CANCELLED&quot;]">
+
+                <set-variable variableName="payment_status" value="FAIL" doc:name="payment_status"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	"status":"failure",
+	"error_code" : "CANCELLED",
+	"error":"Transaction has been cancelled"
+}]]></dw:set-payload>
+                </dw:transform-message>
+
+            </when>
+            <when expression="#[flowVars.tlgResult == &quot;FAIL&quot;]">
+                <set-variable variableName="tlgMessage" value="#[(flowVars.tlgResponse.indexOf('&lt;errorMessage&gt;') &gt; 0) ? flowVars.tlgResponse.substring(flowVars.tlgResponse.indexOf('&lt;errorMessage&gt;')+14,flowVars.tlgResponse.indexOf('&lt;/errorMessage&gt;')) : 'An invalid transaction reference was supplied']" doc:name="tlgMessage"/>
+
+                <set-variable variableName="payment_status" value="FAIL" doc:name="payment_status"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{ 
+	"status":"failure",
+	"error_code" : "FAIL",
+	"error": flowVars.tlgMessage
+} ]]></dw:set-payload>
+                </dw:transform-message>
+
+            </when>
+            <otherwise>
+
+                <set-variable variableName="payment_status" value="FAIL" doc:name="payment_status"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{ 
+	"status":"failure", 
+	"error_code" : "UNKOWN",
+	"error":"Payment failure, transaction number is missing or not valid"
+}]]></dw:set-payload>
+                </dw:transform-message>
+
+            </otherwise>
+        </choice>
+    </sub-flow>
+	<sub-flow name="qnb_emailSub_Flow">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+		
+		<choice doc:name="Choice">
+			<when expression="#[payload['header']['result_status'] == 'SUCCESS']">
+					<set-property doc:name="addBcc" propertyName="addBcc" value="#[1]"/>
+					<http:request config-ref="EmailService"
+						path="/${http.path.send.email}/#[payload['buy_policy_result']['policy_no']]/#[flowVars.emailTemplate]/uia"
+						method="GET" doc:name="HTTP" />
+
+			
+			</when>
+			<when expression="#[payload['header']['result_status'] == 'FAIL' and payload['header']['err_reason'] == 'CAUGHT_EXCEPTION']">
+				
+					<set-payload
+					value="Hi ,  &lt;br/&gt; &lt;br/&gt; Database SID name is  ${tia.db.database} &lt;br/&gt;  &lt;br/&gt; Timestamp : #[server.dateTime]  &lt;br/&gt;&lt;br/&gt; Exception Message : &lt;br/&gt;&lt;br/&gt; #[payload] &lt;br/&gt;&lt;br/&gt; &lt;br/&gt; &lt;br/&gt;Thanks and Regards &lt;br/&gt;&lt;br/&gt;UIA ESB Exception handling &lt;br/&gt;"
+					doc:name="Set Failure Payload" mimeType="text/plain"/>
+                <flow-ref name="global_notifyOnExceptionSub_Flow" doc:name="global_notifyOnExceptionSub_Flow"/>
+
+			
+			</when>
+            <otherwise>
+                <set-payload value="#[payload]" mimeType="application/json" doc:name="Set Payload"/>
+				
+			</otherwise>
+		</choice>
+
+	</sub-flow>
+    <flow name="qnb_nextTransactionIdFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qnb.nexttransactionid}" allowedMethods="GET" doc:name="HTTP"/>
+        <flow-ref name="qnb_getNextTransactionSub_Flow" doc:name="Flow Reference"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	"next_transaction_id" : payload as :number
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+	
+	<sub-flow name="qnb_getNextTransactionSub_Flow">
+
+		<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+			doc:name="Database">
+            <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob('{"function" : "tia_mule.get_next_trans_id"}','MULE')}]]></db:parameterized-query>
+            <db:out-param name="fncResult" type="VARCHAR"/>
+
+		</db:stored-procedure>
+		<set-payload value="#[payload.fncResult]"
+			doc:name="Set Payload" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <set-payload value="#[json:get_next_trans_id_result/trans_id]" doc:name="Set Payload"/>
+
+	</sub-flow>
+	
+	<sub-flow name="qnb_getCCToken">
+        <set-payload value="#[flowVars.tlgResponse]" doc:name="Set Payload" mimeType="application/xml"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://schemas.xmlsoap.org/soap/envelope/
+%namespace ns1 http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0
+---
+{
+online_token : payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.card.onlineToken,
+auth_code:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.authorisationResponse.authcode,
+status:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.status,
+amount:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.purchaseAmount,
+error_codes:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.authenticationResponse.errorCode,
+masked_pan:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.card.maskedPAN,
+sales_detail:payload.ns0#Envelope.ns0#Body.ns1#getWebPaymentResponse.return.purchaseDescription
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="ccToken" value="#[payload]" doc:name="ccToken"/>
+    </sub-flow>
+	
+</mule>

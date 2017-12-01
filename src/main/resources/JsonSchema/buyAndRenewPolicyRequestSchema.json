@@ -1,0 +1,171 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"id": "",
+	"properties": {
+		"quote_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "quote_id",
+			"title": "The quote_id of quote.",
+			"type": "integer"
+		},
+		"policy_no": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "policy_no",
+			"title": "The policy_no of quote.",
+			"type": "integer"
+		},
+		"trans_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "trans_id",
+			"title": "The trans_id of quote.",
+			"type": "integer"
+		},
+		"transaction_type": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "transaction_type",
+			"title": "The transaction_type renew_policy or buy_policy",
+			"type": "string"
+		},
+		"print_docs": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "print_docs",
+			"title": "The print_docs renew_policy or buy_policy",
+			"type": "string",
+			"default": "N",
+			"enum": ["Y", "N"]
+		},
+		"payment_method": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "payment_method",
+			"title": "The payment_method in the bank.",
+			"type": "string",
+			"enum": ["CC", "DD"]
+		},
+		"dd_details": {
+			"additionalProperties": false,
+			"id": "dd_details",
+			"properties": {
+				"account_holder_name": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/account_holder_name",
+					"title": "The Account_holder_name schema.",
+					"type": "string"
+				},
+				"bank_account_no": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/bank_account_no",
+					"title": "The Bank_account_no schema.",
+					"type": "string"
+				},
+				"bank_sort_code": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/bank_sort_code",
+					"title": "The Bank_sort_code schema.",
+					"type": "string"
+				},
+				"ddi_collection_day": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/ddi_collection_day",
+					"title": "The Ddi_collection_day schema.",
+					"type": "integer"
+				}
+			},
+			"required": [
+				"account_holder_name",
+				"bank_account_no",
+				"bank_sort_code",
+				"ddi_collection_day"
+		
+			],
+			"type": "object"
+		},
+		"cc_details": {
+			"additionalProperties": false,
+			"id": "cc_details",
+			"properties": {
+				"online_token": {
+					"description": "An explanation about the purpose of this instace.",
+					"id": "cc_details/online_token",
+					"title": "The online_token schema.",
+					"type": "string"
+				},
+				"auth_code": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/auth_code",
+					"title": "The auth_code schema.",
+					"type": "string"
+				},
+				"status": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/status",
+					"title": "The status schema.",
+					"type": "string"
+				},
+				"amount": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/amount",
+					"title": "The amount schema.",
+					"type": "string"
+				},
+				"error_codes": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/error_codes",
+					"title": "The error_codes schema.",
+					"type": "string"
+				},
+				"masked_pan": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/masked_pan",
+					"title": "The masked_pan schema.",
+					"type": "string"
+				},
+				"sales_detail": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "cc_details/sales_detail",
+					"title": "The sales_detail schema.",
+					"type": "string"
+				}
+			},
+			"type": "object"
+		}
+	},
+	"required": [
+		"payment_method"
+
+	],
+	"type": "object",
+	"oneOf": [{
+			"properties": {
+				"payment_method": {
+					"enum": ["CC"]
+				}
+			},
+			"required": ["cc_details"]
+		},
+		{
+			"properties": {
+				"payment_method": {
+					"enum": ["DD"]
+				}
+			},
+			"required": ["dd_details"]
+		}
+	]
+}

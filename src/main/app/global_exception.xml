@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:cluster="http://www.mulesoft.org/schema/mule/ee/cluster"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd">
+	<configuration defaultExceptionStrategy-ref="global_exceptionChoice_Exception_Strategy"
+		doc:name="Configuration">
+		<http:config useTransportForUris="false" />
+	</configuration>
+    <http:request-config name="HTTP_NotifyException_Request_Configuration" host="All Interfaces [0.0.0.0] (Default)" port="${http.port}" doc:name="HTTP Request Configuration"/>
+
+	<choice-exception-strategy name="global_exceptionChoice_Exception_Strategy">
+	
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.lang.NullPointerException)]"
+			doc:name="NullPointerException Strategy">
+            <set-payload value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Null Pointer Exception throwing in #[exception.event.flowConstruct.name]&quot;}" mimeType="application/json" doc:name="Set Payload"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>	
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.lang.IllegalArgumentException)]"
+			doc:name="IllegalArgumentException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;IllegalArgumentException Exception throwing in #[exception.event.flowConstruct.name]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.io.FileNotFoundException)]"
+			doc:name="FileNotFoundException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;FileNotFoundException Exception throwing in #[exception.event.flowConstruct.name]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy> 
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.module.db.internal.domain.connection.ConnectionCreationException)]"
+			doc:name="ConnectionCreationException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;ConnectionCreation Exception throwing in #[exception.event.flowConstruct.name] ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('ConnectionCreation Exception')]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.module.db.internal.processor.DbConnectionException)]"
+			doc:name="DbConnectionException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;DbConnectionException Exception throwing in #[exception.event.flowConstruct.name] ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('DbConnectionException Exception')]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.sql.SQLException)]"
+			doc:name="SQLException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;SQLException Exception throwing in #[exception.event.flowConstruct.name] ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('SQLException')]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.sql.SQLSyntaxErrorException)]"
+			doc:name="SQLSyntaxErrorException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;SQLSyntaxErrorException Exception throwing in #[exception.event.flowConstruct.name] ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('SQLSyntaxErrorException')]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+	when="#[exception.causedBy(com.mulesoft.weave.mule.exception.WeaveExecutionException)]"
+	doc:name="Dataweave Exception Strategy">
+
+	<set-payload
+	value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Dataweave Exception occured in  #[exception.event.flowConstruct.name] ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Data transformation error in dataweave transformer')] &quot;}"
+	doc:name="Set Payload" mimeType="application/json"/>
+    <flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+	 
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(javax.xml.bind.UnmarshalException)]"
+			doc:name="JAXB UnmarshalException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;JAXB UnmarshalException occured in  #[exception.event.flowConstruct.name]  ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Jaxb UnmarshalException')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy> 
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.lang.NumberFormatException)]"
+			doc:name="Number Format Exception Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Dataweave Exception occured in  #[exception.event.flowConstruct.name]  ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Number/int is required ')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(javax.net.ssl.SSLHandshakeException)]"
+			doc:name="SSLHandshakeException">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;SSLHandshakeException occured in  #[exception.event.flowConstruct.name]  ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('SSL Handshake ')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(javax.net.ssl.SSLException)]"
+			doc:name="SSLException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;SSLException Exception occured in  #[exception.event.flowConstruct.name]  ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('SSLException')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.net.ConnectException)]"
+			doc:name="ConnectException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;ConnectException Exception occured in  #[exception.event.flowConstruct.name]  ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Connection Exception')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.api.transport.ConnectorException)]"
+			doc:name="Transport ConnectorException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Transport Connector Exception occured in  #[exception.event.flowConstruct.name] ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Transport conncection Exception')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.api.endpoint.EndpointException)]"
+			doc:name="EndpointException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Endpoint Exception occured in  #[exception.event.flowConstruct.name]  ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('Endpoint Exception')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		
+		<catch-exception-strategy
+			when="#[exception.causedBy(com.fasterxml.jackson.core.JsonParseException)]"
+			doc:name="JsonParseException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;JsonParseException occured in  #[exception.event.flowConstruct.name]  ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('JsonParseException ')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.codehaus.jettison.json.JSONException)]"
+			doc:name="JSONException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;JSONException occured in  #[exception.event.flowConstruct.name]  ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('JSONException ')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.io.IOException)]"
+			doc:name="IOException Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;IOException/Network Exception occured in  #[exception.event.flowConstruct.name]  ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('IOException ')] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		<catch-exception-strategy
+	when="#[exception.causedBy(org.mule.module.json.validation.JsonSchemaValidationException)]"
+	doc:name="jsonSchemaValidationException Strategy">
+
+	<set-payload
+		value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;jsonSchemaValidationException occured in  #[exception.event.flowConstruct.name] ,   Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : ('jsonSchemaValidationException')] &quot;}"
+		doc:name="Set Payload" mimeType="application/json" />
+	<flow-ref name="global_setExceptionMailContentSub_Flow"
+		doc:name="global_setExceptionMailContentSub_Flow" />
+
+	</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.module.http.internal.request.ResponseValidatorException)]"
+			doc:name="Response Validator Exception Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;ResponseValidatorException occured in  #[exception.event.flowConstruct.name] ,  Cause of exception : #[(null!=exception.cause) ? (exception.cause.message.toString().replaceAll(&quot;\&quot;&quot;, &quot;&quot;)) : (exception.message)] &quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+				
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		
+		<catch-exception-strategy
+			when="#[exception.causedBy(org.mule.api.MuleRuntimeException)]"
+			doc:name="MuleRuntimeException Validation Exception Strategy">
+			<set-payload
+				value="#[(null!=exception.cause &amp;&amp; null!=exception.cause.message &amp;&amp; exception.cause.message.toString().contains(&quot;Failure expression positive when processing event&quot;)) ? '{ &quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Not able to reach payment gateway , unable to get payment status. Retry again&quot;}' : '{ &quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Mule Runtime Exception&quot;}']"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/>
+		</catch-exception-strategy>
+		
+		<catch-exception-strategy doc:name="Generic Exception Strategy">
+			<set-payload
+				value="{&quot;status&quot; : &quot;fail&quot;,&quot;eror_message&quot; : &quot;Exception occured in #[exception.event.flowConstruct.name] ,  Cause of exception : #[exception]&quot;}"
+				doc:name="Set Payload" mimeType="application/json"/>
+			<!-- <flow-ref name="global_setExceptionMailContentSub_Flow" doc:name="global_setExceptionMailContentSub_Flow"/> -->	
+		</catch-exception-strategy>
+		
+	</choice-exception-strategy>
+	
+    <sub-flow name="global_setExceptionMailContentSub_Flow">
+        <set-variable variableName="summaryMessage" value="#[exception.summaryMessage]" doc:name="summaryMessage"/>
+        <set-variable variableName="detailedMessage" value="#[exception.detailedMessage]" doc:name="detailedMessage"/>
+        <set-variable variableName="verboseMessage" value="#[exception.verboseMessage]" doc:name="verboseMessage"/>
+        <set-property propertyName="outexceptionvar" value="Hi ,  &lt;br/&gt; &lt;br/&gt; #[json:/eror_message] &lt;br/&gt;  &lt;br/&gt; &lt;br/&gt; Database SID name is  ${tia.db.database} &lt;br/&gt;  &lt;br/&gt; Timestamp : #[server.dateTime]  &lt;br/&gt;&lt;br/&gt; Exception Info : &lt;br/&gt;&lt;br/&gt; #[exception.info] &lt;br/&gt;&lt;br/&gt; &lt;br/&gt; &lt;br/&gt; Summary Message : &lt;br/&gt;&lt;br/&gt; #[flowVars.summaryMessage] &lt;br/&gt; &lt;br/&gt; Detailed Message : &lt;br/&gt;&lt;br/&gt; #[flowVars.detailedMessage] &lt;br/&gt;&lt;br/&gt; VerboseMessage &lt;br/&gt;&lt;br/&gt; #[flowVars.verboseMessage]  &lt;br/&gt;&lt;br/&gt; &lt;br/&gt; Full strck trace : &lt;br/&gt;&lt;br/&gt; #[org.mule.util.ExceptionUtils.getFullStackTrace(exception)]&quot;&lt;br/&gt;&lt;br/&gt;Thanks and Regards &lt;br/&gt;&lt;br/&gt;UIA ESB Exception handling &lt;br/&gt;" doc:name="outexceptionvar"/>
+        <set-property propertyName="http.status" value="#[500]" doc:name="500" />
+        <vm:outbound-endpoint exchange-pattern="one-way" path="exceptionnotification" doc:name="VM"/>
+    </sub-flow>
+    
+    <flow name="global_mailexceptionFlow">
+        <vm:inbound-endpoint exchange-pattern="one-way" path="exceptionnotification" doc:name="VM"/>
+        <set-payload value="#[message.inboundProperties.outexceptionvar]" doc:name="Set Payload"/>
+        <logger message="The exception payload is #[payload] and verbose message  : #[flowVars.verboseMessage]" level="INFO" doc:name="Logger"/>
+        <flow-ref name="global_notifyOnExceptionSub_Flow" doc:name="global_notifyOnExceptionSub_Flow"/>
+         <choice-exception-strategy doc:name="Choice Exception Strategy">
+            <catch-exception-strategy doc:name="Catch Exception Strategy">
+                <set-payload value=" {  &quot;result&quot;:&quot;fail&quot;,  &quot;error&quot;: &quot;#[(null!=exception.cause) ? (exception.cause.message) : ('Exception Occured in sending mail')] &quot; }" mimeType="application/json" doc:name="Set Exception Payload"/>
+            </catch-exception-strategy>
+        </choice-exception-strategy>
+    </flow>
+
+	<sub-flow name="global_notifyOnExceptionSub_Flow">
+        <smtp:outbound-endpoint host="${smtp.host}" port="${smtp.port}" connector-ref="SMTP" to="${uia.exception.notification.to.emails}" from="${smtp.fromaddress}" subject="exception" replyTo="${smtp.fromaddress}" responseTimeout="30000" doc:name="SMTP" />
+		
+	</sub-flow>
+	
+
+
+</mule>

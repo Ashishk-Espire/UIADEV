@@ -1,0 +1,102 @@
+{
+	"aggregator_id": "1234",
+	"quote_id": 1234567,
+	"affinity": "0072",
+	"cover_start_date": "2016-10-31",
+	"first_start_date": "2016-10-31",
+	"year_start_date": "2016-10-31",
+	"payment_method": "CHEQUE",
+	"product_line_ver_no": 20,
+	"campaign": 15779,
+	"eligibility": {
+		"hol_home": "N",
+		"lodger": "N",
+		"nanny": "Y",
+		"tall_trees": "N",
+		"ten_fam": "N",
+		"ten_nonfam": "N",
+		"unoc_ten": "N",
+		"unoc_uia": "N"
+	},
+	"risk_property": {
+		"perm_res": "Y",
+		"res_occ": "1",
+		"sole_occ": "Y",
+		"bus_use": 5,
+		"refused": "N",
+		"terms": "N",
+		"convs": "N",
+		"bank_ccj": "N",
+		"for_sale": "N",
+		"flood": "N",
+		"subst": "N",
+		"rep_state": "Y",
+		"prop_type": 11,
+		"no_storeys": 2,
+		"listed": 2,
+		"year_built": 1999,
+		"owner_type": 2,
+		"no_beds": 5,
+		"ext_prop": "N",
+		"wall_type": 2,
+		"roof_type": 2,
+		"alarm_type": 0,
+		"smokers": "N",
+		"smoke_al": "Y",
+		"win_lock": "Y",
+		"door_lock": "Y",
+		"risk_address": {
+			"street": "Meadow Close",
+			"building_name": "",
+			"building_no": "1",
+			"postcode": "HA4 8AP",
+			"uprn": 12
+		}
+	},
+	"persons_insured": [{
+		"title": "MR",
+		"forename": "Batch",
+		"surname": "Ta-Aitc-Gocn0055",
+		"birth_date": "1990-01-01"
+	}],
+	"tier": "SILVER",
+	"zzchannel_yr": "AGGREGATOR",
+	"channel_yr": "INBOUND",
+	"together": "Y",
+	"cover": {
+		"bld": {
+			"risk_yn": "Y",
+			"vol_xs": 250
+		},
+		"bld_ad": {
+			"risk_yn": "Y"
+		},
+		"con": {
+			"risk_yn": "Y",
+			"vol_xs": 250
+		},
+		"con_ad": {
+			"risk_yn": "Y"
+		},
+		"unspec": {
+			"risk_sum": 2000
+		},
+		"spec_items": [{
+			"itm_type": 75,
+			"itm_desc": "Dell Venue 11 Pro",
+			"itm_value": 650
+		}, {
+			"itm_type": 80,
+			"itm_desc": "Dell Venue 111 Pro",
+			"itm_value": 850
+		}],
+		"cycles": [{
+			"cyc_make": 21,
+			"cyc_model": "VT2",
+			"value": 750
+		}],
+		"legal": "Y",
+		"he": "Y",
+		"travel": "Y"
+	}
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:wmq="http://www.mulesoft.org/schema/mule/ee/wmq"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/wmq http://www.mulesoft.org/schema/mule/ee/wmq/current/mule-wmq-ee.xsd">
+	<flow name="qnb_checkexistinguserFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.qnb.existinguser}/{useremail}"
+			allowedMethods="GET" doc:name="HTTP" />
+		<set-variable variableName="userExistFunction"
+			value="{&quot;function&quot;: &quot;tia_mule.chk_user_exists&quot;, &quot;args&quot; :{&quot;email_address&quot; : &quot;#[message.inboundProperties.'http.uri.params'.useremail]&quot;}}"
+			doc:name="userExistFunction" />
+
+
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+				doc:name="Database">
+                <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" type="VARCHAR" value="#[flowVars.userExistFunction]"/>
+                <db:out-param name="fncResult" type="VARCHAR"/>
+
+			</db:stored-procedure>
+            <set-payload value="#[payload.fncResult]" doc:name="Set Payload"/>
+		</transactional>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <set-variable variableName="validUser" value="#[json:call_chk_user_exists/Valid]" doc:name="validUser"/>
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.validUser == &quot;1&quot;]">
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	"userexists":"yes"
+}]]></dw:set-payload>
+                </dw:transform-message>
+			</when>
+			<otherwise>
+                <dw:transform-message metadata:id="e9c87a19-e9e9-4041-835b-a85a22c73009" doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	"userexists":"no"
+}]]></dw:set-payload>
+                </dw:transform-message>
+			</otherwise>
+		</choice>
+	</flow>
+</mule>

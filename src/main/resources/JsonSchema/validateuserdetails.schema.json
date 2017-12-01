@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "policy_no": {
+            "id": "/properties/policy_no",
+            "type": "integer"
+        },
+        "birth_date": {
+            "id": "/properties/birth_date",
+            "type": "string",
+            "format": "date"
+        },
+        "email_address": {
+            "id": "/properties/email_address",
+            "type": "string",
+            "format": "email"
+        }
+    },
+    "required": [
+        "policy_no",
+        "birth_date",
+        "email_address"
+    ],
+    "type": "object"
+}

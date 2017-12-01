@@ -1,0 +1,400 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "cover": {
+            "id": "/properties/cover",
+            "properties": {
+                "bld": {
+                    "id": "/properties/cover/properties/bld",
+                    "properties": {
+                        "risk_yn": {
+                            "id": "/properties/cover/properties/bld/properties/risk_yn",
+                            "type": "string"
+                        },
+                        "vol_xs": {
+                            "id": "/properties/cover/properties/bld/properties/vol_xs",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "vol_xs",
+                        "risk_yn"
+                    ],
+                    "type": "object"
+                },
+                "bld_ad": {
+                    "id": "/properties/cover/properties/bld_ad",
+                    "properties": {
+                        "risk_yn": {
+                            "id": "/properties/cover/properties/bld_ad/properties/risk_yn",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "risk_yn"
+                    ],
+                    "type": "object"
+                },
+                "con": {
+                    "id": "/properties/cover/properties/con",
+                    "properties": {
+                        "risk_yn": {
+                            "id": "/properties/cover/properties/con/properties/risk_yn",
+                            "type": "string"
+                        },
+                        "vol_xs": {
+                            "id": "/properties/cover/properties/con/properties/vol_xs",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "vol_xs",
+                        "risk_yn"
+                    ],
+                    "type": "object"
+                },
+                "con_ad": {
+                    "id": "/properties/cover/properties/con_ad",
+                    "properties": {
+                        "risk_yn": {
+                            "id": "/properties/cover/properties/con_ad/properties/risk_yn",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "risk_yn"
+                    ],
+                    "type": "object"
+                },
+                "cycles": {
+                    "id": "/properties/cover/properties/cycles",
+                    "items": {
+                        "id": "/properties/cover/properties/cycles/items",
+                        "properties": {
+                            "cyc_make": {
+                                "id": "/properties/cover/properties/cycles/items/properties/cyc_make",
+                                "type": "integer"
+                            },
+                            "cyc_model": {
+                                "id": "/properties/cover/properties/cycles/items/properties/cyc_model",
+                                "type": "string"
+                            },
+                            "value": {
+                                "id": "/properties/cover/properties/cycles/items/properties/value",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "cyc_make",
+                            "cyc_model",
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "minItems": 1
+                },
+                "he": {
+                    "id": "/properties/cover/properties/he",
+                    "type": "string"
+                },
+                "legal": {
+                    "id": "/properties/cover/properties/legal",
+                    "type": "string"
+                },
+                "spec_items": {
+                    "id": "/properties/cover/properties/spec_items",
+                    "items": {
+                        "id": "/properties/cover/properties/spec_items/items",
+                        "properties": {
+                            "itm_desc": {
+                                "id": "/properties/cover/properties/spec_items/items/properties/itm_desc",
+                                "type": "string"
+                            },
+                            "itm_type": {
+                                "id": "/properties/cover/properties/spec_items/items/properties/itm_type",
+                                "type": "integer"
+                            },
+                            "itm_value": {
+                                "id": "/properties/cover/properties/spec_items/items/properties/itm_value",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "itm_desc",
+                            "itm_value",
+                            "itm_type"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                      "minItems": 1
+                },
+                "travel": {
+                    "id": "/properties/cover/properties/travel",
+                    "type": "string"
+                },
+                "unspec": {
+                    "id": "/properties/cover/properties/unspec",
+                    "properties": {
+                        "risk_sum": {
+                            "id": "/properties/cover/properties/unspec/properties/risk_sum",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "risk_sum"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "he",
+                "travel",
+                "legal"
+            ],
+            "type": "object"
+        },
+        "cover_start_date": {
+            "id": "/properties/cover_start_date",
+            "type": "string"
+        },
+        "partner_id": {
+            "id": "/properties/partner_id",
+            "type": "string"
+        },
+        "persons_insured": {
+            "id": "/properties/persons_insured",
+            "items": {
+                "id": "/properties/persons_insured/items",
+                "properties": {
+                    "birth_date": {
+                        "id": "/properties/persons_insured/items/properties/birth_date",
+                        "type": "string"
+                    },
+                    "forename": {
+                        "id": "/properties/persons_insured/items/properties/forename",
+                        "type": "string"
+                    },
+                    "surname": {
+                        "id": "/properties/persons_insured/items/properties/surname",
+                        "type": "string"
+                    },
+                    "title": {
+                        "id": "/properties/persons_insured/items/properties/title",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "birth_date",
+                    "forename",
+                    "surname",
+                    "title"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "quote_id": {
+            "id": "/properties/quote_id",
+            "type": "integer"
+        },
+        "risk_property": {
+            "id": "/properties/risk_property",
+            "properties": {
+                "alarm_type": {
+                    "id": "/properties/risk_property/properties/alarm_type",
+                    "type": "integer"
+                },
+                "bank_ccj": {
+                    "id": "/properties/risk_property/properties/bank_ccj",
+                    "type": "string"
+                },
+                "res_occ": {
+            		"id": "/properties/risk_property/properties/res_occ",
+            		"type": "string",
+            		"enum": ["Y","N"]
+        		},
+		        "res_occ_type": {
+        		    "id": "/properties/risk_property/properties/res_occ_type",
+            		"type": "integer"
+        		},
+                "bus_use": {
+                    "id": "/properties/risk_property/properties/bus_use",
+                    "type": "string"
+                },
+                "convs": {
+                    "id": "/properties/risk_property/properties/convs",
+                    "type": "string"
+                },
+                "door_lock": {
+                    "id": "/properties/risk_property/properties/door_lock",
+                    "type": "string"
+                },
+                "ext_prop": {
+                    "id": "/properties/risk_property/properties/ext_prop",
+                    "type": "string"
+                },
+                "flood": {
+                    "id": "/properties/risk_property/properties/flood",
+                    "type": "string"
+                },
+                "for_sale": {
+                    "id": "/properties/risk_property/properties/for_sale",
+                    "type": "string"
+                },
+                "listed": {
+                    "id": "/properties/risk_property/properties/listed",
+                    "type": "integer"
+                },
+                "no_beds": {
+                    "id": "/properties/risk_property/properties/no_beds",
+                    "type": "integer"
+                },
+                "owner_type": {
+                    "id": "/properties/risk_property/properties/owner_type",
+                    "type": "integer"
+                },
+                "perm_res": {
+                    "id": "/properties/risk_property/properties/perm_res",
+                    "type": "string"
+                },
+                "refused": {
+                    "id": "/properties/risk_property/properties/refused",
+                    "type": "string"
+                },
+                "rep_state": {
+                    "id": "/properties/risk_property/properties/rep_state",
+                    "type": "string"
+                },
+                "risk_address": {
+                    "id": "/properties/risk_property/properties/risk_address",
+                    "properties": {
+                        "address_line_1": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/address_line_1",
+                            "type": "string"
+                        },
+                        "address_line_2": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/address_line_2",
+                            "type": "string"
+                        },
+                        "building_name": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/building_name",
+                            "type": "string"
+                        },
+                        "building_no": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/building_no",
+                            "type": "string"
+                        },
+                        "postcode": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/postcode",
+                            "type": "string"
+                        },
+                        "uprn": {
+                            "id": "/properties/risk_property/properties/risk_address/properties/uprn",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "postcode",
+                        "building_no",
+                        "uprn",
+                        "address_line_1",
+                        "address_line_2"
+                    ],
+                    "type": "object"
+                },
+                "roof_type": {
+                    "id": "/properties/risk_property/properties/roof_type",
+                    "type": "integer"
+                },
+                "smoke_al": {
+                    "id": "/properties/risk_property/properties/smoke_al",
+                    "type": "string"
+                },
+                "smokers": {
+                    "id": "/properties/risk_property/properties/smokers",
+                    "type": "string"
+                },
+                "sole_occ": {
+                    "id": "/properties/risk_property/properties/sole_occ",
+                    "type": "string"
+                },
+                "subst": {
+                    "id": "/properties/risk_property/properties/subst",
+                    "type": "string"
+                },
+                "terms": {
+                    "id": "/properties/risk_property/properties/terms",
+                    "type": "string"
+                },
+                "wall_type": {
+                    "id": "/properties/risk_property/properties/wall_type",
+                    "type": "integer"
+                },
+                "win_lock": {
+                    "id": "/properties/risk_property/properties/win_lock",
+                    "type": "string"
+                },
+                "year_built": {
+                    "id": "/properties/risk_property/properties/year_built",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "rep_state",
+                "bank_ccj",
+                "risk_address",
+                "flood",
+                "subst",
+                "listed",
+                "ext_prop",
+                "smoke_al",
+                "no_beds",
+                "terms",
+                "alarm_type",
+                "refused",
+                "bus_use",
+                "wall_type",
+                "roof_type",
+                "year_built",
+                "door_lock",
+                "win_lock",
+                "convs",
+                "for_sale",
+                "sole_occ",
+                "smokers",
+                "perm_res",
+                "owner_type"
+            ],
+            "type": "object",
+            "oneOf":[
+      					{
+        					"properties":{
+          						"res_occ":{"enum":["Y"]}
+        					}
+      					},
+      					{
+        					"properties":{
+          					"res_occ":{"enum":["N"]}
+        					},
+        					"required":["res_occ_type"]
+      					}
+    				]		
+        },
+        "tier": {
+            "id": "/properties/tier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "risk_property",
+        "cover_start_date",
+        "cover",
+        "partner_id",
+        "persons_insured"
+    ],
+    "type": "object"
+}

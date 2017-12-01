@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "billingAddress": {
+            "id": "/properties/billingAddress",
+            "properties": {
+                "addressline1": {
+                    "id": "/properties/billingAddress/properties/addressline1",
+                    "type": "string"
+                },
+                "addressline2": {
+                    "id": "/properties/billingAddress/properties/addressline2",
+                    "type": "string"
+                },
+                "firstname": {
+                    "id": "/properties/billingAddress/properties/firstname",
+                    "type": "string"
+                },
+                "lastname": {
+                    "id": "/properties/billingAddress/properties/lastname",
+                    "type": "string"
+                },
+                "postcode": {
+                    "id": "/properties/billingAddress/properties/postcode",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "merchantTransactionID": {
+            "id": "/properties/merchantTransactionID",
+            "type": "string"
+        },
+        "policyNo": {
+            "id": "/properties/policyNo",
+            "type": "string"
+        },
+        "purchaseAmount": {
+            "id": "/properties/purchaseAmount",
+            "type": "integer"
+        },
+        "purchaseDescription": {
+            "id": "/properties/purchaseDescription",
+            "type": "string"
+        },
+        "storeResultPage": {
+            "id": "/properties/storeResultPage",
+            "type": "string"
+        },
+        "transNo": {
+            "id": "/properties/transNo",
+            "type": "string"
+        },
+        "style_sheet_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "style_sheet_id",
+			"title": "The style_sheet_id of quote. Can be UIA/Together",
+			"type": "string",
+			"enum": ["Blank", "UIA", "Together"]
+		}
+    },
+    "required": [
+        "transNo",
+        "storeResultPage",
+        "merchantTransactionID",
+        "purchaseAmount",
+        "policyNo"
+    ],
+    "type": "object"
+}

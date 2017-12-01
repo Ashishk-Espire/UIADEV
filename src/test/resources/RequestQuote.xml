@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuoteRequest>
+	<aggregator_id>123</aggregator_id>
+	<affinity>0072</affinity>
+	<cover_start_date>2016-10-31</cover_start_date>
+	<first_start_date>2016-10-31</first_start_date>
+	<year_start_date>2016-10-31</year_start_date>
+	<payment_method>DD</payment_method>
+	<dd_details>
+		<account_holder_name>Mr I Jones</account_holder_name>
+		<bank_account_no>11111111</bank_account_no>
+		<bank_sort_code>160001</bank_sort_code>
+		<ddi_collection_day>15</ddi_collection_day>
+	</dd_details>
+	<cc_details>k
+		<cc_token>ASDF1234</cc_token>
+	</cc_details>
+	<product_line_ver_no>19</product_line_ver_no>
+	<campaign>15779</campaign>
+	<eligibility></eligibility>
+	<risk_property>
+		<perm_res>Y</perm_res>
+		<sole_occ>Y</sole_occ>
+		<res_occ>1</res_occ>
+		<bus_use>0</bus_use>
+		<refused>N</refused>
+		<terms>N</terms>
+		<convs>N</convs>
+		<bank_ccj>N</bank_ccj>
+		<for_sale>N</for_sale>
+		<near_water>N</near_water>
+		<flood>N</flood>
+		<trees>N</trees>
+		<subst>N</subst>
+		<rep_state>Y</rep_state>
+		<prop_type>6</prop_type>
+		<listed>4</listed>
+		<year_built>1987</year_built>
+		<owner_type>1</owner_type>
+		<no_beds>5</no_beds>
+		<ext_prop>N</ext_prop>
+		<wall_type>1</wall_type>
+		<roof_type>2</roof_type>
+		<alarm_type>0</alarm_type>
+		<smokers>Y</smokers>
+		<smoke_al>Y</smoke_al>
+		<win_lock>Y</win_lock>
+		<door_lock>Y</door_lock>
+		<risk_address>
+			<street>, </street>
+			<street_no>
+			</street_no>
+			<postal_region>
+			</postal_region>
+			<post_area>BT48</post_area>
+			<post_street>0EG </post_street>
+			<uprn>null </uprn>
+		</risk_address>
+	</risk_property>
+	<persons_insured>
+		<title>003</title>
+		<forename>Batch</forename>
+		<surname>Ta-Aitc-Gocn0055</surname>
+		<birth_date>1990-01-01</birth_date>
+		<post_address>
+			<post_area>BT48</post_area>
+			<post_street>0EG</post_street>
+		</post_address>
+	</persons_insured>
+	<tier>SILVER</tier>
+	<channel_yr>AGGREGATOR</channel_yr>
+	<together>Y</together>
+	<policy_year>1</policy_year>
+	<prev_claims>
+		<cla_date>2012-12-20</cla_date>
+		<cla_type>2</cla_type>
+		<cla_cause>17</cla_cause>
+		<cla_amt>100</cla_amt>
+		<risk_addr>Y</risk_addr>
+		<cla_desc>Pulled the plug</cla_desc>
+	</prev_claims>
+	<cover>
+		<bld>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</bld>
+		<bld_ad>
+			<risk_yn>Y</risk_yn>
+		</bld_ad>
+		<con>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</con>
+		<con_ad>
+			<risk_yn>Y</risk_yn>
+		</con_ad>
+		<unspec>
+			<risk_yn>Y</risk_yn>
+			<risk_sum>2000</risk_sum>
+		</unspec>
+		<spec_items>
+			<risk_yn>Y</risk_yn>
+			<items>
+				<itm_type>75</itm_type>
+				<itm_desc>Dell Venue 11 Pro</itm_desc>
+				<itm_value>650</itm_value>
+			</items>
+		</spec_items>
+		<cycles>
+			<risk_yn>Y</risk_yn>
+			<cycles>
+				<cyc_make>21</cyc_make>
+				<cyc_model>VT2</cyc_model>
+				<value>750</value>
+			</cycles>
+		</cycles>
+		<legal>Y</legal>
+		<he>Y</he>
+		<travel>Y</travel>
+
+	</cover>
+
+</QuoteRequest>

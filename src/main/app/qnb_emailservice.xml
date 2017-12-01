@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+	<flow name="qnb_emailserviceFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.send.email}/{policyid}/{templatename}/{brand}"
+			allowedMethods="GET" doc:name="HTTP" />
+		<set-variable variableName="templatename"
+			value="#[message.inboundProperties.'http.uri.params'.templatename]"
+			doc:name="templatename" />
+		<set-variable variableName="policyNumber"
+			value="#[message.inboundProperties.'http.uri.params'.policyid]"
+			doc:name="policyNumber" />
+		<set-variable variableName="brand"
+			value="#[message.inboundProperties.'http.uri.params'.brand]"
+			doc:name="brand" />
+        <set-variable variableName="addBcc" value="#[null!= message.inboundProperties['addBcc'] ? message.inboundProperties['addBcc'] : 0]" doc:name="addBcc"/>
+		<flow-ref name="qnb_emailDatabaseSub_Flow" doc:name="qnb_emailDatabaseSub_Flow" />
+		<choice-exception-strategy doc:name="Choice Exception Strategy">
+			<catch-exception-strategy doc:name="Catch Exception Strategy">
+				<set-payload
+					value=" {  &quot;result&quot;:&quot;fail&quot;,  &quot;error&quot;: &quot;#[(null!=exception.cause) ? (exception.cause.message) : ('Exception Occured in sending mail')] &quot; }"
+					mimeType="application/json" doc:name="Set Exception Payload" />
+			</catch-exception-strategy>
+		</choice-exception-strategy>
+	</flow>
+	<sub-flow name="qnb_emailDatabaseSub_Flow">
+		<set-variable variableName="emailFunction"
+			value="{&quot;function&quot;: &quot;apps.tia_mule.get_email_detail&quot;,&quot;args&quot;: {&quot;policy_no&quot; : #[flowVars.policyNumber]}}"
+			doc:name="emailFunction" />
+		<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+			doc:name="Database">
+			<db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+			<db:in-param name="inputJSON" value="#[flowVars.emailFunction]" />
+			<db:out-param name="fncResult" type="VARCHAR" />
+		</db:stored-procedure>
+		<set-payload value="#[payload.fncResult]" doc:name="Set Payload"
+			mimeType="application/json" />
+		<validation:is-false message="Input policy_no does not exist in TIA"
+			expression="#[payload.toString().contains(&quot;error&quot;)]"
+			doc:name="Validation" />
+        <flow-ref name="qnb_setEmailFieldsSub_Flow" doc:name="qnb_setEmailFieldsSub_Flow"/>
+		<enricher target="#[flowVars.brandData]" doc:name="Message Enricher">
+			<flow-ref name="qnb_getBrandDataFlow" doc:name="qnb_getBrandDataFlow" />
+		</enricher>
+        <flow-ref name="qnb_createEmailAndSendSub_Flow" doc:name="qnb_createEmailAndSendSub_Flow"/>
+
+	</sub-flow>
+    <sub-flow name="qnb_setEmailFieldsSub_Flow">
+        <set-variable variableName="emailDataRaw" value="#[payload]" doc:name="emailDataRaw"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="emailDataMap" value="#[payload]" doc:name="emailDataMap"/>
+        <set-variable variableName="emailSubject" value="" doc:name="emailSubject"/>
+        <set-variable variableName="brandData" value="" doc:name="brandData"/>
+        <set-variable variableName="bcc" value="" doc:name="bcc"/>
+        <set-variable variableName="from" value="" doc:name="from"/>
+    </sub-flow>
+	<sub-flow name="qnb_createEmailAndSendSub_Flow">
+
+		<scripting:component doc:name="Groovy Generate EmailBody">
+			<scripting:script engine="Groovy"
+				file="qnb_emailScript/emailBody.groovy">
+				<property key="emailData" value="#[flowVars.emailDataRaw]" />
+				<property key="templateType" value="#[flowVars.templatename]" />
+				<property key="templateBrand" value="#[flowVars.brand]" />
+				<property key="brandData" value="#[flowVars.brandData]" />
+                <property key="addBCC" value="#[flowVars.addBcc]"/>
+			</scripting:script>
+		</scripting:component>
+
+		<choice doc:name="Choice">
+			<when expression="#[payload != &quot;error&quot;]">
+                <logger message="Varirables for SMTP the policy number : #[flowVars.policyNumber] , the brand : #[flowVars.brand] the to : #[flowVars.emailDataMap['quote_response']['email_address']] the bcc : #[flowVars.bcc]" level="INFO" doc:name="Logger"/>
+				<smtp:outbound-endpoint host="${smtp.host}"
+					connector-ref="SMTP"
+					to="#[flowVars.emailDataMap['quote_response']['email_address']]"
+					bcc="#[flowVars.bcc]" from="#[flowVars.from]"
+					subject="#[flowVars.emailSubject]" replyTo="${smtp.fromaddress}"
+					responseTimeout="30000" mimeType="text/html" transformer-refs="String_to_Email"
+					doc:name="SMTP" port="${smtp.port}" />
+				<set-payload value="{
+ &quot;result&quot;:&quot;success&quot;
+}"
+					mimeType="application/json" doc:name="Set success Payload" />
+			</when>
+			<otherwise>
+				<set-payload
+					value="{  &quot;result&quot;:&quot;fail&quot;,  &quot;error_message&quot;: &quot;Mail sending failed&quot; }"
+					mimeType="application/json" doc:name="Set Failure Payload" />
+			</otherwise>
+		</choice>
+
+
+	</sub-flow>
+	<flow name="qnb_getBrandDataFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.email.brand.data}" doc:name="HTTP" />
+		<flow-ref name="qnb_lovFlow" doc:name="qnb_lovFlow" />
+		<byte-array-to-string-transformer
+			doc:name="Byte Array to String" />
+		<dw:transform-message doc:name="Transform Message">
+			<dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	brand_data : payload.brand_data
+}]]></dw:set-payload>
+		</dw:transform-message>
+		<set-payload value="#[payload.brand_data]" doc:name="Set Payload" />
+		<json:object-to-json-transformer
+			mimeType="application/json" doc:name="Object to JSON" />
+	</flow>
+</mule>

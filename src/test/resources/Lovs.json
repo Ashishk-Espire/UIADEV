@@ -1,0 +1,5197 @@
+{
+   "ALARM_TYPE": [
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "4",
+         "Description": "NSI"
+      },
+      {
+         "Code": "3",
+         "Description": "Non-Approved"
+      },
+      {
+         "Code": "2",
+         "Description": "AISC/SSAIB"
+      },
+      {
+         "Code": "1",
+         "Description": "NACOSS"
+      },
+      {
+         "Code": "0",
+         "Description": "No Alarm"
+      }
+   ],
+   "CLA_CAUSE": [
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "9",
+         "Description": "Escape of Water"
+      },
+      {
+         "Code": "8",
+         "Description": "Earthquake"
+      },
+      {
+         "Code": "7",
+         "Description": "Collission"
+      },
+      {
+         "Code": "6",
+         "Description": "Arson"
+      },
+      {
+         "Code": "5",
+         "Description": "AD away from Home"
+      },
+      {
+         "Code": "4",
+         "Description": "AD to undergr Pipes & Drains"
+      },
+      {
+         "Code": "32",
+         "Description": "Lightning"
+      },
+      {
+         "Code": "31",
+         "Description": "Theft away from home"
+      },
+      {
+         "Code": "30",
+         "Description": "Theft from outbuilding"
+      },
+      {
+         "Code": "3",
+         "Description": "AD to TVs & Home Computer"
+      },
+      {
+         "Code": "29",
+         "Description": "Theft from Home"
+      },
+      {
+         "Code": "28",
+         "Description": "Subsidence, Landslip or Heave"
+      },
+      {
+         "Code": "27",
+         "Description": "Storm"
+      },
+      {
+         "Code": "26",
+         "Description": "Smoke"
+      },
+      {
+         "Code": "25",
+         "Description": "Riot and civil commotion"
+      },
+      {
+         "Code": "24",
+         "Description": "Replacement Locks"
+      },
+      {
+         "Code": "23",
+         "Description": "Plants in the garden"
+      },
+      {
+         "Code": "22",
+         "Description": "Personal or Occupiers Liabilit"
+      },
+      {
+         "Code": "21",
+         "Description": "Owners Liability"
+      },
+      {
+         "Code": "20",
+         "Description": "Malicious Damage"
+      },
+      {
+         "Code": "2",
+         "Description": "AD at Home (extended cover)"
+      },
+      {
+         "Code": "19",
+         "Description": "Loss of metered Water or Oil"
+      },
+      {
+         "Code": "18",
+         "Description": "Loss"
+      },
+      {
+         "Code": "17",
+         "Description": "Food in Freezer"
+      },
+      {
+         "Code": "16",
+         "Description": "Flood"
+      },
+      {
+         "Code": "15",
+         "Description": "Fire"
+      },
+      {
+         "Code": "14",
+         "Description": "Falling Trees"
+      },
+      {
+         "Code": "13",
+         "Description": "Falling Ariels"
+      },
+      {
+         "Code": "12",
+         "Description": "Explosion"
+      },
+      {
+         "Code": "11",
+         "Description": "Escape of Oil"
+      },
+      {
+         "Code": "10",
+         "Description": "Escape of Water (d.t. freezing"
+      },
+      {
+         "Code": "1",
+         "Description": "AD at Home (standard cover)"
+      }
+   ],
+   "CLA_TYPE": [
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "7",
+         "Description": "Sport & Camping"
+      },
+      {
+         "Code": "6",
+         "Description": "Money & Credit Cards"
+      },
+      {
+         "Code": "5",
+         "Description": "Cycle Cover"
+      },
+      {
+         "Code": "4",
+         "Description": "Unspecified Items"
+      },
+      {
+         "Code": "3",
+         "Description": "Specified Items"
+      },
+      {
+         "Code": "2",
+         "Description": "Contents"
+      },
+      {
+         "Code": "1",
+         "Description": "Buildings"
+      }
+   ],
+   "LISTED": [
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "4",
+         "Description": "Not Listed"
+      },
+      {
+         "Code": "2",
+         "Description": "Grade II Listed"
+      },
+      {
+         "Code": "1",
+         "Description": "Grade I Listed"
+      }
+   ],
+   "PROP_TYPE": [
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Cottage"
+      },
+      {
+         "Code": "8",
+         "Description": "Detached Bungalow"
+      },
+      {
+         "Code": "7",
+         "Description": "Semi-Detached Bungalow"
+      },
+      {
+         "Code": "6",
+         "Description": "Detached House"
+      },
+      {
+         "Code": "5",
+         "Description": "Semi-Detached House"
+      },
+      {
+         "Code": "4",
+         "Description": "Terraced House"
+      },
+      {
+         "Code": "3",
+         "Description": "Maisonette"
+      },
+      {
+         "Code": "2",
+         "Description": "Flat in purpose built block"
+      },
+      {
+         "Code": "11",
+         "Description": "Terraced Bungalow"
+      },
+      {
+         "Code": "10",
+         "Description": "Converted Barn"
+      },
+      {
+         "Code": "1",
+         "Description": "Flat in converted house"
+      }
+   ],
+   "ROOF_TYPE": [
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "7",
+         "Description": "More than 50% Flat felt"
+      },
+      {
+         "Code": "6",
+         "Description": "Thatch"
+      },
+      {
+         "Code": "5",
+         "Description": "Asbestos"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Tile"
+      },
+      {
+         "Code": "1",
+         "Description": "Slate"
+      }
+   ],
+   "WALL_TYPE": [
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "999",
+         "Description": "Other"
+      },
+      {
+         "Code": "9",
+         "Description": "Metal"
+      },
+      {
+         "Code": "8",
+         "Description": "Cob"
+      },
+      {
+         "Code": "7",
+         "Description": "Wattle & Daub"
+      },
+      {
+         "Code": "6",
+         "Description": "Timber"
+      },
+      {
+         "Code": "5",
+         "Description": "Timber framed - other material"
+      },
+      {
+         "Code": "4",
+         "Description": "Timber framed - brick or stone"
+      },
+      {
+         "Code": "3",
+         "Description": "Concrete"
+      },
+      {
+         "Code": "2",
+         "Description": "Stone"
+      },
+      {
+         "Code": "1",
+         "Description": "Brick"
+      }
+   ],
+   "CUST_TITLE": [
+      {
+         "Code": "003",
+         "Description": "Mr"
+      },
+      {
+         "Code": "002",
+         "Description": "Miss"
+      },
+      {
+         "Code": "004",
+         "Description": "Mrs"
+      },
+      {
+         "Code": "005",
+         "Description": "Ms"
+      }
+   ],
+   "OCCUPATION_CODE": [
+      {
+         "Code": "1",
+         "Description": "Accountant"
+      },
+      {
+         "Code": "10",
+         "Description": "Aerobic/Keep Fit Instructor"
+      },
+      {
+         "Code": "100",
+         "Description": "Clerk of works"
+      },
+      {
+         "Code": "101",
+         "Description": "Club Employee "
+      },
+      {
+         "Code": "102",
+         "Description": "Club Owner"
+      },
+      {
+         "Code": "103",
+         "Description": "Coach"
+      },
+      {
+         "Code": "104",
+         "Description": "Coastguard"
+      },
+      {
+         "Code": "105",
+         "Description": "Collector Door to Door"
+      },
+      {
+         "Code": "106",
+         "Description": "Commission Agent"
+      },
+      {
+         "Code": "107",
+         "Description": "Commissionaire"
+      },
+      {
+         "Code": "108",
+         "Description": "Commodity broker"
+      },
+      {
+         "Code": "109",
+         "Description": "Commodity dealer"
+      },
+      {
+         "Code": "11",
+         "Description": "Air force (other ranks)"
+      },
+      {
+         "Code": "110",
+         "Description": "Communications Officer"
+      },
+      {
+         "Code": "111",
+         "Description": "Communications Worker"
+      },
+      {
+         "Code": "112",
+         "Description": "Community Nurse"
+      },
+      {
+         "Code": "113",
+         "Description": "Community Worker"
+      },
+      {
+         "Code": "114",
+         "Description": "Company secretary"
+      },
+      {
+         "Code": "115",
+         "Description": "Compositor"
+      },
+      {
+         "Code": "116",
+         "Description": "Computer Consultant"
+      },
+      {
+         "Code": "117",
+         "Description": "Computer Operator"
+      },
+      {
+         "Code": "118",
+         "Description": "Computer Programmer"
+      },
+      {
+         "Code": "119",
+         "Description": "Computer Technician"
+      },
+      {
+         "Code": "12",
+         "Description": "Air force nco"
+      },
+      {
+         "Code": "120",
+         "Description": "Computing"
+      },
+      {
+         "Code": "121",
+         "Description": "Conference Manager"
+      },
+      {
+         "Code": "122",
+         "Description": "Construction worker"
+      },
+      {
+         "Code": "123",
+         "Description": "Consultant Engineer"
+      },
+      {
+         "Code": "124",
+         "Description": "Consultant medical"
+      },
+      {
+         "Code": "125",
+         "Description": "Contractor"
+      },
+      {
+         "Code": "126",
+         "Description": "Coroner"
+      },
+      {
+         "Code": "127",
+         "Description": "Courier"
+      },
+      {
+         "Code": "128",
+         "Description": "Courier driver"
+      },
+      {
+         "Code": "129",
+         "Description": "Courier motorcycle"
+      },
+      {
+         "Code": "13",
+         "Description": "Air traffic controller"
+      },
+      {
+         "Code": "130",
+         "Description": "Courier parcel delivery"
+      },
+      {
+         "Code": "131",
+         "Description": "Craftsman/woman"
+      },
+      {
+         "Code": "132",
+         "Description": "Crane operator"
+      },
+      {
+         "Code": "133",
+         "Description": "Credit Control"
+      },
+      {
+         "Code": "134",
+         "Description": "Credit Controller"
+      },
+      {
+         "Code": "135",
+         "Description": "Croupier"
+      },
+      {
+         "Code": "136",
+         "Description": "Curator"
+      },
+      {
+         "Code": "137",
+         "Description": "Customs and excise"
+      },
+      {
+         "Code": "138",
+         "Description": "Dairy worker"
+      },
+      {
+         "Code": "139",
+         "Description": "Dealer"
+      },
+      {
+         "Code": "14",
+         "Description": "Aircraft Cabin  Crew"
+      },
+      {
+         "Code": "140",
+         "Description": "Dealer - General"
+      },
+      {
+         "Code": "141",
+         "Description": "Dealer-Scrap/Waste"
+      },
+      {
+         "Code": "142",
+         "Description": "Debt Collector"
+      },
+      {
+         "Code": "143",
+         "Description": "Delivery Roundsman"
+      },
+      {
+         "Code": "144",
+         "Description": "Demolition worker"
+      },
+      {
+         "Code": "145",
+         "Description": "Dentist dentition"
+      },
+      {
+         "Code": "146",
+         "Description": "Designer"
+      },
+      {
+         "Code": "147",
+         "Description": "Designer - fashion"
+      },
+      {
+         "Code": "148",
+         "Description": "Designer - graphic"
+      },
+      {
+         "Code": "149",
+         "Description": "Designer - industrial"
+      },
+      {
+         "Code": "15",
+         "Description": "Aircraft Flightdeck Crew"
+      },
+      {
+         "Code": "150",
+         "Description": "Designer interior"
+      },
+      {
+         "Code": "151",
+         "Description": "Diplomatic staff   ireland"
+      },
+      {
+         "Code": "152",
+         "Description": "Diplomatic staff british"
+      },
+      {
+         "Code": "153",
+         "Description": "Diplomatic staff foreign"
+      },
+      {
+         "Code": "154",
+         "Description": "Director Performing Arts"
+      },
+      {
+         "Code": "155",
+         "Description": "Director/company director"
+      },
+      {
+         "Code": "156",
+         "Description": "Disc Jockey"
+      },
+      {
+         "Code": "157",
+         "Description": "Disc Jockey Mobile"
+      },
+      {
+         "Code": "158",
+         "Description": "Disco Staff"
+      },
+      {
+         "Code": "159",
+         "Description": "District valuer"
+      },
+      {
+         "Code": "16",
+         "Description": "Airline Crew"
+      },
+      {
+         "Code": "160",
+         "Description": "Diver"
+      },
+      {
+         "Code": "161",
+         "Description": "Docker"
+      },
+      {
+         "Code": "162",
+         "Description": "Doctor - GP"
+      },
+      {
+         "Code": "163",
+         "Description": "Doctor - Medical"
+      },
+      {
+         "Code": "164",
+         "Description": "Domestic Assistant"
+      },
+      {
+         "Code": "165",
+         "Description": "Doorman"
+      },
+      {
+         "Code": "166",
+         "Description": "Double Glazing Fitter"
+      },
+      {
+         "Code": "167",
+         "Description": "Draughtsman/woman"
+      },
+      {
+         "Code": "168",
+         "Description": "Dressmaker"
+      },
+      {
+         "Code": "169",
+         "Description": "Driver"
+      },
+      {
+         "Code": "17",
+         "Description": "Airline Employee Airport"
+      },
+      {
+         "Code": "170",
+         "Description": "Driver - HGV"
+      },
+      {
+         "Code": "171",
+         "Description": "Driver - Hire car"
+      },
+      {
+         "Code": "172",
+         "Description": "Driver - light goods"
+      },
+      {
+         "Code": "173",
+         "Description": "Driver - plant"
+      },
+      {
+         "Code": "174",
+         "Description": "Driver - Van"
+      },
+      {
+         "Code": "175",
+         "Description": "Driver (ambulance)"
+      },
+      {
+         "Code": "176",
+         "Description": "Driver car delivery"
+      },
+      {
+         "Code": "177",
+         "Description": "Driver fork lift"
+      },
+      {
+         "Code": "178",
+         "Description": "Driver Hot Food Delivery"
+      },
+      {
+         "Code": "179",
+         "Description": "Driver psv"
+      },
+      {
+         "Code": "18",
+         "Description": "Airline Employee non Airport"
+      },
+      {
+         "Code": "180",
+         "Description": "Driver Taxi"
+      },
+      {
+         "Code": "181",
+         "Description": "Driver-train"
+      },
+      {
+         "Code": "182",
+         "Description": "Driver-wholesale newspapers"
+      },
+      {
+         "Code": "183",
+         "Description": "Driving Examiner"
+      },
+      {
+         "Code": "184",
+         "Description": "Driving instructor"
+      },
+      {
+         "Code": "185",
+         "Description": "Earth Moving Contractor"
+      },
+      {
+         "Code": "186",
+         "Description": "Economist"
+      },
+      {
+         "Code": "187",
+         "Description": "Editor"
+      },
+      {
+         "Code": "188",
+         "Description": "Editor - TV/Films (NUJ)"
+      },
+      {
+         "Code": "189",
+         "Description": "Editor- TV/Films"
+      },
+      {
+         "Code": "19",
+         "Description": "Ambulance crew"
+      },
+      {
+         "Code": "190",
+         "Description": "Electrician"
+      },
+      {
+         "Code": "191",
+         "Description": "Electrician vehicle"
+      },
+      {
+         "Code": "192",
+         "Description": "Electricity"
+      },
+      {
+         "Code": "193",
+         "Description": "Embassy staff (Rep of Ireland)"
+      },
+      {
+         "Code": "194",
+         "Description": "Embassy staff-British"
+      },
+      {
+         "Code": "195",
+         "Description": "Embassy staff-foreign"
+      },
+      {
+         "Code": "196",
+         "Description": "Emergency service staff"
+      },
+      {
+         "Code": "197",
+         "Description": "Engineer"
+      },
+      {
+         "Code": "198",
+         "Description": "Engineer-aeronautical"
+      },
+      {
+         "Code": "199",
+         "Description": "Engineer-broadcasting/record"
+      },
+      {
+         "Code": "2",
+         "Description": "Accounts staff"
+      },
+      {
+         "Code": "20",
+         "Description": "Amusement Arcade Owner"
+      },
+      {
+         "Code": "200",
+         "Description": "Engineer-chemical"
+      },
+      {
+         "Code": "201",
+         "Description": "Engineer-civil"
+      },
+      {
+         "Code": "202",
+         "Description": "Engineer-electrical"
+      },
+      {
+         "Code": "203",
+         "Description": "Engineer-heating/ventilation"
+      },
+      {
+         "Code": "204",
+         "Description": "Engineer-marine"
+      },
+      {
+         "Code": "205",
+         "Description": "Engineer-mechanical"
+      },
+      {
+         "Code": "206",
+         "Description": "Engineer-mining"
+      },
+      {
+         "Code": "207",
+         "Description": "Engineer-sales"
+      },
+      {
+         "Code": "208",
+         "Description": "Engineer-service(mobile)"
+      },
+      {
+         "Code": "209",
+         "Description": "Engineer-service(non mobile)"
+      },
+      {
+         "Code": "21",
+         "Description": "Amusement Arcade Staff"
+      },
+      {
+         "Code": "210",
+         "Description": "Engineer-vehicle"
+      },
+      {
+         "Code": "211",
+         "Description": "Engraver"
+      },
+      {
+         "Code": "212",
+         "Description": "Enquiry agent"
+      },
+      {
+         "Code": "213",
+         "Description": "Entertainer"
+      },
+      {
+         "Code": "214",
+         "Description": "Environmental Health Officer"
+      },
+      {
+         "Code": "215",
+         "Description": "Estate agent"
+      },
+      {
+         "Code": "216",
+         "Description": "Estimator"
+      },
+      {
+         "Code": "217",
+         "Description": "Excutors of Insured (Deceased)"
+      },
+      {
+         "Code": "218",
+         "Description": "Executive"
+      },
+      {
+         "Code": "219",
+         "Description": "Executive-advertising"
+      },
+      {
+         "Code": "22",
+         "Description": "Antique Dealer"
+      },
+      {
+         "Code": "220",
+         "Description": "Factory worker"
+      },
+      {
+         "Code": "221",
+         "Description": "Fairground Worker"
+      },
+      {
+         "Code": "222",
+         "Description": "Farm worker"
+      },
+      {
+         "Code": "223",
+         "Description": "Farmer"
+      },
+      {
+         "Code": "224",
+         "Description": "Fast Food Caterer"
+      },
+      {
+         "Code": "225",
+         "Description": "Financial advisor"
+      },
+      {
+         "Code": "226",
+         "Description": "Financier"
+      },
+      {
+         "Code": "227",
+         "Description": "Fire Safety Officer"
+      },
+      {
+         "Code": "228",
+         "Description": "Fireman/woman"
+      },
+      {
+         "Code": "229",
+         "Description": "Fisherman"
+      },
+      {
+         "Code": "23",
+         "Description": "Arboriculturalist"
+      },
+      {
+         "Code": "230",
+         "Description": "Fishmonger"
+      },
+      {
+         "Code": "231",
+         "Description": "Fitter"
+      },
+      {
+         "Code": "232",
+         "Description": "Fitter-tyre/exhaust"
+      },
+      {
+         "Code": "233",
+         "Description": "Fitter-windscreen"
+      },
+      {
+         "Code": "234",
+         "Description": "Florist"
+      },
+      {
+         "Code": "235",
+         "Description": "Forces - foreign"
+      },
+      {
+         "Code": "236",
+         "Description": "Forces - H.M."
+      },
+      {
+         "Code": "237",
+         "Description": "Forces - U.S."
+      },
+      {
+         "Code": "238",
+         "Description": "Forester"
+      },
+      {
+         "Code": "239",
+         "Description": "Forwarding agent"
+      },
+      {
+         "Code": "24",
+         "Description": "Archaeologist"
+      },
+      {
+         "Code": "240",
+         "Description": "Fraud Officer"
+      },
+      {
+         "Code": "241",
+         "Description": "Fund Raiser"
+      },
+      {
+         "Code": "242",
+         "Description": "Furnaceman"
+      },
+      {
+         "Code": "243",
+         "Description": "Furniture remover"
+      },
+      {
+         "Code": "244",
+         "Description": "Furniture Restorer"
+      },
+      {
+         "Code": "245",
+         "Description": "Furrier"
+      },
+      {
+         "Code": "246",
+         "Description": "Gamekeeper"
+      },
+      {
+         "Code": "247",
+         "Description": "Gaming Club Staff Licensed"
+      },
+      {
+         "Code": "248",
+         "Description": "Gaming Club Staff Unlicensed"
+      },
+      {
+         "Code": "249",
+         "Description": "Gardener"
+      },
+      {
+         "Code": "25",
+         "Description": "Architect"
+      },
+      {
+         "Code": "250",
+         "Description": "Gas"
+      },
+      {
+         "Code": "251",
+         "Description": "General Dealer "
+      },
+      {
+         "Code": "252",
+         "Description": "General Worker"
+      },
+      {
+         "Code": "253",
+         "Description": "Geologist"
+      },
+      {
+         "Code": "254",
+         "Description": "Glass worker"
+      },
+      {
+         "Code": "255",
+         "Description": "Goldsmith"
+      },
+      {
+         "Code": "256",
+         "Description": "Grave digger"
+      },
+      {
+         "Code": "257",
+         "Description": "Greengrocer"
+      },
+      {
+         "Code": "258",
+         "Description": "Groom"
+      },
+      {
+         "Code": "259",
+         "Description": "Groundsman"
+      },
+      {
+         "Code": "26",
+         "Description": "Archivist"
+      },
+      {
+         "Code": "260",
+         "Description": "Guest House Owner Licensed"
+      },
+      {
+         "Code": "261",
+         "Description": "Guest Hse Owner Unlicensed"
+      },
+      {
+         "Code": "262",
+         "Description": "Hairdresser"
+      },
+      {
+         "Code": "263",
+         "Description": "Hairdresser-mobile"
+      },
+      {
+         "Code": "264",
+         "Description": "Hawker"
+      },
+      {
+         "Code": "265",
+         "Description": "Headteacher"
+      },
+      {
+         "Code": "266",
+         "Description": "Health (auxilliary)"
+      },
+      {
+         "Code": "267",
+         "Description": "Health (clerical)"
+      },
+      {
+         "Code": "268",
+         "Description": "Health (Medical)"
+      },
+      {
+         "Code": "269",
+         "Description": "Health service employee"
+      },
+      {
+         "Code": "27",
+         "Description": "Army nco"
+      },
+      {
+         "Code": "270",
+         "Description": "Health visitor"
+      },
+      {
+         "Code": "271",
+         "Description": "Higher Education"
+      },
+      {
+         "Code": "272",
+         "Description": "Holiday Camp Staff Licensed"
+      },
+      {
+         "Code": "273",
+         "Description": "Holiday Camp Staff Unlicensed"
+      },
+      {
+         "Code": "274",
+         "Description": "Home help"
+      },
+      {
+         "Code": "275",
+         "Description": "Home Warden"
+      },
+      {
+         "Code": "276",
+         "Description": "Horse Riding Instructor"
+      },
+      {
+         "Code": "277",
+         "Description": "Horticulturalist"
+      },
+      {
+         "Code": "278",
+         "Description": "Hostess"
+      },
+      {
+         "Code": "279",
+         "Description": "Housekeeper"
+      },
+      {
+         "Code": "28",
+         "Description": "Army other ranks"
+      },
+      {
+         "Code": "280",
+         "Description": "Household Duties"
+      },
+      {
+         "Code": "281",
+         "Description": "Housing Officer"
+      },
+      {
+         "Code": "282",
+         "Description": "Ice Cream Vendor"
+      },
+      {
+         "Code": "283",
+         "Description": "Independent Means"
+      },
+      {
+         "Code": "284",
+         "Description": "Industrial chemist"
+      },
+      {
+         "Code": "285",
+         "Description": "Inland revenue officer"
+      },
+      {
+         "Code": "286",
+         "Description": "Inspector"
+      },
+      {
+         "Code": "287",
+         "Description": "Inspector - H M Tax"
+      },
+      {
+         "Code": "288",
+         "Description": "Inspector-customs and excise"
+      },
+      {
+         "Code": "289",
+         "Description": "Inspector-factory"
+      },
+      {
+         "Code": "29",
+         "Description": "Art Dealer"
+      },
+      {
+         "Code": "290",
+         "Description": "Inspector-insurance"
+      },
+      {
+         "Code": "291",
+         "Description": "Instrument maker"
+      },
+      {
+         "Code": "292",
+         "Description": "Insurance agent"
+      },
+      {
+         "Code": "293",
+         "Description": "Insurance broker"
+      },
+      {
+         "Code": "294",
+         "Description": "Insurance Staff"
+      },
+      {
+         "Code": "295",
+         "Description": "Interpreter"
+      },
+      {
+         "Code": "296",
+         "Description": "Ironmonger"
+      },
+      {
+         "Code": "297",
+         "Description": "Itinerant-labourer"
+      },
+      {
+         "Code": "298",
+         "Description": "Itinerant-trader"
+      },
+      {
+         "Code": "299",
+         "Description": "Jeweller"
+      },
+      {
+         "Code": "3",
+         "Description": "Actor/Actress"
+      },
+      {
+         "Code": "30",
+         "Description": "Artist"
+      },
+      {
+         "Code": "300",
+         "Description": "Jockey"
+      },
+      {
+         "Code": "301",
+         "Description": "Joiner"
+      },
+      {
+         "Code": "302",
+         "Description": "Journalist"
+      },
+      {
+         "Code": "303",
+         "Description": "Journalist (NUJ)"
+      },
+      {
+         "Code": "304",
+         "Description": "Judge"
+      },
+      {
+         "Code": "305",
+         "Description": "Junk Shop Proprietor"
+      },
+      {
+         "Code": "306",
+         "Description": "Kennels/Cattery Employee"
+      },
+      {
+         "Code": "307",
+         "Description": "Kennels/Cattery Owner"
+      },
+      {
+         "Code": "308",
+         "Description": "Knitter"
+      },
+      {
+         "Code": "309",
+         "Description": "Laboratory technician"
+      },
+      {
+         "Code": "31",
+         "Description": "Artist (NUJ)"
+      },
+      {
+         "Code": "310",
+         "Description": "Labourer"
+      },
+      {
+         "Code": "311",
+         "Description": "Land Agent"
+      },
+      {
+         "Code": "312",
+         "Description": "Landscape gardener"
+      },
+      {
+         "Code": "313",
+         "Description": "Laundry staff"
+      },
+      {
+         "Code": "314",
+         "Description": "Lawyer"
+      },
+      {
+         "Code": "315",
+         "Description": "Lecturer"
+      },
+      {
+         "Code": "316",
+         "Description": "Legal secretary"
+      },
+      {
+         "Code": "317",
+         "Description": "Liaison Officer"
+      },
+      {
+         "Code": "318",
+         "Description": "Librarian"
+      },
+      {
+         "Code": "319",
+         "Description": "Lifeguard"
+      },
+      {
+         "Code": "32",
+         "Description": "Asphalter/roadworker"
+      },
+      {
+         "Code": "320",
+         "Description": "Lithographer"
+      },
+      {
+         "Code": "321",
+         "Description": "Local government (Libraries)"
+      },
+      {
+         "Code": "322",
+         "Description": "Local Government (misc)"
+      },
+      {
+         "Code": "323",
+         "Description": "Local government (town hall)"
+      },
+      {
+         "Code": "324",
+         "Description": "Local Government Officer"
+      },
+      {
+         "Code": "325",
+         "Description": "Locksmith"
+      },
+      {
+         "Code": "326",
+         "Description": "Machine operator"
+      },
+      {
+         "Code": "327",
+         "Description": "Machinist"
+      },
+      {
+         "Code": "328",
+         "Description": "Magistrate"
+      },
+      {
+         "Code": "329",
+         "Description": "Maintenance staff"
+      },
+      {
+         "Code": "33",
+         "Description": "Assembly worker"
+      },
+      {
+         "Code": "330",
+         "Description": "Management consultant"
+      },
+      {
+         "Code": "331",
+         "Description": "Manager"
+      },
+      {
+         "Code": "332",
+         "Description": "Manager - accounting"
+      },
+      {
+         "Code": "333",
+         "Description": "Manager - administration"
+      },
+      {
+         "Code": "334",
+         "Description": "Manager - airport"
+      },
+      {
+         "Code": "335",
+         "Description": "Manager - area"
+      },
+      {
+         "Code": "336",
+         "Description": "Manager - branch"
+      },
+      {
+         "Code": "337",
+         "Description": "Manager - cinema"
+      },
+      {
+         "Code": "338",
+         "Description": "Manager - investment"
+      },
+      {
+         "Code": "339",
+         "Description": "Manager - Production"
+      },
+      {
+         "Code": "34",
+         "Description": "Assessor"
+      },
+      {
+         "Code": "340",
+         "Description": "Manager - Retail Shop"
+      },
+      {
+         "Code": "341",
+         "Description": "Manager - Ring Sports"
+      },
+      {
+         "Code": "342",
+         "Description": "Manager - sales (non travel)"
+      },
+      {
+         "Code": "343",
+         "Description": "Manager - sales (travel)"
+      },
+      {
+         "Code": "344",
+         "Description": "Manager - station"
+      },
+      {
+         "Code": "345",
+         "Description": "Manager - transport"
+      },
+      {
+         "Code": "346",
+         "Description": "Manager Sports"
+      },
+      {
+         "Code": "347",
+         "Description": "Manager Unlicensed  Premises"
+      },
+      {
+         "Code": "348",
+         "Description": "Manager-Licensed Premises"
+      },
+      {
+         "Code": "349",
+         "Description": "Manufacturing agent"
+      },
+      {
+         "Code": "35",
+         "Description": "Attorney (of insured)"
+      },
+      {
+         "Code": "350",
+         "Description": "Market gardener"
+      },
+      {
+         "Code": "351",
+         "Description": "Market research"
+      },
+      {
+         "Code": "352",
+         "Description": "Market Trader"
+      },
+      {
+         "Code": "353",
+         "Description": "Marketing - non travel"
+      },
+      {
+         "Code": "354",
+         "Description": "Marketing - travel"
+      },
+      {
+         "Code": "355",
+         "Description": "Mechanic"
+      },
+      {
+         "Code": "356",
+         "Description": "Mechanic - airport"
+      },
+      {
+         "Code": "357",
+         "Description": "Mechanic - vehicle"
+      },
+      {
+         "Code": "358",
+         "Description": "Merchant"
+      },
+      {
+         "Code": "359",
+         "Description": "Merchant Navy"
+      },
+      {
+         "Code": "36",
+         "Description": "Au pair"
+      },
+      {
+         "Code": "360",
+         "Description": "Messenger"
+      },
+      {
+         "Code": "361",
+         "Description": "Metallurgist"
+      },
+      {
+         "Code": "362",
+         "Description": "Metalworker"
+      },
+      {
+         "Code": "363",
+         "Description": "Meteorologist"
+      },
+      {
+         "Code": "364",
+         "Description": "Meter reader"
+      },
+      {
+         "Code": "365",
+         "Description": "Midwife"
+      },
+      {
+         "Code": "366",
+         "Description": "Milliner"
+      },
+      {
+         "Code": "367",
+         "Description": "Miner"
+      },
+      {
+         "Code": "368",
+         "Description": "Minister of religion"
+      },
+      {
+         "Code": "369",
+         "Description": "Model"
+      },
+      {
+         "Code": "37",
+         "Description": "Auctioneer"
+      },
+      {
+         "Code": "370",
+         "Description": "Money Lender"
+      },
+      {
+         "Code": "371",
+         "Description": "Motor Racing Organiser"
+      },
+      {
+         "Code": "372",
+         "Description": "Motor Trader"
+      },
+      {
+         "Code": "373",
+         "Description": "MP"
+      },
+      {
+         "Code": "374",
+         "Description": "Musician"
+      },
+      {
+         "Code": "375",
+         "Description": "Musician - Classical"
+      },
+      {
+         "Code": "376",
+         "Description": "Musician - Dance Band"
+      },
+      {
+         "Code": "377",
+         "Description": "Musician - Pop Group"
+      },
+      {
+         "Code": "378",
+         "Description": "Nanny"
+      },
+      {
+         "Code": "379",
+         "Description": "Navy - other ranks"
+      },
+      {
+         "Code": "38",
+         "Description": "Auditor"
+      },
+      {
+         "Code": "380",
+         "Description": "Navy-NCO/Commissioned Officer"
+      },
+      {
+         "Code": "381",
+         "Description": "Negotiator"
+      },
+      {
+         "Code": "382",
+         "Description": "Newsagent"
+      },
+      {
+         "Code": "383",
+         "Description": "Night Club Staff"
+      },
+      {
+         "Code": "384",
+         "Description": "Nun"
+      },
+      {
+         "Code": "385",
+         "Description": "Nurse"
+      },
+      {
+         "Code": "386",
+         "Description": "Nurse - district"
+      },
+      {
+         "Code": "387",
+         "Description": "Nurse - student"
+      },
+      {
+         "Code": "388",
+         "Description": "Nursery Nurse"
+      },
+      {
+         "Code": "389",
+         "Description": "Nurseryman"
+      },
+      {
+         "Code": "39",
+         "Description": "Author"
+      },
+      {
+         "Code": "390",
+         "Description": "Nursing Sister"
+      },
+      {
+         "Code": "391",
+         "Description": "Office Worker"
+      },
+      {
+         "Code": "392",
+         "Description": "Optician"
+      },
+      {
+         "Code": "393",
+         "Description": "Osteopath"
+      },
+      {
+         "Code": "394",
+         "Description": "Other Unknown"
+      },
+      {
+         "Code": "395",
+         "Description": "Packer"
+      },
+      {
+         "Code": "396",
+         "Description": "Paint Sprayer - Motor Trade"
+      },
+      {
+         "Code": "397",
+         "Description": "Paint Sprayer-Non Motor Trade"
+      },
+      {
+         "Code": "398",
+         "Description": "Painter"
+      },
+      {
+         "Code": "399",
+         "Description": "Painter/decorator"
+      },
+      {
+         "Code": "4",
+         "Description": "Actuary"
+      },
+      {
+         "Code": "40",
+         "Description": "Baggage handler"
+      },
+      {
+         "Code": "400",
+         "Description": "Parents of member"
+      },
+      {
+         "Code": "401",
+         "Description": "Park/recreational attendant"
+      },
+      {
+         "Code": "402",
+         "Description": "Party planner"
+      },
+      {
+         "Code": "403",
+         "Description": "Patrolman"
+      },
+      {
+         "Code": "404",
+         "Description": "Pattern maker"
+      },
+      {
+         "Code": "405",
+         "Description": "Pawnbroker"
+      },
+      {
+         "Code": "406",
+         "Description": "Personal assistant"
+      },
+      {
+         "Code": "407",
+         "Description": "Personnel administrator"
+      },
+      {
+         "Code": "408",
+         "Description": "Pest control"
+      },
+      {
+         "Code": "409",
+         "Description": "Petrol Station Attendant"
+      },
+      {
+         "Code": "41",
+         "Description": "Bailiff"
+      },
+      {
+         "Code": "410",
+         "Description": "Pharmacist"
+      },
+      {
+         "Code": "411",
+         "Description": "Photographer"
+      },
+      {
+         "Code": "412",
+         "Description": "Photographer - Fashion"
+      },
+      {
+         "Code": "413",
+         "Description": "Photographer - Fashion (NUJ)"
+      },
+      {
+         "Code": "414",
+         "Description": "Photographer - Location"
+      },
+      {
+         "Code": "415",
+         "Description": "Photographer - Location (NUJ)"
+      },
+      {
+         "Code": "416",
+         "Description": "Photographer - Studio"
+      },
+      {
+         "Code": "417",
+         "Description": "Photographer - Studio (NUJ)"
+      },
+      {
+         "Code": "418",
+         "Description": "Photographer (NUJ)"
+      },
+      {
+         "Code": "419",
+         "Description": "Physiotherapist"
+      },
+      {
+         "Code": "42",
+         "Description": "Baker"
+      },
+      {
+         "Code": "420",
+         "Description": "Piano tuner"
+      },
+      {
+         "Code": "421",
+         "Description": "Pipe Layer"
+      },
+      {
+         "Code": "422",
+         "Description": "Planning officer"
+      },
+      {
+         "Code": "423",
+         "Description": "Plasterer"
+      },
+      {
+         "Code": "424",
+         "Description": "Plumber"
+      },
+      {
+         "Code": "425",
+         "Description": "Podiatrist"
+      },
+      {
+         "Code": "426",
+         "Description": "Police officer"
+      },
+      {
+         "Code": "427",
+         "Description": "Police Support Staff"
+      },
+      {
+         "Code": "428",
+         "Description": "Pools Collector"
+      },
+      {
+         "Code": "429",
+         "Description": "Porter"
+      },
+      {
+         "Code": "43",
+         "Description": "Bank staff"
+      },
+      {
+         "Code": "430",
+         "Description": "Post office staff"
+      },
+      {
+         "Code": "431",
+         "Description": "Postman/woman"
+      },
+      {
+         "Code": "432",
+         "Description": "Potter"
+      },
+      {
+         "Code": "433",
+         "Description": "Printer"
+      },
+      {
+         "Code": "434",
+         "Description": "Prison officer"
+      },
+      {
+         "Code": "435",
+         "Description": "Private Investigator"
+      },
+      {
+         "Code": "436",
+         "Description": "Pro Racing Motor Cyclist"
+      },
+      {
+         "Code": "437",
+         "Description": "Probation officer"
+      },
+      {
+         "Code": "438",
+         "Description": "Process worker"
+      },
+      {
+         "Code": "439",
+         "Description": "Producer Performing Arts"
+      },
+      {
+         "Code": "44",
+         "Description": "Bar staff"
+      },
+      {
+         "Code": "440",
+         "Description": "Professional Boxer"
+      },
+      {
+         "Code": "441",
+         "Description": "Professional Racing Driver"
+      },
+      {
+         "Code": "442",
+         "Description": "Professional Sportsperson"
+      },
+      {
+         "Code": "443",
+         "Description": "Professional Wrestler"
+      },
+      {
+         "Code": "444",
+         "Description": "Projectionist"
+      },
+      {
+         "Code": "445",
+         "Description": "Promoter"
+      },
+      {
+         "Code": "446",
+         "Description": "Promoter - Racing"
+      },
+      {
+         "Code": "447",
+         "Description": "Promoter - Ring Sports"
+      },
+      {
+         "Code": "448",
+         "Description": "Property Developer"
+      },
+      {
+         "Code": "449",
+         "Description": "Public relations officer"
+      },
+      {
+         "Code": "45",
+         "Description": "Barrister"
+      },
+      {
+         "Code": "450",
+         "Description": "Publican"
+      },
+      {
+         "Code": "451",
+         "Description": "Publisher"
+      },
+      {
+         "Code": "452",
+         "Description": "Quality controller"
+      },
+      {
+         "Code": "453",
+         "Description": "Quantity surveyor"
+      },
+      {
+         "Code": "454",
+         "Description": "Racing Organiser"
+      },
+      {
+         "Code": "455",
+         "Description": "Radiographer"
+      },
+      {
+         "Code": "456",
+         "Description": "Railway staff"
+      },
+      {
+         "Code": "457",
+         "Description": "Receptionist"
+      },
+      {
+         "Code": "458",
+         "Description": "Recruitment Consultant"
+      },
+      {
+         "Code": "459",
+         "Description": "Refuse collector"
+      },
+      {
+         "Code": "46",
+         "Description": "BBC Employee (clerical)"
+      },
+      {
+         "Code": "460",
+         "Description": "Registrar"
+      },
+      {
+         "Code": "461",
+         "Description": "Rent Officer"
+      },
+      {
+         "Code": "462",
+         "Description": "Reporter"
+      },
+      {
+         "Code": "463",
+         "Description": "Reporter (NUJ)"
+      },
+      {
+         "Code": "464",
+         "Description": "Researcher"
+      },
+      {
+         "Code": "465",
+         "Description": "Retired"
+      },
+      {
+         "Code": "466",
+         "Description": "Rig Worker"
+      },
+      {
+         "Code": "467",
+         "Description": "Rig Worker Off Shore"
+      },
+      {
+         "Code": "468",
+         "Description": "Road Safety Officer"
+      },
+      {
+         "Code": "469",
+         "Description": "Roofer"
+      },
+      {
+         "Code": "47",
+         "Description": "BBC Stage Mover"
+      },
+      {
+         "Code": "470",
+         "Description": "Sales - non travelling"
+      },
+      {
+         "Code": "471",
+         "Description": "Sales - telephone"
+      },
+      {
+         "Code": "472",
+         "Description": "Sales - Travelling"
+      },
+      {
+         "Code": "473",
+         "Description": "Sales assistant"
+      },
+      {
+         "Code": "474",
+         "Description": "Scaffolder"
+      },
+      {
+         "Code": "475",
+         "Description": "Scientist"
+      },
+      {
+         "Code": "476",
+         "Description": "Script writer"
+      },
+      {
+         "Code": "477",
+         "Description": "Sculptor"
+      },
+      {
+         "Code": "478",
+         "Description": "Secretary"
+      },
+      {
+         "Code": "479",
+         "Description": "Security Guard"
+      },
+      {
+         "Code": "48",
+         "Description": "Beautician"
+      },
+      {
+         "Code": "480",
+         "Description": "Security Officer"
+      },
+      {
+         "Code": "481",
+         "Description": "Semi-Pro Sportsperson"
+      },
+      {
+         "Code": "482",
+         "Description": "Shipyard worker"
+      },
+      {
+         "Code": "483",
+         "Description": "Shop assistant"
+      },
+      {
+         "Code": "484",
+         "Description": "Shop proprietor"
+      },
+      {
+         "Code": "485",
+         "Description": "Shop proprietor - mobile"
+      },
+      {
+         "Code": "486",
+         "Description": "Shopfitter"
+      },
+      {
+         "Code": "487",
+         "Description": "Showman/Person"
+      },
+      {
+         "Code": "488",
+         "Description": "Signwriter"
+      },
+      {
+         "Code": "489",
+         "Description": "Social worker"
+      },
+      {
+         "Code": "49",
+         "Description": "Benefits Officer"
+      },
+      {
+         "Code": "490",
+         "Description": "Solicitor (Occupation)"
+      },
+      {
+         "Code": "491",
+         "Description": "Solicitor -acting for Insured"
+      },
+      {
+         "Code": "492",
+         "Description": "Son/daughter of member"
+      },
+      {
+         "Code": "493",
+         "Description": "Sorter"
+      },
+      {
+         "Code": "494",
+         "Description": "Special Needs Assistant"
+      },
+      {
+         "Code": "495",
+         "Description": "Sports admin - other sports"
+      },
+      {
+         "Code": "496",
+         "Description": "Sports admin - ring sports"
+      },
+      {
+         "Code": "497",
+         "Description": "Sports Centre Attendant"
+      },
+      {
+         "Code": "498",
+         "Description": "Stable hand"
+      },
+      {
+         "Code": "499",
+         "Description": "STAFF"
+      },
+      {
+         "Code": "5",
+         "Description": "Administration staff"
+      },
+      {
+         "Code": "50",
+         "Description": "Betting Shop Employee "
+      },
+      {
+         "Code": "500",
+         "Description": "Stationer"
+      },
+      {
+         "Code": "501",
+         "Description": "Statistician"
+      },
+      {
+         "Code": "502",
+         "Description": "Steel Worker"
+      },
+      {
+         "Code": "503",
+         "Description": "Steeplejack"
+      },
+      {
+         "Code": "504",
+         "Description": "Stevedore"
+      },
+      {
+         "Code": "505",
+         "Description": "Steward/Stewardess"
+      },
+      {
+         "Code": "506",
+         "Description": "Stock controller"
+      },
+      {
+         "Code": "507",
+         "Description": "Stockbroker"
+      },
+      {
+         "Code": "508",
+         "Description": "Stonemason"
+      },
+      {
+         "Code": "509",
+         "Description": "Storeman/woman"
+      },
+      {
+         "Code": "51",
+         "Description": "Betting Shop Owner"
+      },
+      {
+         "Code": "510",
+         "Description": "Street Trader"
+      },
+      {
+         "Code": "511",
+         "Description": "Student"
+      },
+      {
+         "Code": "512",
+         "Description": "Student - Foreign"
+      },
+      {
+         "Code": "513",
+         "Description": "Supervisor"
+      },
+      {
+         "Code": "514",
+         "Description": "Surgeon"
+      },
+      {
+         "Code": "515",
+         "Description": "Surveyor"
+      },
+      {
+         "Code": "516",
+         "Description": "Surveyor - chartered"
+      },
+      {
+         "Code": "517",
+         "Description": "Tailor"
+      },
+      {
+         "Code": "518",
+         "Description": "Taxidermist"
+      },
+      {
+         "Code": "519",
+         "Description": "Teacher"
+      },
+      {
+         "Code": "52",
+         "Description": "Blacksmith"
+      },
+      {
+         "Code": "520",
+         "Description": "Technician Performing Arts"
+      },
+      {
+         "Code": "521",
+         "Description": "Telephone Engineer"
+      },
+      {
+         "Code": "522",
+         "Description": "Telephonist"
+      },
+      {
+         "Code": "523",
+         "Description": "Textile worker"
+      },
+      {
+         "Code": "524",
+         "Description": "Ticket inspector"
+      },
+      {
+         "Code": "525",
+         "Description": "Tiler"
+      },
+      {
+         "Code": "526",
+         "Description": "Tobacconist"
+      },
+      {
+         "Code": "527",
+         "Description": "Tool maker"
+      },
+      {
+         "Code": "528",
+         "Description": "Town Clerk"
+      },
+      {
+         "Code": "529",
+         "Description": "Toy maker"
+      },
+      {
+         "Code": "53",
+         "Description": "Boatbuilder"
+      },
+      {
+         "Code": "530",
+         "Description": "Trade union official"
+      },
+      {
+         "Code": "531",
+         "Description": "Traffic warden"
+      },
+      {
+         "Code": "532",
+         "Description": "Trainer"
+      },
+      {
+         "Code": "533",
+         "Description": "Trainer - Animal"
+      },
+      {
+         "Code": "534",
+         "Description": "Trainer - Greyhound"
+      },
+      {
+         "Code": "535",
+         "Description": "Trainer - Race Horse"
+      },
+      {
+         "Code": "536",
+         "Description": "Trainer (NUJ)"
+      },
+      {
+         "Code": "537",
+         "Description": "Training officer"
+      },
+      {
+         "Code": "538",
+         "Description": "Translator"
+      },
+      {
+         "Code": "539",
+         "Description": "Transport"
+      },
+      {
+         "Code": "54",
+         "Description": "Boilerman"
+      },
+      {
+         "Code": "540",
+         "Description": "Travel agent"
+      },
+      {
+         "Code": "541",
+         "Description": "Travelling Showman"
+      },
+      {
+         "Code": "542",
+         "Description": "Tree surgeon"
+      },
+      {
+         "Code": "543",
+         "Description": "Trinity House Pilot"
+      },
+      {
+         "Code": "544",
+         "Description": "Turf Accountant"
+      },
+      {
+         "Code": "545",
+         "Description": "Typist"
+      },
+      {
+         "Code": "546",
+         "Description": "UIA staff"
+      },
+      {
+         "Code": "547",
+         "Description": "Undertaker"
+      },
+      {
+         "Code": "548",
+         "Description": "Underwriter"
+      },
+      {
+         "Code": "549",
+         "Description": "Unemployed"
+      },
+      {
+         "Code": "55",
+         "Description": "Bookmaker"
+      },
+      {
+         "Code": "550",
+         "Description": "UNISON staff"
+      },
+      {
+         "Code": "551",
+         "Description": "Unison Welfare (for Insured)"
+      },
+      {
+         "Code": "552",
+         "Description": "Unity scheme"
+      },
+      {
+         "Code": "553",
+         "Description": "Unknown - DO NOT USE"
+      },
+      {
+         "Code": "554",
+         "Description": "UNKNOWN - Use for coupons only"
+      },
+      {
+         "Code": "555",
+         "Description": "Upholsterer"
+      },
+      {
+         "Code": "556",
+         "Description": "Usher"
+      },
+      {
+         "Code": "557",
+         "Description": "Valuer"
+      },
+      {
+         "Code": "558",
+         "Description": "Vdu operator"
+      },
+      {
+         "Code": "559",
+         "Description": "Vehicle body worker"
+      },
+      {
+         "Code": "56",
+         "Description": "Breeder"
+      },
+      {
+         "Code": "560",
+         "Description": "Vehicle Valet"
+      },
+      {
+         "Code": "561",
+         "Description": "Veterinary surgeon"
+      },
+      {
+         "Code": "562",
+         "Description": "Voluntary Worker"
+      },
+      {
+         "Code": "563",
+         "Description": "Waiter/Waitress (Licensed)"
+      },
+      {
+         "Code": "564",
+         "Description": "Waiter/Waitress (Unlicensed)"
+      },
+      {
+         "Code": "565",
+         "Description": "Warehouseman/woman"
+      },
+      {
+         "Code": "566",
+         "Description": "Watchmaker"
+      },
+      {
+         "Code": "567",
+         "Description": "Water industry worker"
+      },
+      {
+         "Code": "568",
+         "Description": "Welder"
+      },
+      {
+         "Code": "569",
+         "Description": "Welfare Officer"
+      },
+      {
+         "Code": "57",
+         "Description": "Brewery worker"
+      },
+      {
+         "Code": "570",
+         "Description": "Window cleaner"
+      },
+      {
+         "Code": "571",
+         "Description": "Writer"
+      },
+      {
+         "Code": "572",
+         "Description": "Youth Worker"
+      },
+      {
+         "Code": "573",
+         "Description": "Zoo keeper"
+      },
+      {
+         "Code": "574",
+         "Description": "Adminstrator (of dec'd insrd)"
+      },
+      {
+         "Code": "575",
+         "Description": "Administratrix (of dec'd ins)"
+      },
+      {
+         "Code": "576",
+         "Description": "Children's entertainer"
+      },
+      {
+         "Code": "578",
+         "Description": "Administrator"
+      },
+      {
+         "Code": "579",
+         "Description": "Anaesthetist"
+      },
+      {
+         "Code": "58",
+         "Description": "Bricklayer"
+      },
+      {
+         "Code": "580",
+         "Description": "Biochemist"
+      },
+      {
+         "Code": "581",
+         "Description": "Biologist"
+      },
+      {
+         "Code": "582",
+         "Description": "Careers Officer"
+      },
+      {
+         "Code": "583",
+         "Description": "Charity worker"
+      },
+      {
+         "Code": "584",
+         "Description": "Consultant"
+      },
+      {
+         "Code": "585",
+         "Description": "Conveyancer"
+      },
+      {
+         "Code": "586",
+         "Description": "Cook"
+      },
+      {
+         "Code": "587",
+         "Description": "Council worker"
+      },
+      {
+         "Code": "588",
+         "Description": "Counsellor"
+      },
+      {
+         "Code": "589",
+         "Description": "Dental Hygienist"
+      },
+      {
+         "Code": "59",
+         "Description": "Broadcaster tv/radio"
+      },
+      {
+         "Code": "590",
+         "Description": "Dental Nurse"
+      },
+      {
+         "Code": "591",
+         "Description": "Dental Technician"
+      },
+      {
+         "Code": "592",
+         "Description": "Dietician"
+      },
+      {
+         "Code": "594",
+         "Description": "Glazier"
+      },
+      {
+         "Code": "595",
+         "Description": "Lavatory Attendant"
+      },
+      {
+         "Code": "596",
+         "Description": "Manager - Marketing"
+      },
+      {
+         "Code": "597",
+         "Description": "Office Manager"
+      },
+      {
+         "Code": "598",
+         "Description": "Operations Manager"
+      },
+      {
+         "Code": "599",
+         "Description": "Park Keeper"
+      },
+      {
+         "Code": "60",
+         "Description": "Builder"
+      },
+      {
+         "Code": "600",
+         "Description": "Occupational Therapist"
+      },
+      {
+         "Code": "601",
+         "Description": "Teaching Assistant"
+      },
+      {
+         "Code": "602",
+         "Description": "Personnel Officer"
+      },
+      {
+         "Code": "603",
+         "Description": "Physicist"
+      },
+      {
+         "Code": "604",
+         "Description": "Project Manager"
+      },
+      {
+         "Code": "605",
+         "Description": "Psychotherapist"
+      },
+      {
+         "Code": "606",
+         "Description": "Sales - account executive"
+      },
+      {
+         "Code": "607",
+         "Description": "Sales - representative"
+      },
+      {
+         "Code": "608",
+         "Description": "Speech Therapist"
+      },
+      {
+         "Code": "609",
+         "Description": "Telecommunications Engineer"
+      },
+      {
+         "Code": "61",
+         "Description": "Building Control Officer"
+      },
+      {
+         "Code": "610",
+         "Description": "Theatre Manager"
+      },
+      {
+         "Code": "611",
+         "Description": "Trading Standards Officer"
+      },
+      {
+         "Code": "612",
+         "Description": "Tutor"
+      },
+      {
+         "Code": "613",
+         "Description": "Health and Safety Officer"
+      },
+      {
+         "Code": "614",
+         "Description": "Dark Room Technician"
+      },
+      {
+         "Code": "615",
+         "Description": "Road Sweeper"
+      },
+      {
+         "Code": "616",
+         "Description": "Accommodation Officer"
+      },
+      {
+         "Code": "617",
+         "Description": "Assistant Manager"
+      },
+      {
+         "Code": "618",
+         "Description": "Care Manager"
+      },
+      {
+         "Code": "619",
+         "Description": "Classroom Assistant"
+      },
+      {
+         "Code": "62",
+         "Description": "Bursar"
+      },
+      {
+         "Code": "620",
+         "Description": "Laboratory Assistant"
+      },
+      {
+         "Code": "621",
+         "Description": "Legal Executive"
+      },
+      {
+         "Code": "622",
+         "Description": "Matron"
+      },
+      {
+         "Code": "623",
+         "Description": "Nursery Assistant"
+      },
+      {
+         "Code": "624",
+         "Description": "Playgroup Leader"
+      },
+      {
+         "Code": "625",
+         "Description": "Practice Manager"
+      },
+      {
+         "Code": "627",
+         "Description": "Therapist"
+      },
+      {
+         "Code": "628",
+         "Description": "Town Planner"
+      },
+      {
+         "Code": "629",
+         "Description": "Staff Nurse"
+      },
+      {
+         "Code": "63",
+         "Description": "Bus Company Employee"
+      },
+      {
+         "Code": "630",
+         "Description": "Loader"
+      },
+      {
+         "Code": "631",
+         "Description": "Clerical Officer"
+      },
+      {
+         "Code": "632",
+         "Description": "Contracts Manager"
+      },
+      {
+         "Code": "633",
+         "Description": "Foreman/woman"
+      },
+      {
+         "Code": "634",
+         "Description": "Legal Assistant"
+      },
+      {
+         "Code": "635",
+         "Description": "Safety Officer"
+      },
+      {
+         "Code": "636",
+         "Description": "Creche worker"
+      },
+      {
+         "Code": "637",
+         "Description": "Day Care Officer"
+      },
+      {
+         "Code": "638",
+         "Description": "Handyman/woman"
+      },
+      {
+         "Code": "639",
+         "Description": "Landscape Architect"
+      },
+      {
+         "Code": "64",
+         "Description": "Bus conductor"
+      },
+      {
+         "Code": "640",
+         "Description": "Payroll Assistant"
+      },
+      {
+         "Code": "641",
+         "Description": "Assistant Caretaker"
+      },
+      {
+         "Code": "642",
+         "Description": "Assistant Cook"
+      },
+      {
+         "Code": "643",
+         "Description": "Building Manager"
+      },
+      {
+         "Code": "644",
+         "Description": "Manager - catering"
+      },
+      {
+         "Code": "645",
+         "Description": "Clerical Assistant"
+      },
+      {
+         "Code": "646",
+         "Description": "Medical Secretary"
+      },
+      {
+         "Code": "647",
+         "Description": "Debt Councellor"
+      },
+      {
+         "Code": "648",
+         "Description": "Deputy Manager"
+      },
+      {
+         "Code": "649",
+         "Description": "Finance Officer"
+      },
+      {
+         "Code": "65",
+         "Description": "Business consultant"
+      },
+      {
+         "Code": "650",
+         "Description": "Aromatherapist"
+      },
+      {
+         "Code": "651",
+         "Description": "Health Care Assistant"
+      },
+      {
+         "Code": "652",
+         "Description": "Orthoptist"
+      },
+      {
+         "Code": "653",
+         "Description": "Letting Officer"
+      },
+      {
+         "Code": "654",
+         "Description": "Medical Assistant"
+      },
+      {
+         "Code": "655",
+         "Description": "Nursing Auxiliary"
+      },
+      {
+         "Code": "656",
+         "Description": "Outreach worker"
+      },
+      {
+         "Code": "657",
+         "Description": "Payroll Clerk"
+      },
+      {
+         "Code": "658",
+         "Description": "Pharmacy Assistant"
+      },
+      {
+         "Code": "659",
+         "Description": "Plant attendant"
+      },
+      {
+         "Code": "66",
+         "Description": "Business Prop Licensed Premise"
+      },
+      {
+         "Code": "660",
+         "Description": "Project worker"
+      },
+      {
+         "Code": "661",
+         "Description": "Technical Clerk"
+      },
+      {
+         "Code": "662",
+         "Description": "Manager - technical"
+      },
+      {
+         "Code": "663",
+         "Description": "Employed"
+      },
+      {
+         "Code": "664",
+         "Description": "Self Employed"
+      },
+      {
+         "Code": "665",
+         "Description": "Not Known"
+      },
+      {
+         "Code": "666",
+         "Description": "<Please translate>"
+      },
+      {
+         "Code": "67",
+         "Description": "Business Proprietor"
+      },
+      {
+         "Code": "68",
+         "Description": "Butcher"
+      },
+      {
+         "Code": "69",
+         "Description": "Buyer"
+      },
+      {
+         "Code": "70",
+         "Description": "Cameraman TV/Films"
+      },
+      {
+         "Code": "71",
+         "Description": "Cameraman TV/Films (NUJ)"
+      },
+      {
+         "Code": "72",
+         "Description": "Car park attendant"
+      },
+      {
+         "Code": "73",
+         "Description": "Care Assistant"
+      },
+      {
+         "Code": "74",
+         "Description": "Caretaker"
+      },
+      {
+         "Code": "75",
+         "Description": "Carpenter"
+      },
+      {
+         "Code": "76",
+         "Description": "Carpetfitter"
+      },
+      {
+         "Code": "77",
+         "Description": "Cartographer"
+      },
+      {
+         "Code": "78",
+         "Description": "Cashier"
+      },
+      {
+         "Code": "79",
+         "Description": "Casual worker"
+      },
+      {
+         "Code": "8",
+         "Description": "Advertising agent"
+      },
+      {
+         "Code": "80",
+         "Description": "Caterer"
+      },
+      {
+         "Code": "81",
+         "Description": "Caterer Mobile"
+      },
+      {
+         "Code": "82",
+         "Description": "Catering staff"
+      },
+      {
+         "Code": "83",
+         "Description": "Chambermaid"
+      },
+      {
+         "Code": "84",
+         "Description": "Chart/cert accountant"
+      },
+      {
+         "Code": "85",
+         "Description": "Charterer"
+      },
+      {
+         "Code": "86",
+         "Description": "Chauffeur"
+      },
+      {
+         "Code": "87",
+         "Description": "Chef"
+      },
+      {
+         "Code": "88",
+         "Description": "Child minder"
+      },
+      {
+         "Code": "9",
+         "Description": "Advertising staff"
+      },
+      {
+         "Code": "90",
+         "Description": "Chimney sweep"
+      },
+      {
+         "Code": "91",
+         "Description": "Chiropodist"
+      },
+      {
+         "Code": "92",
+         "Description": "Circus Worker"
+      },
+      {
+         "Code": "93",
+         "Description": "Civil servant"
+      },
+      {
+         "Code": "94",
+         "Description": "Claims/loss adjuster"
+      },
+      {
+         "Code": "95",
+         "Description": "Cleaner"
+      },
+      {
+         "Code": "96",
+         "Description": "Clerk"
+      },
+      {
+         "Code": "97",
+         "Description": "Clerk - booking"
+      },
+      {
+         "Code": "98",
+         "Description": "Clerk - shipping"
+      },
+      {
+         "Code": "99",
+         "Description": "Clerk - wages"
+      }
+   ],
+   "OWNER_TYPE": []
+}

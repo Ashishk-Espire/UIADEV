@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <flow name="security_check_user_quoteFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.security.checkuserquote}" doc:name="HTTP"/>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <!-- <set-variable variableName="methodinput" value="{&quot;policy_no&quot;:#[flowVars.policy_no],&quot;email_address&quot;:&quot;#[flowVars.email_address]&quot;}" doc:name="Variable"/> -->
+        <set-variable variableName="checkuserquotefunction" value="{&quot;function&quot; : &quot;tia_mule.chk_user_quote&quot;, &quot;args&quot; : #[payload]}" doc:name="Check_User_Quote_Function_Variable"/>
+        <logger message="The check user quote function : #[flowVars.checkuserquotefunction]" level="INFO" doc:name="Logger"/>
+        <transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+            <db:stored-procedure config-ref="TIADB_Oracle_Configuration" doc:name="Database">
+                <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" type="VARCHAR" value="#[flowVars.checkuserquotefunction]"/>
+                <db:out-param name="fncResult" type="CLOB"/>
+            </db:stored-procedure>
+            <custom-transformer class="com.uia.transformer.ClobTransformer" doc:name="Java Transformer (oracle.sql.CLOB to String) "/>
+            <set-payload value="#[payload]" mimeType="application/json" doc:name="Set Payload"/>
+        </transactional>
+    </flow>
+    <flow name="security_validate_user_quoteFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.security.validatequote}" doc:name="HTTP"/>
+        <set-payload value="{  &quot;policy_no&quot; : #[(null!= flowVars.policy_no) ?flowVars.policy_no :flowVars.quote_id ],  &quot;email_address&quot; : &quot;#[flowVars.email_address]&quot; }" doc:name="Set Payload"/>
+        <flow-ref name="security_check_user_quoteFlow" doc:name="security_check_user_quoteFlow"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	"result_status":(upper payload.header.result_status),
+	"valid" : payload.call_chk_user_quote.Valid,
+	"result_message":"Email address and policy number are matching"
+	
+} when (upper payload.call_chk_user_quote.Valid) == "1"
+otherwise {
+	"result_status":(upper payload.header.result_status),
+	"valid" : payload.call_chk_user_quote.Valid,
+	"result_message":"Email address and policy number are not matching"
+}
+
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    
+   
+</mule>

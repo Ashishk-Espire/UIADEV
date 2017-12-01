@@ -1,0 +1,1190 @@
+{
+    "result": {
+        "ref_data": [
+            {
+                "product_ver_date_map": [
+                    {
+                        "id": "2017-02-22",
+                        "description": 20
+                    }
+                ]
+            },
+            {
+                "affinity_channel_map": [
+                    {
+                        "id": "WEBINB",
+                        "description": "0071"
+                    },
+                    {
+                        "id": "AGGROR",
+                        "description": "0072"
+                    }
+                ]
+            },
+            {
+                "together_campaign_date_map": [
+                    {
+                        "id": "2013-11-27",
+                        "description": "12859"
+                    }
+                ]
+            },
+            {
+                "uia_campaign_date_map": [
+                    {
+                        "id": "2016-02-01",
+                        "description": "16701"
+                    }
+                ]
+            },
+            {
+                "qtzone_campaign_date_map": [
+                    {
+                        "id": "2013-05-01",
+                        "description": "16381"
+                    }
+                ]
+            },
+            {
+                "confsd_campaign_date_map": [
+                    {
+                        "id": "2013-05-01",
+                        "description": "15799"
+                    }
+                ]
+            },
+            {
+                "gocomp_campaign_date_map": [
+                    {
+                        "id": "2013-05-01",
+                        "description": "15779"
+                    }
+                ]
+            }
+        ],
+        "lov_data": [
+            {
+                "alarm_type": [
+                    {
+                        "id": "3",
+                        "description": "Non-Approved"
+                    },
+                    {
+                        "id": "4",
+                        "description": "NSI"
+                    },
+                    {
+                        "id": "0",
+                        "description": "No Alarm"
+                    },
+                    {
+                        "id": "1",
+                        "description": "NACOSS"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Unknown"
+                    },
+                    {
+                        "id": "2",
+                        "description": "AISC/SSAIB"
+                    }
+                ]
+            },
+            {
+                "bus_use": [
+                    {
+                        "id": "999",
+                        "description": "Other"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Hairdressing/Beauty/Massage"
+                    },
+                    {
+                        "id": "3",
+                        "description": "B-visitors, clerical only."
+                    },
+                    {
+                        "id": "2",
+                        "description": "No B-visitors, clerical only"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Solely as business premises"
+                    },
+                    {
+                        "id": "0",
+                        "description": "No"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Manufactoring/Repair"
+                    }
+                ]
+            },
+            {
+                "cla_cause": [
+                    {
+                        "id": "26",
+                        "description": "Smoke"
+                    },
+                    {
+                        "id": "25",
+                        "description": "Riot/civil commotion"
+                    },
+                    {
+                        "id": "24",
+                        "description": "Replacement Locks"
+                    },
+                    {
+                        "id": "23",
+                        "description": "Plants in the garden"
+                    },
+                    {
+                        "id": "22",
+                        "description": "Personal/occupiers liability"
+                    },
+                    {
+                        "id": "21",
+                        "description": "Owners Liability"
+                    },
+                    {
+                        "id": "20",
+                        "description": "Malicious Damage"
+                    },
+                    {
+                        "id": "19",
+                        "description": "Loss of metered water/oi"
+                    },
+                    {
+                        "id": "18",
+                        "description": "Loss"
+                    },
+                    {
+                        "id": "17",
+                        "description": "Food in Freezer"
+                    },
+                    {
+                        "id": "16",
+                        "description": "Flood"
+                    },
+                    {
+                        "id": "15",
+                        "description": "Fire"
+                    },
+                    {
+                        "id": "14",
+                        "description": "Falling Trees"
+                    },
+                    {
+                        "id": "13",
+                        "description": "Falling aerials"
+                    },
+                    {
+                        "id": "12",
+                        "description": "Explosion"
+                    },
+                    {
+                        "id": "11",
+                        "description": "Escape of Oil"
+                    },
+                    {
+                        "id": "10",
+                        "description": "Escape of water due to freezing"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Accidental damage at home (standard cover)"
+                    },
+                    {
+                        "id": "27",
+                        "description": "Storm"
+                    },
+                    {
+                        "id": "28",
+                        "description": "Subsidence, Landslip or Heave"
+                    },
+                    {
+                        "id": "29",
+                        "description": "Theft from Home"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Accidental damage to TV/Computer"
+                    },
+                    {
+                        "id": "30",
+                        "description": "Theft from outbuilding"
+                    },
+                    {
+                        "id": "31",
+                        "description": "Theft away from home"
+                    },
+                    {
+                        "id": "32",
+                        "description": "Lightning"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Accidental damage to underground pipes/drains"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Accidental damage away from home"
+                    },
+                    {
+                        "id": "6",
+                        "description": "Arson"
+                    },
+                    {
+                        "id": "7",
+                        "description": "Collision"
+                    },
+                    {
+                        "id": "8",
+                        "description": "Earthquake"
+                    },
+                    {
+                        "id": "9",
+                        "description": "Escape of Water"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Accidental damage at home (extended cover)"
+                    }
+                ]
+            },
+            {
+                "cla_type": [
+                    {
+                        "id": "2",
+                        "description": "Contents"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Unspecified Items"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Cycle Cover"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Buildings"
+                    }
+                ]
+            },
+            {
+                "cyc_make": [
+                    {
+                        "id": "999",
+                        "description": "Unknown"
+                    },
+                    {
+                        "id": "9",
+                        "description": "Kona"
+                    },
+                    {
+                        "id": "8",
+                        "description": "GT"
+                    },
+                    {
+                        "id": "7",
+                        "description": "Dawes"
+                    },
+                    {
+                        "id": "6",
+                        "description": "Carrera"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Bromptom"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Boardman"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Bianchi"
+                    },
+                    {
+                        "id": "27",
+                        "description": "Scott"
+                    },
+                    {
+                        "id": "26",
+                        "description": "Willier"
+                    },
+                    {
+                        "id": "25",
+                        "description": "Specialized"
+                    },
+                    {
+                        "id": "24",
+                        "description": "Pinarello"
+                    },
+                    {
+                        "id": "23",
+                        "description": "Orbea"
+                    },
+                    {
+                        "id": "22",
+                        "description": "Look"
+                    },
+                    {
+                        "id": "21",
+                        "description": "Giant"
+                    },
+                    {
+                        "id": "20",
+                        "description": "De Rosa"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Airnimal"
+                    },
+                    {
+                        "id": "19",
+                        "description": "Colnago"
+                    },
+                    {
+                        "id": "18",
+                        "description": "BMC"
+                    },
+                    {
+                        "id": "17",
+                        "description": "Voodoo"
+                    },
+                    {
+                        "id": "16",
+                        "description": "Trek"
+                    },
+                    {
+                        "id": "15",
+                        "description": "Surly"
+                    },
+                    {
+                        "id": "14",
+                        "description": "Saracen"
+                    },
+                    {
+                        "id": "13",
+                        "description": "Raleigh"
+                    },
+                    {
+                        "id": "12",
+                        "description": "Pashley"
+                    },
+                    {
+                        "id": "11",
+                        "description": "Moulton"
+                    },
+                    {
+                        "id": "10",
+                        "description": "Marin"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Apollo"
+                    }
+                ]
+            },
+            {
+                "listed": [
+                    {
+                        "id": "1",
+                        "description": "Grade I Listed"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Not Listed"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Grade II Listed"
+                    }
+                ]
+            },
+            {
+                "owner_type": [
+                    {
+                        "id": "1",
+                        "description": "Mortgaged and occupied by you"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Rented - council/housing"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Rented - private landlord"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Owned shared equity"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Owned and occupied by you"
+                    }
+                ]
+            },
+            {
+                "prop_type2": [
+                    {
+                        "id": "7",
+                        "description": "Converted Barn"
+                    },
+                    {
+                        "id": "8",
+                        "description": "End of terrace bungalow"
+                    },
+                    {
+                        "id": "9",
+                        "description": "Mid Terraced bungalow"
+                    },
+                    {
+                        "id": "6",
+                        "description": "Flat in purpose built block"
+                    },
+                    {
+                        "id": "5",
+                        "description": "Flat in Converted House"
+                    },
+                    {
+                        "id": "4",
+                        "description": "End Terraced House"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Mid Terraced House"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Semi-Detached House"
+                    },
+                    {
+                        "id": "12",
+                        "description": "Semi-Detached Bungalow"
+                    },
+                    {
+                        "id": "10",
+                        "description": "Maisonette"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Detached House"
+                    },
+                    {
+                        "id": "11",
+                        "description": "Detached Bungalow"
+                    }
+                ]
+            },
+            {
+                "roof_type": [
+                    {
+                        "id": "7",
+                        "description": "More than 50% Flat felt"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Concrete"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Slate"
+                    },
+                    {
+                        "id": "2",
+                        "description": "Tile"
+                    }
+                ]
+            },
+            {
+                "unspec_si": [
+                    {
+                        "id": "2000",
+                        "description": "Sum Insured 2,000"
+                    },
+                    {
+                        "id": "9000",
+                        "description": "Sum Insured 9,000"
+                    },
+                    {
+                        "id": "8000",
+                        "description": "Sum Insured 8,000"
+                    },
+                    {
+                        "id": "7000",
+                        "description": "Sum Insured 7,000"
+                    },
+                    {
+                        "id": "10000",
+                        "description": "Sum Insured 10,000"
+                    },
+                    {
+                        "id": "6000",
+                        "description": "Sum Insured 6,000"
+                    },
+                    {
+                        "id": "5000",
+                        "description": "Sum Insured 5,000"
+                    }
+                ]
+            },
+            {
+                "vol_xs": [
+                    {
+                        "id": "50",
+                        "description": "Voluntary XS 50"
+                    },
+                    {
+                        "id": "450",
+                        "description": "Voluntary XS 450"
+                    },
+                    {
+                        "id": "350",
+                        "description": "Voluntary XS 350"
+                    },
+                    {
+                        "id": "250",
+                        "description": "Voluntary XS 250"
+                    },
+                    {
+                        "id": "150",
+                        "description": "Voluntary XS 150"
+                    },
+                    {
+                        "id": "100",
+                        "description": "Voluntary XS 100"
+                    },
+                    {
+                        "id": "0",
+                        "description": "Voluntary XS 0"
+                    },
+                    {
+                        "id": "200",
+                        "description": "Voluntary XS 200"
+                    }
+                ]
+            },
+            {
+                "wall_type": [
+                    {
+                        "id": "2",
+                        "description": "Stone"
+                    },
+                    {
+                        "id": "3",
+                        "description": "Concrete"
+                    },
+                    {
+                        "id": "8",
+                        "description": "Cob"
+                    },
+                    {
+                        "id": "4",
+                        "description": "Timber framed - brick or stone"
+                    },
+                    {
+                        "id": "1",
+                        "description": "Brick"
+                    }
+                ]
+            },
+            {
+                "cust_title": [
+                    {
+                        "id": "002",
+                        "description": "Miss"
+                    },
+                    {
+                        "id": "005",
+                        "description": "Ms"
+                    },
+                    {
+                        "id": "004",
+                        "description": "Mrs"
+                    },
+                    {
+                        "id": "003",
+                        "description": "Mr"
+                    }
+                ]
+            }
+        ],
+        "ws_data": [
+            {
+                "alarmType": [
+                    {
+                        "id": "NO_ALARM",
+                        "description": "0"
+                    },
+                    {
+                        "id": "NACOSS",
+                        "description": "1"
+                    },
+                    {
+                        "id": "AISC_OR_SSAIB",
+                        "description": "2"
+                    },
+                    {
+                        "id": "NON_APPROVED",
+                        "description": "3"
+                    },
+                    {
+                        "id": "NSI",
+                        "description": "4"
+                    }
+                ]
+            },
+            {
+                "busUse": [
+                    {
+                        "id": "NO",
+                        "description": "0"
+                    },
+                    {
+                        "id": "SOLELY_AS_BUSINESS_PREMISES",
+                        "description": "1"
+                    },
+                    {
+                        "id": "NO_B_VISITORS__CLERICAL_ONLY",
+                        "description": "2"
+                    },
+                    {
+                        "id": "B_VISITORS__CLERICAL_ONLY_",
+                        "description": "3"
+                    },
+                    {
+                        "id": "USED_FOR_HAIRDRESSING_OR_BEAUTY_OR_M",
+                        "description": "4"
+                    },
+                    {
+                        "id": "USED_FOR_MANUFACTORING_OR_REPAIR",
+                        "description": "5"
+                    },
+                    {
+                        "id": "OTHER",
+                        "description": "999"
+                    }
+                ]
+            },
+            {
+                "claCause": [
+                    {
+                        "id": "AD_AT_HOME__STANDARD_COVER_",
+                        "description": "1"
+                    },
+                    {
+                        "id": "ESCAPE_OF_WATER__D_T_FREEZING",
+                        "description": "10"
+                    },
+                    {
+                        "id": "ESCAPE_OF_OIL",
+                        "description": "11"
+                    },
+                    {
+                        "id": "EXPLOSION",
+                        "description": "12"
+                    },
+                    {
+                        "id": "FALLING_ARIELS",
+                        "description": "13"
+                    },
+                    {
+                        "id": "FALLING_TREES",
+                        "description": "14"
+                    },
+                    {
+                        "id": "FIRE",
+                        "description": "15"
+                    },
+                    {
+                        "id": "FLOOD",
+                        "description": "16"
+                    },
+                    {
+                        "id": "FOOD_IN_FREEZER",
+                        "description": "17"
+                    },
+                    {
+                        "id": "LOSS",
+                        "description": "18"
+                    },
+                    {
+                        "id": "LOSS_OF_METERED_WATER_OR_OIL",
+                        "description": "19"
+                    },
+                    {
+                        "id": "AD_AT_HOME__EXTENDED_COVER_",
+                        "description": "2"
+                    },
+                    {
+                        "id": "MALICIOUS_DAMAGE",
+                        "description": "20"
+                    },
+                    {
+                        "id": "OWNERS_LIABILITY",
+                        "description": "21"
+                    },
+                    {
+                        "id": "PERSONAL_OR_OCCUPIERS_LIABILIT",
+                        "description": "22"
+                    },
+                    {
+                        "id": "PLANTS_IN_THE_GARDEN",
+                        "description": "23"
+                    },
+                    {
+                        "id": "REPLACEMENT_LOCKS",
+                        "description": "24"
+                    },
+                    {
+                        "id": "RIOT_AND_CIVIL_COMMOTION",
+                        "description": "25"
+                    },
+                    {
+                        "id": "SMOKE",
+                        "description": "26"
+                    },
+                    {
+                        "id": "STORM",
+                        "description": "27"
+                    },
+                    {
+                        "id": "SUBSIDENCE__LANDSLIP_OR_HEAVE",
+                        "description": "28"
+                    },
+                    {
+                        "id": "THEFT_FROM_HOME",
+                        "description": "29"
+                    },
+                    {
+                        "id": "AD_TO_TVS_AND_HOME_COMPUTER",
+                        "description": "3"
+                    },
+                    {
+                        "id": "THEFT_FROM_OUTBUILDING",
+                        "description": "30"
+                    },
+                    {
+                        "id": "THEFT_AWAY_FROM_HOME",
+                        "description": "31"
+                    },
+                    {
+                        "id": "LIGHTNING",
+                        "description": "32"
+                    },
+                    {
+                        "id": "AD_TO_UNDERGR_PIPES_AND_DRAINS",
+                        "description": "4"
+                    },
+                    {
+                        "id": "AD_AWAY_FROM_HOME",
+                        "description": "5"
+                    },
+                    {
+                        "id": "ARSON",
+                        "description": "6"
+                    },
+                    {
+                        "id": "COLLISSION",
+                        "description": "7"
+                    },
+                    {
+                        "id": "EARTHQUAKE",
+                        "description": "8"
+                    },
+                    {
+                        "id": "ESCAPE_OF_WATER",
+                        "description": "9"
+                    }
+                ]
+            },
+            {
+                "claType": [
+                    {
+                        "id": "BUILDINGS",
+                        "description": "1"
+                    },
+                    {
+                        "id": "CONTENTS",
+                        "description": "2"
+                    },
+                    {
+                        "id": "SPECIFIED_ITEMS",
+                        "description": "3"
+                    },
+                    {
+                        "id": "UNSPECIFIED_ITEMS",
+                        "description": "4"
+                    },
+                    {
+                        "id": "CYCLE_COVER",
+                        "description": "5"
+                    },
+                    {
+                        "id": "MONEY_AND_CREDIT_CARDS",
+                        "description": "6"
+                    },
+                    {
+                        "id": "SPORT_AND_CAMPING",
+                        "description": "7"
+                    }
+                ]
+            },
+            {
+                "customerTitle": [
+                    {
+                        "id": "MISS",
+                        "description": "002"
+                    },
+                    {
+                        "id": "MR",
+                        "description": "003"
+                    },
+                    {
+                        "id": "MRS",
+                        "description": "004"
+                    },
+                    {
+                        "id": "MS",
+                        "description": "005"
+                    }
+                ]
+            },
+            {
+                "gender": [
+                    {
+                        "id": "FEMALE",
+                        "description": "F"
+                    },
+                    {
+                        "id": "MALE",
+                        "description": "M"
+                    }
+                ]
+            },
+            {
+                "listed": [
+                    {
+                        "id": "GRADE_I_LISTED",
+                        "description": "1"
+                    },
+                    {
+                        "id": "GRADE_II_LISTED",
+                        "description": "2"
+                    },
+                    {
+                        "id": "NOT_LISTED",
+                        "description": "4"
+                    }
+                ]
+            },
+            {
+                "maritalState": [
+                    {
+                        "id": "MARRIED",
+                        "description": "1"
+                    },
+                    {
+                        "id": "UNMARRIED",
+                        "description": "2"
+                    },
+                    {
+                        "id": "LIVING_TOGETHER",
+                        "description": "3"
+                    },
+                    {
+                        "id": "WIDOW",
+                        "description": "4"
+                    },
+                    {
+                        "id": "DIVORCED",
+                        "description": "5"
+                    }
+                ]
+            },
+            {
+                "ownerType": [
+                    {
+                        "id": "MORTGAGED_AND_OCCUPIED_BY_YOU",
+                        "description": "1"
+                    },
+                    {
+                        "id": "OWNED_AND_OCCUPIED_BY_YOU",
+                        "description": "2"
+                    },
+                    {
+                        "id": "OWNED__SHARED_EQUITY",
+                        "description": "3"
+                    },
+                    {
+                        "id": "RENTED_PRIVATE_LANDLORD",
+                        "description": "4"
+                    },
+                    {
+                        "id": "RENTED_COUNCIL_OR_HOUSING_ASS_",
+                        "description": "5"
+                    }
+                ]
+            },
+            {
+                "prevPay": [
+                    {
+                        "id": "NO_INSURANCE_LAST_YEAR",
+                        "description": "0"
+                    },
+                    {
+                        "id": "YEARLY_PAYMENT",
+                        "description": "1"
+                    },
+                    {
+                        "id": "MONTHLY_PAYMENT",
+                        "description": "12"
+                    },
+                    {
+                        "id": "NOT_APPLICABLE",
+                        "description": "999"
+                    }
+                ]
+            },
+            {
+                "propType": [
+                    {
+                        "id": "FLAT_IN_CONVERTED_HOUSE",
+                        "description": "1"
+                    },
+                    {
+                        "id": "CONVERTED_BARN",
+                        "description": "10"
+                    },
+                    {
+                        "id": "MID_TERRACED_BUNGALOW",
+                        "description": "11"
+                    },
+                    {
+                        "id": "THREE_STOREY_MID_TERRACED_HOUSE",
+                        "description": "12"
+                    },
+                    {
+                        "id": "THREE_STOREY_SEMI_DETACHED_HOUSE",
+                        "description": "13"
+                    },
+                    {
+                        "id": "THREE_STOREY_DETACHED_HOUSE",
+                        "description": "14"
+                    },
+                    {
+                        "id": "END_OF_TERRACE_BUNGALOW",
+                        "description": "15"
+                    },
+                    {
+                        "id": "TWO_STOREY_END_OF_TERRACE_HOUSE",
+                        "description": "16"
+                    },
+                    {
+                        "id": "THREE_STOREY_END_OF_TERRACE_HOUSE",
+                        "description": "17"
+                    },
+                    {
+                        "id": "FOUR_STOREY_MID_TERRACED_HOUSE",
+                        "description": "18"
+                    },
+                    {
+                        "id": "FOUR_STOREY_END_OF_TERRACE_HOUSE",
+                        "description": "19"
+                    },
+                    {
+                        "id": "FLAT_IN_PURPOSE_BUILT_BLOCK",
+                        "description": "2"
+                    },
+                    {
+                        "id": "FOUR_STOREY_SEMI_DETACHED_HOUSE",
+                        "description": "20"
+                    },
+                    {
+                        "id": "FOUR_STOREY_DETACHED_HOUSE",
+                        "description": "21"
+                    },
+                    {
+                        "id": "MAISONETTE",
+                        "description": "3"
+                    },
+                    {
+                        "id": "TWO_STOREY_MID_TERRACED_HOUSE",
+                        "description": "4"
+                    },
+                    {
+                        "id": "TWO_STOREY_SEMI_DETACHED_HOUSE",
+                        "description": "5"
+                    },
+                    {
+                        "id": "TWO_STOREY_DETACHED_HOUSE",
+                        "description": "6"
+                    },
+                    {
+                        "id": "SEMI_DETACHED_BUNGALOW",
+                        "description": "7"
+                    },
+                    {
+                        "id": "DETACHED_BUNGALOW",
+                        "description": "8"
+                    }
+                ]
+            },
+            {
+                "roofType": [
+                    {
+                        "id": "SLATE",
+                        "description": "1"
+                    },
+                    {
+                        "id": "TILE",
+                        "description": "2"
+                    },
+                    {
+                        "id": "CONCRETE",
+                        "description": "3"
+                    },
+                    {
+                        "id": "TIMBER",
+                        "description": "4"
+                    },
+                    {
+                        "id": "ASBESTOS",
+                        "description": "5"
+                    },
+                    {
+                        "id": "THATCH",
+                        "description": "6"
+                    },
+                    {
+                        "id": "MORE_THAN_50_PERCENT_FLAT_FELT",
+                        "description": "7"
+                    },
+                    {
+                        "id": "OTHER",
+                        "description": "999"
+                    }
+                ]
+            },
+            {
+                "unspecSi": [
+                    {
+                        "id": "SUM_INSURED_10_000",
+                        "description": "10000"
+                    },
+                    {
+                        "id": "SUM_INSURED_2_000",
+                        "description": "2000"
+                    },
+                    {
+                        "id": "SUM_INSURED_5_000",
+                        "description": "5000"
+                    },
+                    {
+                        "id": "SUM_INSURED_6_000",
+                        "description": "6000"
+                    },
+                    {
+                        "id": "SUM_INSURED_7_000",
+                        "description": "7000"
+                    },
+                    {
+                        "id": "SUM_INSURED_8_000",
+                        "description": "8000"
+                    },
+                    {
+                        "id": "SUM_INSURED_9_000",
+                        "description": "9000"
+                    }
+                ]
+            },
+            {
+                "volXs": [
+                    {
+                        "id": "VOLUNTARY_XS_0",
+                        "description": "0"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_100",
+                        "description": "100"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_150",
+                        "description": "150"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_200",
+                        "description": "200"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_250",
+                        "description": "250"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_350",
+                        "description": "350"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_450",
+                        "description": "450"
+                    },
+                    {
+                        "id": "VOLUNTARY_XS_50",
+                        "description": "50"
+                    }
+                ]
+            },
+            {
+                "wallType": [
+                    {
+                        "id": "BRICK",
+                        "description": "1"
+                    },
+                    {
+                        "id": "STONE",
+                        "description": "2"
+                    },
+                    {
+                        "id": "CONCRETE",
+                        "description": "3"
+                    },
+                    {
+                        "id": "TIMBER_FRAMED_BRICK_OR_STONE",
+                        "description": "4"
+                    },
+                    {
+                        "id": "TIMBER_FRAMED_OTHER_MATERIAL",
+                        "description": "5"
+                    },
+                    {
+                        "id": "TIMBER",
+                        "description": "6"
+                    },
+                    {
+                        "id": "WATTLE_AND_DAUB",
+                        "description": "7"
+                    },
+                    {
+                        "id": "COB",
+                        "description": "8"
+                    },
+                    {
+                        "id": "METAL",
+                        "description": "9"
+                    },
+                    {
+                        "id": "OTHER",
+                        "description": "999"
+                    }
+                ]
+            }
+        ]
+    }
+}

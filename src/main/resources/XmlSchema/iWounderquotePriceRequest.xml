@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuoteRequest>
+	<aggregator_id>123123</aggregator_id>
+	<affinity>0072</affinity>
+	<cover_start_date>2016-10-31</cover_start_date>
+	<first_start_date>2016-10-31</first_start_date>
+	<year_start_date>2016-10-31</year_start_date>
+	<payment_method>CHEQUE</payment_method>
+	<product_line_ver_no>20</product_line_ver_no>
+	<campaign>15779</campaign>
+	<eligibility>
+		<nanny>N</nanny>
+	</eligibility>
+
+	<risk_property>
+		<res_occ>1</res_occ>
+		<perm_res>Y</perm_res>
+		<sole_occ>N</sole_occ>
+		<bus_use>0</bus_use>
+		<refused>N</refused>
+		<terms>N</terms>
+		<convs>N</convs>
+		<bank_ccj>N</bank_ccj>
+		<for_sale>N</for_sale>
+		<near_water>N</near_water>
+		<flood>N</flood>
+		<trees>N</trees>
+		<subst>N</subst>
+		<rep_state>Y</rep_state>
+		<propType>MID_TERRACED_BUNGALOW</propType>
+		<listed>GRADE_II_LISTED</listed>
+		<year_built>1987</year_built>
+		<ownerType>OWNED_AND_OCCUPIED_BY_YOU</ownerType>
+		<no_beds>4</no_beds>
+		<ext_prop>N</ext_prop>
+		<wallType>TIMBER_FRAMED_BRICK_OR_STONE</wallType>
+		<roofType>TILE</roofType>
+		<alarmType>NO_ALARM</alarmType>
+		<smokers>N</smokers>
+		<smoke_al>Y</smoke_al>
+		<win_lock>Y</win_lock>
+		<door_lock>Y</door_lock>
+		<risk_address>
+			<street>Meadow Close</street>
+			<building_no>1</building_no>
+			<postcode>HA4 8AP</postcode>
+		</risk_address>
+	</risk_property>
+	<persons_insured>
+		<title>003</title>
+		<forename>Batch</forename>
+		<surname>Ta-Aitc-Gocn0055</surname>
+		<birth_date>1990-01-01</birth_date>
+		<post_address>
+			<post_area>BT48</post_area>
+			<post_street>0EG</post_street>
+		</post_address>
+	</persons_insured>
+	<tier>SILVER</tier>
+	<zzchannel_yr>AGGREGATOR</zzchannel_yr>
+	<channel_yr>INBOUND</channel_yr>
+	<together>Y</together>
+	<policy_year>1</policy_year>
+	<cover>
+		<bld>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</bld>
+		<bld_ad>
+			<risk_yn>Y</risk_yn>
+		</bld_ad>
+		<con>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</con>
+		<con_ad>
+			<risk_yn>Y</risk_yn>
+		</con_ad>
+		<spec_items>
+			<risk_yn>Y</risk_yn>
+			<risk_sum>1500</risk_sum>
+		</spec_items>
+		<cycles>
+			<risk_yn>N</risk_yn>
+			<risk_sum>900</risk_sum>
+		</cycles>
+		<legal>Y</legal>
+		<he>Y</he>
+		<travel>Y</travel>
+
+	</cover>
+
+</QuoteRequest>

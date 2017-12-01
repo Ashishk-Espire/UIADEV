@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+	<flow name="qnb_retrievequoteTIAFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${quote.http.path.qnb.retrievequote}/{quoteid}/{email}/{level}"
+			allowedMethods="GET" doc:name="HTTP" />
+        <set-variable variableName="retriveQuoteFunction" value="{&quot;function&quot;: &quot;tia_mule.retrieve_quote&quot;,&quot;args&quot;: {&quot;quote_id&quot; : #[message.inboundProperties.'http.uri.params'.quoteid ],&quot;level&quot;: #[message.inboundProperties.'http.uri.params'.level != null ? message.inboundProperties.'http.uri.params'.level : &quot;ALL&quot;] }}" doc:name="retriveQuoteFunction"/>
+        
+        <set-variable variableName="policy_no" value="#[message.inboundProperties.'http.uri.params'.quoteid]" doc:name="policy_no"/>
+        <set-variable variableName="email_address" value="#[message.inboundProperties.'http.uri.params'.email]" doc:name="email_address"/>
+        
+        <flow-ref name="security_validate_user_quoteFlow" doc:name="security_validate_user_quoteFlow" />
+		<set-variable variableName="quoteValidation" value="#[payload.valid.toString()]"
+			doc:name="quoteValidation" />
+			
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.quoteValidation != &quot;0&quot;]">
+        		<flow-ref name="qnb_retrievequoteTIAPrivateFlow" doc:name="qnb_retrievequoteTIAPrivateFlow"/>
+			</when>
+			<otherwise>
+				<set-payload value="#[payload]" doc:name="Set Payload" />
+                <json:object-to-json-transformer returnClass="java.lang.String" doc:name="Object to JSON"/>
+			</otherwise>
+		</choice>
+	</flow>
+	
+    <sub-flow name="qnb_retrievequoteTIAPrivateFlow">
+        <db:stored-procedure config-ref="TIADB_Oracle_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+            <db:in-param name="inputJSON" value="#[flowVars.retriveQuoteFunction]"/>
+            <db:out-param name="fncResult" type="VARCHAR"/>
+        </db:stored-procedure>
+        <set-payload value="#[payload.fncResult]" mimeType="application/json" doc:name="Set Payload"/>
+    </sub-flow>
+</mule>

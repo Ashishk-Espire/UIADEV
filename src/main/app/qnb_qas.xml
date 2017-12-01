@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <http:request-config name="Espire_Request_Configuration" host="www.espire.com" port="80" doc:name="HTTP Request Configuration"/>
+    <flow name="getAddress">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/{http.path.qas.address}" doc:name="HTTP" allowedMethods="GET"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.query.params'.moniker != &quot;&quot;]">
+                <flow-ref name="doGetAddress" doc:name="doGetAddress"/>
+            </when>
+            <otherwise>
+                <set-property propertyName="http.status" value="400" doc:name="Property"/>
+                <set-payload value="please provide a valid moniker" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="doGetAddress">
+        <set-variable variableName="moniker" value="#[message.inboundProperties.'http.query.params'.moniker]" doc:name="moniker"/>
+        <set-variable variableName="counrycode" value="#[flowVars.moniker.substring(0,3)]" doc:name="counrycode"/>
+        <logger message="The country code form moniker : #[flowVars.moniker.substring(0,3)]" level="INFO" doc:name="Logger"/>
+        <flow-ref name="setCountryAndLayout" doc:name="setCountryAndLayout"/>
+        <expression-component doc:name="Expression"><![CDATA[#[(flowVars.counrycode.toUpperCase() == "GBR")? (flowVars.country="GBR" ; flowVars.layout="FullPAF") : (flowVars.country="APR" ; flowVars.layout="UIAOracle") ]]]></expression-component>
+        <set-property propertyName="Auth-Token" value="${QAS.authtoken}" doc:name="SetAuthtoken"/>
+        <set-payload value="&lt;soapenv:Envelope xmlns:ond=&quot;http://www.qas.com/OnDemand-2011-03&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;  &lt;soapenv:Header&gt;   &lt;ond:QAQueryHeader&gt;    &lt;ond:QAAuthentication&gt;     &lt;!--Optional:--&gt;     &lt;ond:Username/&gt;     &lt;!--Optional:--&gt;     &lt;ond:Password/&gt;    &lt;/ond:QAAuthentication&gt;    &lt;ond:Security&gt;     &lt;!--You may enter ANY elements at this point--&gt;    &lt;/ond:Security&gt;   &lt;/ond:QAQueryHeader&gt;  &lt;/soapenv:Header&gt;  &lt;soapenv:Body&gt;   &lt;ond:QAGetAddress Localisation=&quot;EN&quot; RequestTag=&quot;Abc123&quot;&gt;    &lt;!--Optional:--&gt;    &lt;ond:Layout&gt;#[flowVars.layout]&lt;/ond:Layout&gt;    &lt;ond:Moniker&gt;#[flowVars.moniker]&lt;/ond:Moniker&gt;   &lt;/ond:QAGetAddress&gt;  &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;" mimeType="text/xml" doc:name="Set Payload"/>
+        <http:request config-ref="QAS_Request_Configuration" path="/ProOnDemand/V3/ProOnDemandService.asmx" method="POST" doc:name="QAS HTTP"/>
+        <flow-ref name="qnb_qasAdressFromatFlow" doc:name="qnb_qasAdressFromatFlow"/>
+        <choice-exception-strategy doc:name="Choice Exception Strategy">
+            <catch-exception-strategy when="#[exception.causedBy(org.mule.module.http.internal.request.ResponseValidatorException)]" doc:name="Invlid Moniker Exception Strategy">
+                <set-payload value="{
+ &quot;error&quot;:&quot;Invalid Moniker&quot;
+}" doc:name="Set Payload"/>
+            </catch-exception-strategy>
+            <catch-exception-strategy doc:name="Catch Default Exception Strategy">
+            <set-payload value="Service Unavailable" doc:name="Set error message"/>
+            <set-property propertyName="http.status" value="503" doc:name="HTTP Status"/>
+            </catch-exception-strategy>
+            
+        </choice-exception-strategy>
+
+    </flow>
+    <flow name="searchAddress">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qas.search}" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.query.params'.pincode != &quot;&quot;]">
+                <flow-ref name="doSearch" doc:name="doSearch"/>
+            </when>
+            <otherwise>
+                <set-property propertyName="http.status" value="400" doc:name="Property"/>
+                <set-payload value="provide a valid pincode" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+
+    </flow>
+    <flow name="doSearch">
+
+        <set-property propertyName="Auth-Token" value="${QAS.authtoken}" doc:name="Set Auth Token"/>
+        <flow-ref name="setCountryAndLayout" doc:name="setCountryAndLayout"/>
+        <expression-component doc:name="Expression"><![CDATA[#[(flowVars.definedCodes[message.inboundProperties.'http.query.params'.pincode.substring(0,2).toUpperCase()] == 1)? (flowVars.country="GBR" ; flowVars.layout="FullPAF") : (flowVars.country="APR" ; flowVars.layout="UIAOracle") ]]]></expression-component>
+
+        <set-payload value="&lt;soapenv:Envelope xmlns:ond=&quot;http://www.qas.com/OnDemand-2011-03&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;  &lt;soapenv:Header&gt;   &lt;ond:QAQueryHeader&gt;    &lt;ond:QAAuthentication&gt;     &lt;!--Optional:--&gt;     &lt;ond:Username/&gt;     &lt;!--Optional:--&gt;     &lt;ond:Password/&gt;    &lt;/ond:QAAuthentication&gt;    &lt;ond:Security&gt;     &lt;!--You may enter ANY elements at this point--&gt;    &lt;/ond:Security&gt;   &lt;/ond:QAQueryHeader&gt;  &lt;/soapenv:Header&gt;  &lt;soapenv:Body&gt;   &lt;ond:QASearch&gt;    &lt;ond:Country&gt;#[flowVars.country]&lt;/ond:Country&gt;    &lt;ond:Engine/&gt;   &lt;ond:Layout&gt;#[flowVars.layout]&lt;/ond:Layout&gt;    &lt;ond:Search&gt;#[(message.inboundProperties.'http.query.params'.pincode != null)? message.inboundProperties.'http.query.params'.pincode : '']&lt;/ond:Search&gt;    &lt;!--Optional:--&gt;    &lt;ond:FormattedAddressInPicklist&gt;false&lt;/ond:FormattedAddressInPicklist&gt;   &lt;/ond:QASearch&gt;  &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;" mimeType="text/xml" doc:name="Set Payload"/>
+
+        <http:request config-ref="QAS_Request_Configuration" path="/ProOnDemand/V3/ProOnDemandService.asmx" method="POST" doc:name="QAS HTTP"/>
+        <dw:transform-message metadata:id="0b257392-42c0-46f7-83d8-8de6b318e4ae" doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\QaSdoSearch.xml" mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+%namespace ns1 http://www.qas.com/OnDemand-2011-03
+---
+{ picklistArray: payload.Envelope.Body.QASearchResult.QAPicklist.*PicklistEntry map {
+		moniker : $.ns1#Moniker,
+		partialAddress:$.ns1#PartialAddress
+	}
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-payload value="Service Unavailable" doc:name="Set error message"/>
+            <set-property propertyName="http.status" value="503" doc:name=" HTTP status"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="qnb_qasAdressFromatFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qas.address.format}" allowedMethods="POST" doc:name="HTTP"/>
+    	<json:xml-to-json-transformer returnClass="java.lang.String" doc:name="XML to JSON"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.counrycode != &quot;APR&quot;]">
+                <logger message="log 1 for format address" level="INFO" doc:name="Logger"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	risk_address: payload."soap:Envelope"."soap:Body".Address.QAAddress.AddressLine map (addressLine, indexOfAddressLine) -> {
+				
+			
+		([RMSUBBUILDINGNAME : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Sub-building name")
+			 otherwise ({})),
+			 
+		([RMBUILDINGNAME : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Building name")
+			 otherwise ({})),	 
+			 
+		([RMBUILDINGNUMBER : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Building number")
+			 otherwise ({})),		 	 
+		
+		([RMTHOROUGHFARE : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Thoroughfare")
+			 otherwise ({})),	 
+					 
+		([RMDOUBLEDEPENDENTLOCALITY : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Double dependent locality")
+			 otherwise ({})),	 
+			 
+		([RMDEPENDENTLOCALITY : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Dependent locality")
+			 otherwise ({})),
+			 
+		([RMPOSTTOWN  : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Town")
+			 otherwise ({})),		 	 
+			 
+		([POSTCODE : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Postcode")
+			 otherwise ({})),	 	 
+	 			 
+		UPRN : null
+		
+		
+	}
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </when>
+            <otherwise>
+                <logger message="log 2 for format address" level="INFO" doc:name="Logger"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	risk_address: payload."soap:Envelope"."soap:Body".Address.QAAddress.AddressLine map (addressLine, indexOfAddressLine) -> {
+				
+			
+		([RMSUBBUILDINGNAME : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Sub-Building Name")
+			 otherwise ({})),
+			 
+		([RMBUILDINGNAME : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Building Name")
+			 otherwise ({})),	 
+			 
+		([RMBUILDINGNUMBER : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Building Number")
+			 otherwise ({})),		 	 
+		
+		([RMTHOROUGHFARE : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Thoroughfare")
+			 otherwise ({})),	 
+					 
+		([RMDOUBLEDEPENDENTLOCALITY : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Double Dependent Locality")
+			 otherwise ({})),	 
+			 
+		([RMDEPENDENTLOCALITY : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Dependent Locality")
+			 otherwise ({})),
+			 
+		([RMPOSTTOWN  : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="RM Post Town")
+			 otherwise ({})),		 	 
+			 
+		([POSTCODE : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="Postcode")
+			 otherwise ({})),	 	 
+	 			 
+		([UPRN : addressLine.Line] when (null!=addressLine.Label and addressLine.Label =="UPRN")
+			 otherwise ({}))
+		
+		
+	}
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </otherwise>
+        </choice>
+
+        <logger message="The payload after transformation : #[payload]" level="INFO" doc:name="Logger"/>
+        
+        <set-payload value="#[json:risk_address]" doc:name="Set Payload"/>
+        <component class="com.uia.component.AddressComponent" doc:name="Java"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="e262e903-8053-4d20-896b-12abe5f5e405">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	risk_address: {
+		building_name: (payload.RMSUBBUILDINGNAME when (null != payload.RMSUBBUILDINGNAME) 
+			otherwise "") ++ ((" " ++ payload.RMBUILDINGNAME) 
+				when (null!= payload.RMBUILDINGNAME and null!= payload.RMSUBBUILDINGNAME)
+				 otherwise (payload.RMBUILDINGNAME when (null!=payload.RMBUILDINGNAME) otherwise "")),
+		
+		street_no: "" when (null==payload.RMBUILDINGNUMBER) otherwise payload.RMBUILDINGNUMBER,
+		
+		street:  payload.RMDEPENDENTLOCALITY when (null != payload.RMDEPENDENTLOCALITY and
+			null == payload.RMTHOROUGHFARE and null == payload.RMDOUBLEDEPENDENTLOCALITY
+		)	otherwise (payload.RMTHOROUGHFARE
+				 			when (null != payload.RMTHOROUGHFARE) 
+							otherwise (payload.RMDEPENDENTLOCALITY 
+								when (null!=payload.RMDEPENDENTLOCALITY)
+								otherwise ""	
+							)
+					   ) ,
+		
+		postal_region: payload.RMDEPENDENTLOCALITY
+		 		when (null!= payload.RMDEPENDENTLOCALITY and
+		 				(null!= payload.RMDOUBLEDEPENDENTLOCALITY or null!= payload.RMTHOROUGHFARE)
+		 		) otherwise (payload.RMDOUBLEDEPENDENTLOCALITY 
+					 			when (null !=payload.RMDOUBLEDEPENDENTLOCALITY
+					 				and null!=payload.RMTHOROUGHFARE
+					 			) otherwise ""
+		 			),
+		
+		city: "" when (null == payload.RMPOSTTOWN) otherwise payload.RMPOSTTOWN,
+		
+		postcode: "" when (null==payload.POSTCODE) otherwise payload.POSTCODE,
+		
+		([uprn : payload.UPRN] when (null!=payload.UPRN)
+			 otherwise ({}))
+		
+		
+		
+		
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <set-payload value="#[payload.toString().replace(&quot;null&quot;, &quot;&quot;)]" mimeType="application/json" doc:name="Set Payload"/>
+    
+    </flow>
+    
+    <flow name="setCountryAndLayout" >
+    	<set-variable variableName="definedCodes" value="#[{&quot;BT&quot;:1,&quot;JE&quot;:1,&quot;IM&quot;:1,&quot;GY&quot;:1,&quot;bt&quot;:1,&quot;je&quot;:1,&quot;im&quot;:1,&quot;gy&quot;:1}]" metadata:id="a056ca72-859e-4df5-9223-20cadf7e0952" doc:name="definedCodes"/>
+        <set-variable variableName="country" value="" doc:name="country"/>
+        <set-variable variableName="layout" value="" doc:name="layout"/>
+    </flow>
+    
+</mule>

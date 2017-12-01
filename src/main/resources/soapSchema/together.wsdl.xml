@@ -1,0 +1,468 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.quoteprice.uia.com/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	name="QuotePriceServiceService" targetNamespace="http://service.quoteprice.uia.com/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://ws.together.co.uk/" targetNamespace="http://ws.together.co.uk/"
+			version="1.0">
+			<xs:element name="GetQuote" type="tns:getQuote" />
+			<xs:element name="String" type="xs:string" />
+			<xs:element name="TogetherHtCustomerWs" type="tns:togetherHtCustomerWs" />
+			<xs:element name="TogetherHtCycObjectWs" type="tns:togetherHtCycObjectWs" />
+			<xs:element name="TogetherHtHomObjectWs" type="tns:togetherHtHomObjectWs" />
+			<xs:element name="TogetherHtItmObjectWs" type="tns:togetherHtItmObjectWs" />
+			<xs:element name="TogetherHtJointCustomerWs" type="tns:togetherHtJointCustomerWs" />
+			<xs:element name="TogetherHtPrevClaObjectWs" type="tns:togetherHtPrevClaObjectWs" />
+			<xs:element name="TogetherHtQuoteData" type="tns:togetherHtQuoteData" />
+			<xs:element name="getQuote" type="tns:getQuote" />
+			<xs:element name="getQuoteResponse" type="tns:getQuoteResponse" />
+			<xs:element name="setBestPrice" type="tns:setBestPrice" />
+			<xs:element name="setBestPriceResponse" type="tns:setBestPriceResponse" />
+			<xs:complexType name="getQuote">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="arg0" type="tns:togetherHtQuoteData" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtQuoteData">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="customer"
+						type="tns:togetherHtCustomerWs" />
+					<xs:element minOccurs="0" name="htCycObject"
+						type="tns:togetherHtCycObjectWs" />
+					<xs:element minOccurs="0" name="htItmObject"
+						type="tns:togetherHtItmObjectWs" />
+					<xs:element minOccurs="0" name="htPreviousClaimObject"
+						type="tns:togetherHtPrevClaObjectWs" />
+					<xs:element minOccurs="0" name="jointCustomer"
+						type="tns:togetherHtJointCustomerWs" />
+					<xs:element minOccurs="0" name="object"
+						type="tns:togetherHtHomObjectWs" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtCustomerWs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="custType" type="xs:string" />
+					<xs:element minOccurs="0" name="customerTitle" type="xs:string" />
+					<xs:element minOccurs="0" name="emailAddress" type="xs:string" />
+					<xs:element minOccurs="0" name="forename" type="xs:string" />
+					<xs:element minOccurs="0" name="gender" type="xs:string" />
+					<xs:element minOccurs="0" name="maritalState" type="xs:string" />
+					<xs:element minOccurs="0" name="occupationCode" type="xs:string" />
+					<xs:element minOccurs="0" name="phoneNo" type="xs:string" />
+					<xs:element minOccurs="0" name="surname" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtJointCustomerWs">
+				<xs:complexContent>
+					<xs:extension base="tns:togetherHtCustomerWs">
+						<xs:sequence />
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="togetherHtCycObjectWs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="pedalCycles" type="tns:arrayOfPedalCycles" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="arrayOfPedalCycles">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="pedalCycle"
+						nillable="true" type="tns:togetherPedalCycle" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherPedalCycle">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="description" type="xs:string" />
+					<xs:element name="value" nillable="true" type="xs:Long" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtItmObjectWs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="specifiedItems"
+						type="tns:arrayOfSpecifiedItems" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="arrayOfSpecifiedItems">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="specifiedItem" nillable="true" type="tns:togetherSpecifiedItem" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherSpecifiedItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="description" type="xs:string" />
+					<xs:element minOccurs="0" name="itemType" type="xs:string" />
+					<xs:element name="value" nillable="true" type="xs:Long" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtPrevClaObjectWs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="previousClaims" type="tns:wsPreviousClaims" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsPreviousClaims">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="previousClaim" nillable="true" type="tns:wsPreviousClaim" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsPreviousClaim">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="cause" type="xs:string" />
+					<xs:element minOccurs="0" name="claimDate" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="claimValue" type="xs:decimal" />
+					<xs:element minOccurs="0" name="type" type="xs:string" />
+					<xs:element name="wasAtThisAddress" type="xs:boolean" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtHomObjectWs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="addressLine1" type="xs:string" />
+					<xs:element minOccurs="0" name="addressLine2" type="xs:string" />
+					<xs:element minOccurs="0" name="alarmType" type="xs:string" />
+					<xs:element minOccurs="0" name="buildingName" type="xs:string" />
+					<xs:element minOccurs="0" name="buildingNumber" type="xs:string" />
+					<xs:element minOccurs="0" name="buildingsAD" type="xs:boolean" />
+					<xs:element minOccurs="0" name="buildingsCover" type="xs:boolean" />
+					<xs:element minOccurs="0" name="buildingsVolExcess"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="busUse" type="xs:string" />
+					<xs:element minOccurs="0" name="contentsAD" type="xs:boolean" />
+					<xs:element minOccurs="0" name="contentsCover" type="xs:boolean" />
+					<xs:element minOccurs="0" name="contentsVolExcess" type="xs:string" />
+					<xs:element minOccurs="0" name="county" type="xs:string" />
+					<xs:element minOccurs="0" name="coverStartDate" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="doorLock" type="xs:boolean" />
+					<xs:element minOccurs="0" name="extProp" type="xs:boolean" />
+					<xs:element minOccurs="0" name="homeEmergencyCover"
+						type="xs:boolean" />
+					<xs:element minOccurs="0" name="legalCover" type="xs:boolean" />
+					<xs:element minOccurs="0" name="listed" type="xs:string" />
+					<xs:element minOccurs="0" name="nativeQuoteReference"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="noBeds" nillable="true" type="xs:Long" />
+					<xs:element minOccurs="0" name="ownerType" type="xs:string" />
+					<xs:element minOccurs="0" name="postcode" type="xs:string" />
+					<xs:element minOccurs="0" name="prevPay" type="xs:string" />
+					<xs:element minOccurs="0" name="propType" type="xs:string" />
+					<xs:element minOccurs="0" name="roofType" type="xs:string" />
+					<xs:element minOccurs="0" name="smokeAl" type="xs:boolean" />
+					<xs:element minOccurs="0" name="smokers" type="xs:boolean" />
+					<xs:element minOccurs="0" name="town" type="xs:string" />
+					<xs:element minOccurs="0" name="unspecItems" type="xs:string" />
+					<xs:element minOccurs="0" name="uprn" nillable="true"  type="xs:Long" />
+					<xs:element minOccurs="0" name="wallType" type="xs:string" />
+					<xs:element minOccurs="0" name="winLock" type="xs:boolean" />
+					<xs:element minOccurs="0" name="yearBuilt" nillable="true" type="xs:Long" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtBestPriceResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="message" type="xs:string" />
+					<xs:element name="success" type="xs:boolean" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="setBestPriceResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return"
+						type="tns:togetherHtBestPriceResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="setBestPrice">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="arg0" type="tns:togetherHtBestPrice" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtBestPrice">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="quoteRef" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="getQuoteResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return"
+						type="tns:togetherHtQuoteResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtQuoteResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="bronze" type="tns:togetherHtTier" />
+					<xs:element minOccurs="0" name="deeplinkUrl" type="xs:string" />
+					<xs:element minOccurs="0" name="errorText" type="xs:string" />
+					<xs:element minOccurs="0" name="gold" type="tns:togetherHtTier" />
+					<xs:element minOccurs="0" name="quoteReference" type="xs:string" />
+					<xs:element minOccurs="0" name="quoteValidUntil" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="sessionRef" type="xs:string" />
+					<xs:element minOccurs="0" name="silver" type="tns:togetherHtTier" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="togetherHtTier">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="buildingsADStatus" type="xs:string" />
+					<xs:element name="buildingsExcessTotal" type="xs:double" />
+					<xs:element minOccurs="0" name="contentsADStatus" type="xs:string" />
+					<xs:element name="contentsExcessTotal" type="xs:double" />
+					<xs:element name="homeEmergencyPrice" type="xs:double" />
+					<xs:element minOccurs="0" name="homeEmergencyStatus"
+						type="xs:string" />
+					<xs:element name="installAPR" type="xs:double" />
+					<xs:element name="installDeposit" type="xs:double" />
+					<xs:element name="installFirstPayment" type="xs:double" />
+					<xs:element name="installOtherPayments" type="xs:double" />
+					<xs:element name="installTotal" type="xs:double" />
+					<xs:element name="installments" type="xs:int" />
+					<xs:element name="legalCoverPrice" type="xs:double" />
+					<xs:element minOccurs="0" name="legalCoverStatus" type="xs:string" />
+					<xs:element name="premium" type="xs:double" />
+					<xs:element name="subsidenceExcess" type="xs:double" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="customerType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="person" />
+					<xs:enumeration value="company" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="customerTitle">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="MR" />
+					<xs:enumeration value="MRS" />
+					<xs:enumeration value="MS" />
+					<xs:enumeration value="MISS" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="gender">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="FEMALE" />
+					<xs:enumeration value="MALE" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="maritalState">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="MARRIED" />
+					<xs:enumeration value="UNMARRIED" />
+					<xs:enumeration value="LIVING_TOGETHER" />
+					<xs:enumeration value="WIDOW" />
+					<xs:enumeration value="DIVORCED" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="claCause">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="AD_AT_HOME__STANDARD_COVER_" />
+					<xs:enumeration value="ESCAPE_OF_WATER__D_T_FREEZING" />
+					<xs:enumeration value="ESCAPE_OF_OIL" />
+					<xs:enumeration value="EXPLOSION" />
+					<xs:enumeration value="FALLING_ARIELS" />
+					<xs:enumeration value="FALLING_TREES" />
+					<xs:enumeration value="FIRE" />
+					<xs:enumeration value="FLOOD" />
+					<xs:enumeration value="FOOD_IN_FREEZER" />
+					<xs:enumeration value="LOSS" />
+					<xs:enumeration value="LOSS_OF_METERED_WATER_OR_OIL" />
+					<xs:enumeration value="AD_AT_HOME__EXTENDED_COVER_" />
+					<xs:enumeration value="MALICIOUS_DAMAGE" />
+					<xs:enumeration value="OWNERS_LIABILITY" />
+					<xs:enumeration value="PERSONAL_OR_OCCUPIERS_LIABILIT" />
+					<xs:enumeration value="PLANTS_IN_THE_GARDEN" />
+					<xs:enumeration value="REPLACEMENT_LOCKS" />
+					<xs:enumeration value="RIOT_AND_CIVIL_COMMOTION" />
+					<xs:enumeration value="SMOKE" />
+					<xs:enumeration value="STORM" />
+					<xs:enumeration value="SUBSIDENCE__LANDSLIP_OR_HEAVE" />
+					<xs:enumeration value="THEFT_FROM_HOME" />
+					<xs:enumeration value="AD_TO_TVS_AND_HOME_COMPUTER" />
+					<xs:enumeration value="THEFT_FROM_OUTBUILDING" />
+					<xs:enumeration value="THEFT_AWAY_FROM_HOME" />
+					<xs:enumeration value="LIGHTNING" />
+					<xs:enumeration value="AD_TO_UNDERGR_PIPES_AND_DRAINS" />
+					<xs:enumeration value="AD_AWAY_FROM_HOME" />
+					<xs:enumeration value="ARSON" />
+					<xs:enumeration value="COLLISSION" />
+					<xs:enumeration value="EARTHQUAKE" />
+					<xs:enumeration value="ESCAPE_OF_WATER" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="claType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="BUILDINGS" />
+					<xs:enumeration value="CONTENTS" />
+					<xs:enumeration value="SPECIFIED_ITEMS" />
+					<xs:enumeration value="UNSPECIFIED_ITEMS" />
+					<xs:enumeration value="CYCLE_COVER" />
+					<xs:enumeration value="MONEY_AND_CREDIT_CARDS" />
+					<xs:enumeration value="SPORT_AND_CAMPING" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="alarmType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NO_ALARM" />
+					<xs:enumeration value="NACOSS" />
+					<xs:enumeration value="AISC_OR_SSAIB" />
+					<xs:enumeration value="NON_APPROVED" />
+					<xs:enumeration value="NSI" />
+					<xs:enumeration value="UNKNOWN" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="volXs">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="VOLUNTARY_XS_0" />
+					<xs:enumeration value="VOLUNTARY_XS_100" />
+					<xs:enumeration value="VOLUNTARY_XS_150" />
+					<xs:enumeration value="VOLUNTARY_XS_200" />
+					<xs:enumeration value="VOLUNTARY_XS_250" />
+					<xs:enumeration value="VOLUNTARY_XS_350" />
+					<xs:enumeration value="VOLUNTARY_XS_450" />
+					<xs:enumeration value="VOLUNTARY_XS_50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="busUse">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NO" />
+					<xs:enumeration value="SOLELY_AS_BUSINESS_PREMISES" />
+					<xs:enumeration value="NO_B_VISITORS__CLERICAL_ONLY" />
+					<xs:enumeration value="B_VISITORS__CLERICAL_ONLY_" />
+					<xs:enumeration value="USED_FOR_HAIRDRESSING_OR_BEAUTY_OR_M" />
+					<xs:enumeration value="USED_FOR_MANUFACTORING_OR_REPAIR" />
+					<xs:enumeration value="OTHER" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="listed">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="GRADE_I_LISTED" />
+					<xs:enumeration value="GRADE_II_LISTED" />
+					<xs:enumeration value="NOT_LISTED" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="ownerType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="MORTGAGED_AND_OCCUPIED_BY_YOU" />
+					<xs:enumeration value="OWNED_AND_OCCUPIED_BY_YOU" />
+					<xs:enumeration value="OWNED__SHARED_EQUITY" />
+					<xs:enumeration value="RENTED_PRIVATE_LANDLORD" />
+					<xs:enumeration value="RENTED_COUNCIL_OR_HOUSING_ASS_" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="prevPay">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NO_INSURANCE_LAST_YEAR" />
+					<xs:enumeration value="YEARLY_PAYMENT" />
+					<xs:enumeration value="MONTHLY_PAYMENT" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="propType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="FLAT_IN_CONVERTED_HOUSE" />
+					<xs:enumeration value="FLAT_IN_PURPOSE_BUILT_BLOCK" />
+					<xs:enumeration value="MAISONETTE" />
+					<xs:enumeration value="CONVERTED_BARN" />
+					<xs:enumeration value="MID_TERRACED_BUNGALOW" />
+					<xs:enumeration value="END_OF_TERRACE_BUNGALOW" />
+					<xs:enumeration value="SEMI_DETACHED_BUNGALOW" />
+					<xs:enumeration value="DETACHED_BUNGALOW" />
+					<xs:enumeration value="TWO_STOREY_MID_TERRACED_HOUSE" />
+					<xs:enumeration value="TWO_STOREY_END_OF_TERRACE_HOUSE" />
+					<xs:enumeration value="TWO_STOREY_SEMI_DETACHED_HOUSE" />
+					<xs:enumeration value="TWO_STOREY_DETACHED_HOUSE" />
+					<xs:enumeration value="THREE_STOREY_MID_TERRACED_HOUSE" />
+					<xs:enumeration value="THREE_STOREY_END_OF_TERRACE_HOUSE" />
+					<xs:enumeration value="THREE_STOREY_SEMI_DETACHED_HOUSE" />
+					<xs:enumeration value="THREE_STOREY_DETACHED_HOUSE" />
+					<xs:enumeration value="FOUR_STOREY_MID_TERRACED_HOUSE" />
+					<xs:enumeration value="FOUR_STOREY_END_OF_TERRACE_HOUSE" />
+					<xs:enumeration value="FOUR_STOREY_SEMI_DETACHED_HOUSE" />
+					<xs:enumeration value="FOUR_STOREY_DETACHED_HOUSE" />
+					<xs:enumeration value="OTHER" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="roofType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="SLATE" />
+					<xs:enumeration value="TILE" />
+					<xs:enumeration value="CONCRETE" />
+					<xs:enumeration value="TIMBER" />
+					<xs:enumeration value="ASBESTOS" />
+					<xs:enumeration value="THATCH" />
+					<xs:enumeration value="MORE_THAN_50_PERCENT_FLAT_FELT" />
+					<xs:enumeration value="OTHER" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="unspecSi">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="SUM_INSURED_10_000" />
+					<xs:enumeration value="SUM_INSURED_2_000" />
+					<xs:enumeration value="SUM_INSURED_5_000" />
+					<xs:enumeration value="SUM_INSURED_6_000" />
+					<xs:enumeration value="SUM_INSURED_7_000" />
+					<xs:enumeration value="SUM_INSURED_8_000" />
+					<xs:enumeration value="SUM_INSURED_9_000" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="wallType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="BRICK" />
+					<xs:enumeration value="STONE" />
+					<xs:enumeration value="CONCRETE" />
+					<xs:enumeration value="TIMBER_FRAMED_BRICK_OR_STONE" />
+					<xs:enumeration value="TIMBER_FRAMED_OTHER_MATERIAL" />
+					<xs:enumeration value="TIMBER" />
+					<xs:enumeration value="WATTLE_AND_DAUB" />
+					<xs:enumeration value="COB" />
+					<xs:enumeration value="METAL" />
+					<xs:enumeration value="OTHER" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://service.quoteprice.uia.com/" xmlns:ns1="http://ws.together.co.uk/"
+			elementFormDefault="unqualified" targetNamespace="http://service.quoteprice.uia.com/"
+			version="1.0">
+			<xs:import namespace="http://ws.together.co.uk/" />
+			<xs:element name="getQuote" type="tns:getQuote" />
+			<xs:element name="getQuoteResponse" type="tns:getQuoteResponse" />
+			<xs:complexType name="getQuote">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="arg0" type="ns1:getQuote" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="getQuoteResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getQuoteResponse">
+		<wsdl:part element="tns:getQuoteResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getQuote">
+		<wsdl:part element="tns:getQuote" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="QuotePriceService">
+		<wsdl:operation name="getQuote">
+			<wsdl:input message="tns:getQuote" name="getQuote"></wsdl:input>
+			<wsdl:output message="tns:getQuoteResponse" name="getQuoteResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="QuotePriceServiceServiceSoapBinding"
+		type="tns:QuotePriceService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getQuote">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getQuote">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getQuoteResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="QuotePriceServiceService">
+		<wsdl:port binding="tns:QuotePriceServiceServiceSoapBinding"
+			name="QuotePriceServicePort">
+			<soap:address location="http://localhost:9083/UIA/priceservice" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

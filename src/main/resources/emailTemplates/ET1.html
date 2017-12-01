@@ -1,0 +1,151 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family:Arial, Verdana, Tahoma, sans-serif;
+            font-size: 11px;
+            padding: 10px;
+            background-color:#999;
+        }
+
+        #wrapper {
+            border-radius: 20px;
+            background-color: #FAFAFA;
+            padding: 0 15px 15px 15px;
+        }
+
+        footer {
+            font-size: 7.5px;
+            margin: 40px 0 20px 0;
+        }
+
+        table {
+            margin: 35px 5px;
+            font-size: 12px;
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+
+        #logo {
+            padding: 3px;
+            height: 170px;
+        }
+
+            #logo img {
+                float: right;
+                max-width: 100%; 
+                height: auto;
+            }
+
+        td {
+            padding: 4px 5px;
+            border-top: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+
+        th {
+            padding: 5px;
+            background-color: #EEE;
+        }
+        
+         p {
+		    display: block;
+		    margin-top: 1em;
+		    margin-bottom: 1em;
+		    margin-left: 0;
+		    margin-right: 0;
+		}
+		
+		strong { 
+		    font-weight: bold;
+		}
+		
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="logo">
+            <img src="[LogoPath]" />
+        </div>
+
+        <p>
+            Dear [Title] [Surname]
+        </p>
+        <p>
+            Customer Number = <strong>[Customer Number]</strong> <br />
+            Quote Number = <strong>[PolicyNumber]</strong>
+        </p>
+        <p>
+            Thank you for contacting [CompanyName] about your home insurance.
+            To retrieve your quote and purchase online, simply visit <a href="[CustomerLoginUrl]">[CustomerLoginUrl]</a> and enter your user name and password.
+        </p>
+        <p>
+            Please note this quotation is valid for  [ValidUntil] days.
+        </p>
+        <p>
+            <strong>Special offer</strong> <br />
+            Price includes your <strong>40% no claims discount</strong> and Insurance Premium Tax where applicable. This offer is only available for a limited time, so be sure to purchase your Home Insurance cover as soon as possible.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Annual Premium</th>
+                    <th>Monthly Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>[CoverType] Cover</td>
+                    <td>[Premium]	</td>
+                    <td>One monthly payment of [1stInstallment] followed by nine monthly payments of [InstallOtherPayments]</td>
+                </tr>
+                
+                
+            </tbody>
+
+        </table>
+
+        <p>
+            We’re confident that the price and cover we are offering you represents good value for money and we hope you'll choose to insure your home with us.
+        </p>
+        <p>
+            Remember with [CompanyName] we: <br/>
+            <ul>
+                <li><strong>Don't charge you</strong> interest if you choose to pay monthly by Direct Debit</li>
+                <li><strong>Don't charge you</strong> admin fees if you need to update your details throughout the year</li>
+                <li><strong>Don't charge you</strong> cancellation fees, if your circumstances change and you need to leave us</li>
+            </ul>
+        </p>    
+        
+        <p>
+            If you have any questions about your quote, please email <a href="mailto:[SalesEmail]">[SalesEmail]</a>
+        </p>
+
+        <p>
+            Kind Regards
+        </p>
+        <p>
+            <strong>[CompanyName]</strong><br />
+            Principal Office in England: Kings Court, London Road, Stevenage, Herts SG1 2TP<br />
+            Tel: [PhoneNumber]<br />
+            Web: <a href="[CompanyWebsite]">[CompanyWebsite]</a>
+        </p>
+
+        <footer>
+            <p>
+                The information in this e-mail and in any attachment is confidential and may be privileged. It is intended solely for the use of the individual or entity to which it is addressed. If you are not the intended recipient, please destroy this message, delete any copies held on your systems and notify the sender immediately. You should not retain, copy or use this e-mail for any purpose, nor disclose all or part of its content to any other person. We cannot accept liability for any damage that you may suffer as a result of viruses. We recommend that you carry out your own virus checks before opening any attachment.
+            </p>
+            <p>
+                If you do not wish to receive any marketing communications from us in the future, please email us at <a href="mailto:[CompanyInfoEmail]">[CompanyInfoEmail]</a> . Please do not reply to this automated email address.
+            </p>
+            <p>
+                [Terms]
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

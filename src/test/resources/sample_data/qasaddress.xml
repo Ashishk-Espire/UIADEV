@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Header>
+        <QAInformation xmlns="http://www.qas.com/OnDemand-2011-03">
+            <StateTransition>SearchResults</StateTransition>
+            <CreditsUsed>1</CreditsUsed>
+        </QAInformation>
+    </soap:Header>
+    <soap:Body>
+        <Address xmlns="http://www.qas.com/OnDemand-2011-03">
+            <QAAddress DPVStatus="DPVNotConfigured">
+                <AddressLine LineContent="None">
+                    <Label />
+                    <Line />
+                </AddressLine>
+                <AddressLine LineContent="None">
+                    <Label />
+                    <Line>Flat 0/2</Line>
+                </AddressLine>
+                <AddressLine LineContent="None">
+                    <Label />
+                    <Line>258</Line>
+                </AddressLine>
+                <AddressLine LineContent="None">
+                    <Label />
+                    <Line />
+                </AddressLine>
+                <AddressLine>
+                    <Label>Street English</Label>
+                    <Line>Ardencraig Road</Line>
+                </AddressLine>
+                <AddressLine>
+                    <Label>Locality English</Label>
+                    <Line />
+                </AddressLine>
+                <AddressLine>
+                    <Label>Town English</Label>
+                    <Line>Glasgow</Line>
+                </AddressLine>
+                <AddressLine>
+                    <Label>Administrative Area English</Label>
+                    <Line>Glasgow City</Line>
+                </AddressLine>
+                <AddressLine LineContent="Ancillary">
+                    <Label>UPRN</Label>
+                    <Line>906700246444</Line>
+                </AddressLine>
+            </QAAddress>
+        </Address>
+    </soap:Body>
+</soap:Envelope>

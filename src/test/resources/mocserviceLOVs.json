@@ -1,0 +1,684 @@
+{
+  "LOVs": [
+    {
+      "Title": [
+        {
+          "ID": "1",
+          "Description": "Mr"
+        },
+        {
+          "ID": "2",
+          "Description": "Mrs"
+        },
+        {
+          "ID": "3",
+          "Description": "Ms"
+        },
+        {
+          "ID": "4",
+          "Description": "Mis"
+        }
+      ]
+    },
+    {
+      "Joint Policyholder Title": [
+        {
+          "ID": "1",
+          "Description": "Mr"
+        },
+        {
+          "ID": "2",
+          "Description": "Mrs"
+        },
+        {
+          "ID": "3",
+          "Description": "Ms and Mis"
+        }
+      ]
+    },
+    {
+      "Type of Property": [
+        {
+          "ID": "1",
+          "Description": "Detached House"
+        },
+        {
+          "ID": "2",
+          "Description": "Semi-Detached House"
+        },
+        {
+          "ID": "3",
+          "Description": "Mid Terraced House"
+        },
+        {
+          "ID": "4",
+          "Description": "End of Terrace House"
+        },
+        {
+          "ID": "5",
+          "Description": "Flat in Converted House"
+        },
+        {
+          "ID": "6",
+          "Description": "Flat in purpose built block"
+        },
+        {
+          "ID": "7",
+          "Description": "Converted Barn"
+        },
+        {
+          "ID": "8",
+          "Description": "End of terrace bungalow"
+        },
+        {
+          "ID": "9",
+          "Description": "Mid Terraced bungalow"
+        },
+        {
+          "ID": "10",
+          "Description": "Maisonette"
+        },
+        {
+          "ID": "11",
+          "Description": "Detached Bungalow"
+        },
+        {
+          "ID": "12",
+          "Description": "Semi-Detached Bungalow"
+        }
+      ]
+    },
+    {
+      "Year Built": [
+        {
+          "ID": "1",
+          "Description": "1720 to 1839"
+        },
+        {
+          "ID": "2",
+          "Description": "1840 to 1919"
+        },
+        {
+          "ID": "3",
+          "Description": "1920 to 1945"
+        },
+        {
+          "ID": "4",
+          "Description": "1946 to 1979"
+        },
+        {
+          "ID": "5",
+          "Description": "1980 to present"
+        }
+      ]
+    },
+    {
+      "Ownership Status": [
+        {
+          "ID": "1",
+          "Description": "Mortgaged and occupied by you"
+        },
+        {
+          "ID": "2",
+          "Description": "Owned and occupied by you"
+        },
+        {
+          "ID": "3",
+          "Description": "Owned shared equity"
+        },
+        {
+          "ID": "4",
+          "Description": "Rented - private landlord"
+        },
+        {
+          "ID": "5",
+          "Description": "Rented - council/housing ass"
+        }
+      ]
+    },
+    {
+      "Roof Type": [
+        {
+          "ID": "1",
+          "Description": "Slate"
+        },
+        {
+          "ID": "2",
+          "Description": "Tile"
+        },
+        {
+          "ID": "3",
+          "Description": "Concrete"
+        },
+        {
+          "ID": "4",
+          "Description": "More than 50% flat felt"
+        }
+      ]
+    },
+    {
+      "Wall Type": [
+        {
+          "ID": "1",
+          "Description": "Brick"
+        },
+        {
+          "ID": "2",
+          "Description": "Stone"
+        },
+        {
+          "ID": "3",
+          "Description": "Concrete"
+        },
+        {
+          "ID": "4",
+          "Description": "Timber framed brick or stone Cob"
+        }
+      ]
+    },
+    {
+      "Type of Alarm": [
+        {
+          "ID": "1",
+          "Description": "NACOSS"
+        },
+        {
+          "ID": "2",
+          "Description": "AISC/SSAIB"
+        },
+        {
+          "ID": "3",
+          "Description": "Non-approved"
+        },
+        {
+          "ID": "4",
+          "Description": "NSI"
+        }
+      ]
+    },
+    {
+      "Policy Start Date": [
+        {
+          "ID": "1",
+          "Description": "Validity period - from today to 45 days in the future."
+        }
+      ]
+    },
+    {
+      "Claim Type": [
+        {
+          "ID": "1",
+          "Description": "Buildings"
+        },
+        {
+          "ID": "2",
+          "Description": "Contents"
+        },
+        {
+          "ID": "3",
+          "Description": "Cycle cover"
+        },
+        {
+          "ID": "4",
+          "Description": "Unspecified item"
+        }
+      ]
+    },
+    {
+      "Claim Cause": [
+        {
+          "ID": "1",
+          "Description": "Accidental damage at home (extended cover)"
+        },
+        {
+          "ID": "2",
+          "Description": "Accidental damage at home (standard cover)"
+        },
+        {
+          "ID": "3",
+          "Description": "Accidental damage away from home"
+        },
+        {
+          "ID": "4",
+          "Description": "Accidental damage to TV/Computer)"
+        },
+        {
+          "ID": "5",
+          "Description": "Accidental damage to underground pipes/drains"
+        },
+        {
+          "ID": "6",
+          "Description": "Accidental damage to TV/Computer)"
+        },
+        {
+          "ID": "7",
+          "Description": "Arson"
+        },
+        {
+          "ID": "8",
+          "Description": "Collision"
+        },
+        {
+          "ID": "9",
+          "Description": "Earthquake"
+        },
+        {
+          "ID": "10",
+          "Description": "Escape of oil"
+        },
+        {
+          "ID": "11",
+          "Description": "Escape of water"
+        },
+        {
+          "ID": "12",
+          "Description": "Escape of water due to freezing"
+        },
+        {
+          "ID": "13",
+          "Description": "Explosion"
+        },
+        {
+          "ID": "14",
+          "Description": "Falling aerials"
+        },
+        {
+          "ID": "15",
+          "Description": "Falling trees"
+        },
+        {
+          "ID": "15",
+          "Description": "Fire"
+        },
+        {
+          "ID": "16",
+          "Description": "Flood"
+        },
+        {
+          "ID": "17",
+          "Description": "Food in freezer"
+        },
+        {
+          "ID": "18",
+          "Description": "Lightning"
+        },
+        {
+          "ID": "19",
+          "Description": "Loss"
+        },
+        {
+          "ID": "20",
+          "Description": "Loss of metered water/oil"
+        },
+        {
+          "ID": "21",
+          "Description": "Malicious damage"
+        },
+        {
+          "ID": "22",
+          "Description": "Owners liability"
+        },
+        {
+          "ID": "23",
+          "Description": "Personal/occupiers liability"
+        },
+        {
+          "ID": "24",
+          "Description": "Plants in the garden"
+        },
+        {
+          "ID": "25",
+          "Description": "Replacement locks"
+        },
+        {
+          "ID": "26",
+          "Description": "Riot/civil commotion"
+        },
+        {
+          "ID": "27",
+          "Description": "Smoke"
+        },
+        {
+          "ID": "28",
+          "Description": "Storm"
+        },
+        {
+          "ID": "29",
+          "Description": "Subsidence/landslip/heave"
+        },
+        {
+          "ID": "30",
+          "Description": "Theft away from home"
+        },
+        {
+          "ID": "31",
+          "Description": "Theft from home"
+        },
+        {
+          "ID": "32",
+          "Description": "Theft from outbuilding"
+        }
+      ]
+    },
+    {
+      "Buildings Vol Excess": [
+        {
+          "ID": "1",
+          "Description": "?50"
+        },
+        {
+          "ID": "2",
+          "Description": "?100"
+        },
+        {
+          "ID": "3",
+          "Description": "?150"
+        },
+        {
+          "ID": "4",
+          "Description": "?200"
+        },
+        {
+          "ID": "5",
+          "Description": "?250"
+        },
+        {
+          "ID": "6",
+          "Description": "?350"
+        },
+        {
+          "ID": "6",
+          "Description": "?350"
+        }
+      ]
+    },
+    {
+      "Contents vol Excess": [
+        {
+          "ID": "1",
+          "Description": "?50"
+        },
+        {
+          "ID": "2",
+          "Description": "?100"
+        },
+        {
+          "ID": "3",
+          "Description": "?150"
+        },
+        {
+          "ID": "4",
+          "Description": "?200"
+        },
+        {
+          "ID": "5",
+          "Description": "?250"
+        },
+        {
+          "ID": "6",
+          "Description": "?350"
+        },
+        {
+          "ID": "6",
+          "Description": "?350"
+        }
+      ]
+    },
+    {
+      "Unspecified Items": [
+        {
+          "ID": "1",
+          "Description": "?2000"
+        },
+        {
+          "ID": "2",
+          "Description": "?5000"
+        },
+        {
+          "ID": "3",
+          "Description": "?6000"
+        },
+        {
+          "ID": "4",
+          "Description": "?7000"
+        },
+        {
+          "ID": "5",
+          "Description": "?8000"
+        },
+        {
+          "ID": "6",
+          "Description": "?9000"
+        },
+        {
+          "ID": "6",
+          "Description": "?10000"
+        }
+      ]
+    },
+    {
+      "Specified Item Type": [
+        {
+          "ID": "1",
+          "Description": "Golf clubs"
+        },
+        {
+          "ID": "2",
+          "Description": "Jewellery others"
+        },
+        {
+          "ID": "3",
+          "Description": "Jewellery rings"
+        },
+        {
+          "ID": "4",
+          "Description": "Jewellery watches"
+        },
+        {
+          "ID": "5",
+          "Description": "Laptop computers"
+        },
+        {
+          "ID": "6",
+          "Description": "Mobile phone"
+        },
+        {
+          "ID": "7",
+          "Description": "Photographic equipment"
+        },
+        {
+          "ID": "8",
+          "Description": "Photographic equipmenVideo camcorders"
+        }
+      ]
+    },
+    {
+      "Cycle Make": [
+        {
+          "ID": "1",
+          "Description": "Airnimal"
+        },
+        {
+          "ID": "2",
+          "Description": "Apolllo"
+        },
+        {
+          "ID": "3",
+          "Description": "BMC"
+        },
+        {
+          "ID": "4",
+          "Description": "Bianchi"
+        },
+        {
+          "ID": "5",
+          "Description": "Boardman"
+        },
+        {
+          "ID": "6",
+          "Description": "Brompton"
+        },
+        {
+          "ID": "7",
+          "Description": "Carrera"
+        },
+        {
+          "ID": "8",
+          "Description": "Colnago"
+        },
+        {
+          "ID": "9",
+          "Description": "Dawes"
+        },
+        {
+          "ID": "10",
+          "Description": "De Rosa"
+        },
+        {
+          "ID": "11",
+          "Description": "GT"
+        },
+        {
+          "ID": "12",
+          "Description": "Giant"
+        },
+        {
+          "ID": "13",
+          "Description": "Kona"
+        },
+        {
+          "ID": "14",
+          "Description": "Look"
+        },
+        {
+          "ID": "15",
+          "Description": "Marin"
+        },
+        {
+          "ID": "16",
+          "Description": "Moulton"
+        },
+        {
+          "ID": "17",
+          "Description": "Orbea"
+        },
+        {
+          "ID": "18",
+          "Description": "Pashley"
+        },
+        {
+          "ID": "19",
+          "Description": "Pinarello"
+        },
+        {
+          "ID": "20",
+          "Description": "Raleigh"
+        },
+        {
+          "ID": "21",
+          "Description": "Saracen"
+        },
+        {
+          "ID": "22",
+          "Description": "Scott"
+        },
+        {
+          "ID": "23",
+          "Description": "Specialized"
+        },
+        {
+          "ID": "24",
+          "Description": "Surly"
+        },
+        {
+          "ID": "25",
+          "Description": "Trek"
+        },
+        {
+          "ID": "26",
+          "Description": "Voodoo"
+        },
+        {
+          "ID": "26",
+          "Description": "Willier"
+        }
+      ]
+    },
+    {
+      "DD Collection Date": [
+        {
+          "ID": "1",
+          "Description": "4"
+        },
+        {
+          "ID": "2",
+          "Description": "11"
+        },
+        {
+          "ID": "3",
+          "Description": "21"
+        },
+        {
+          "ID": "4",
+          "Description": "28"
+        }
+      ]
+    },
+    {
+      "Customers Bank Account": [
+        {
+          "ID": "1",
+          "Description": "Yes"
+        },
+        {
+          "ID": "2",
+          "Description": "No"
+        }
+      ]
+    },
+    {
+      "Confirm Residence Situation": [
+        {
+          "ID": "1",
+          "Description": "Property shared with lodger"
+        },
+        {
+          "ID": "2",
+          "Description": "Property unoccupied"
+        },
+        {
+          "ID": "3",
+          "Description": "Property let to other persons"
+        }
+      ]
+    },
+    {
+      "Confirm Residence Situation": [
+        {
+          "ID": "1",
+          "Description": "Property shared with lodger"
+        },
+        {
+          "ID": "2",
+          "Description": "Property unoccupied"
+        },
+        {
+          "ID": "3",
+          "Description": "Property let to other persons"
+        }
+      ]
+    },
+    {
+      "Bankruptcy status": [
+        {
+          "ID": "1",
+          "Description": "My bankruptcy is now discharged "
+        },
+        {
+          "ID": "2",
+          "Description": "My bankruptcy/IVA is current"
+        }
+      ]
+    }
+  ]
+}

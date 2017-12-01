@@ -1,0 +1,80 @@
+{
+	"partner_id": "CONFSD",
+	"cover_start_date": "2017-10-08",
+	"dd_details": {
+		"ddi_collection_day": 0
+	},
+	"cc_details": {},
+	"eligibility": {},
+	"risk_property": {
+		"perm_res": "N",
+		"sole_occ": "N",
+		"bus_use": "2",
+		"refused": "N",
+		"terms": "N",
+		"convs": "N",
+		"bank_ccj": "N",
+		"for_sale": "N",
+		"flood": "N",
+		"subst": "N",
+		"rep_state": "Y",
+		"prop_type": 8,
+		"no_storeys": 0,
+		"listed": 4,
+		"year_built": 1970,
+		"owner_type": 3,
+		"no_beds": 4,
+		"ext_prop": "N",
+		"wall_type": 1,
+		"roof_type": 2,
+		"alarm_type": 4,
+		"smokers": "N",
+		"smoke_al": "Y",
+		"win_lock": "Y",
+		"door_lock": "Y",
+		"risk_address": {
+			"building_name": "The Barn",
+			"street_no": "23",
+			"street": "Sudbury Avenue",
+			"postal_region": "STEVENAGE",
+			"city": "Wembley",
+			"postcode": "HA0 3AN",
+			"uprn": 100021464471
+		}
+	},
+	"persons_insured": [{
+		"title": "003",
+		"forename": "Matt",
+		"surname": "Shaw",
+		"birth_date": "2017-06-08",
+		"email_address": "test@test.com",
+		"phone_no": "1223234234",
+		"occupation_code": 1
+	}],
+	"tier": "SILVER",
+	"prev_claims": [],
+	"cover": {
+		"bld": {
+			"risk_yn": "Y",
+			"vol_xs": 250
+		},
+		"bld_ad": {
+			"risk_yn": "Y"
+		},
+		"con": {
+			"risk_yn": "Y",
+			"vol_xs": 200
+		},
+		"con_ad": {
+			"risk_yn": "N"
+		},
+		"unspec": {
+			"risk_sum": 0
+		},
+		"spec_items": [],
+		"cycles": [],
+		"legal": "Y",
+		"he": "Y",
+		"travel": "N"
+	}
+}

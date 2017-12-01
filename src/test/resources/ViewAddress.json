@@ -1,0 +1,19 @@
+{
+   "Address": {
+      "DPVStatus": "DPVNotConfigured",
+      "AddressLine": [
+         {
+            "Label": "Street English",
+            "Line": "Ardencraig Road"
+         },
+         {
+            "Label": "Administrative Area English",
+            "Line": "Glasgow City"
+         },
+         {
+            "Label": "UPRN",
+            "Line": "906700246444"
+         }
+      ]
+   }
+}

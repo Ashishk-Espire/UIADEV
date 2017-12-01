@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuoteRequest>
+	<aggregator_id>123</aggregator_id>
+	<affinity>0072</affinity>
+	<cover_start_date>2016-10-31</cover_start_date>
+	<first_start_date>2016-10-31</first_start_date>
+	<year_start_date>2016-10-31</year_start_date>
+	<payment_method>CHEQUE</payment_method>
+	<product_line_ver_no>19</product_line_ver_no>
+	<campaign>15779</campaign>
+	<campaign>15779</campaign>
+	<eligibility></eligibility>
+
+	<risk_property>
+		<perm_res>Y</perm_res>
+		<sole_occ>Y</sole_occ>
+		<bus_use>0</bus_use>
+		<refused>N</refused>
+		<terms>N</terms>
+		<convs>N</convs>
+		<bank_ccj>N</bank_ccj>
+		<for_sale>N</for_sale>
+		<near_water>N</near_water>
+		<flood>N</flood>
+		<trees>N</trees>
+		<subst>N</subst>
+		<rep_state>Y</rep_state>
+		<prop_type>Mid-Terraced Bungalow</prop_type>
+		<listed>Grade II Listed</listed>
+		<year_built>1987</year_built>
+		<owner_type>Owned Outright</owner_type>
+		<no_beds>4</no_beds>
+		<ext_prop>N</ext_prop>
+		<wall_type>Timber framed - brick or stone</wall_type>
+		<roof_type>Tile</roof_type>
+		<alarm_type>No Alarm</alarm_type>
+		<smokers>Y</smokers>
+		<smoke_al>Y</smoke_al>
+		<win_lock>Y</win_lock>
+		<door_lock>Y</door_lock>
+		<risk_address>
+			<street>, </street>
+			<street_no> </street_no>
+			<postal_region> </postal_region>
+			<post_area>SG2</post_area>
+			<post_street>7EA</post_street>
+			<uprn>null </uprn>
+		</risk_address>
+	</risk_property>
+	<persons_insured>
+		<title>003</title>
+		<forename>Batch</forename>
+		<surname>Ta-Aitc-Gocn0055</surname>
+		<birth_date>1990-01-01</birth_date>
+		<post_address>
+			<post_area>BT48</post_area>
+			<post_street>0EG</post_street>
+		</post_address>
+	</persons_insured>
+	<tier>SILVER</tier>
+	<channel_yr>AGGREGATOR</channel_yr>
+	<together>Y</together>
+	<policy_year>1</policy_year>
+	<cover>
+		<bld>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</bld>
+		<bld_ad>
+			<risk_yn>Y</risk_yn>
+		</bld_ad>
+		<con>
+			<risk_yn>Y</risk_yn>
+			<vol_xs>250</vol_xs>
+		</con>
+		<con_ad>
+			<risk_yn>Y</risk_yn>
+		</con_ad>
+		<unspec>
+			<risk_yn>Y</risk_yn>
+			<risk_sum>2000</risk_sum>
+		</unspec>
+		<spec_items>
+			<risk_yn>Y</risk_yn>
+			<risk_sum>1500</risk_sum>
+		</spec_items>
+		<cycles>
+			<risk_yn>N</risk_yn>
+			<risk_sum>900</risk_sum>
+		</cycles>
+		<legal>Y</legal>
+		<he>Y</he>
+		<travel>Y</travel>
+
+	</cover>
+
+</QuoteRequest>

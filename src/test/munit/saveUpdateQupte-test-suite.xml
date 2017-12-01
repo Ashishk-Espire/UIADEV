@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:qnb_getQuote.xml"/>
+        <spring:import resource="classpath:security_check_user_quote.xml"/>
+        <spring:import resource="classpath:global.xml"/>
+        <spring:import resource="classpath:global_exception.xml"/>
+        <spring:import resource="classpath:qnb_retrievequoteTIA.xml"/>
+        <spring:bean id="loadFile" class="org.apache.commons.io.IOUtils" factory-method="toString">
+    		<spring:constructor-arg value="classpath:MUnit/saveQuotePayload.json" type="java.io.InputStream"/>
+		</spring:bean>
+    </spring:beans>
+    <munit:test name="saveUpdateQupte-test-suite-saveUpdateQuoteTest" description="Test">
+        <set-payload doc:name="Set Payload" value="#[app.registry.loadFile]"/>
+        <flow-ref name="saveUpdateQuote" doc:name="saveUpdateQuote"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-payload value="#[payload.header.result_status]" doc:name="Set Payload"/>
+        <munit:assert-payload-equals expectedValue="SUCCESS" doc:name="Assert Payload" message="Sorry, didn't got expected value"/>
+    </munit:test>
+</mule>

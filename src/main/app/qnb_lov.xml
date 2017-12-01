@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <flow name="qnb_lovFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.lov}" allowedMethods="GET" doc:name="HTTP"/>
+        <db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+				doc:name="TIA Database">
+            <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+            <db:in-param name="inputJSON" type="VARCHAR" value="{&quot;function&quot; : &quot;tia_mule.get_ref_data&quot;} "/>
+            <db:out-param name="fncResult" type="VARCHAR"/>
+
+			</db:stored-procedure>
+        <set-payload value="#[payload.fncResult]" doc:name="Set Payload"/>
+        <json:object-to-json-transformer mimeType="application/json" doc:name="Object to JSON"/>
+        <dw:transform-message metadata:id="b145720f-f4c2-42fa-957e-61cd1b557211" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	listed:payload.result.lov_data.listed[0],
+	cust_title:payload.result.lov_data.cust_title[0],
+	joint_title:payload.result.lov_data.cust_title[0],
+	property_type:payload.result.lov_data.prop_type2[0],
+	owner_type:payload.result.lov_data.owner_type[0],
+	roof_type:payload.result.lov_data.roof_type[0],
+	wall_type:payload.result.lov_data.wall_type[0],
+	alarm_type:payload.result.lov_data.alarm_type[0],
+	claim_type:payload.result.lov_data.cla_type[0],
+	claim_cause:payload.result.lov_data.cla_cause[0],
+	building_vol_excess:payload.result.lov_data.vol_xs[0],
+	contents_vol_excess:payload.result.lov_data.vol_xs[0],
+	bike_make:payload.result.lov_data.cyc_make[0],
+	combined_value:payload.result.lov_data.unspec_si[0],
+	employment_status:payload.result.lov_data.occupation_code[0],
+	spec_itm_type:payload.result.lov_data.itm_type[0],
+	dd_col_date:payload.result.lov_data.qab_dd_day[0],
+	res_situation:payload.result.lov_data.qab_res_occ[0],
+	brand_data: payload.result.brand_data
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+</mule>

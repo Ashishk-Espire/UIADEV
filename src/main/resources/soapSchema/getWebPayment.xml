@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emis="http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <emis:getWebPayment>
+         <arg0>
+       <requester>
+        <authToken>6b73869497f495468afad8458997d13b4d002d647018b846f8c8b0c56eeb5118</authToken>
+        <enterpriseID>UIA</enterpriseID>
+        <clientID>DE01</clientID>
+        <environment>ECommerce</environment>
+         </requester>
+            <transactionReference>271a74ac-1510-4e72-97db-fc10c0ff4676</transactionReference>
+         </arg0>
+      </emis:getWebPayment>
+   </soapenv:Body>
+</soapenv:Envelope>

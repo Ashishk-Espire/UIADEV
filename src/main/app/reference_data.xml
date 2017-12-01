@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+
+	<!-- <spring:beans> <spring:bean name="flowInvokingContextListener" class="com.uia.context.FlowInvokingContextListener" 
+		p:startingFlow-ref="startFlow" p:stoppingFlow-ref="stopFlow" /> </spring:beans> 
+		<notifications> <notification event="CONTEXT" /> <notification-listener ref="flowInvokingContextListener" 
+		/> </notifications> -->
+
+	<spring:beans>
+		<spring:bean name="uiaFlowContextListenerBean" class="com.uia.context.UIAFlowContextListener" />
+		<spring:bean name="uiaCacheBean" class="com.uia.component.UIACacheComponent"
+			scope="singleton" />
+		<!-- <spring:bean name="uiaValidationBean" class="com.uia.validator.UPRNValidation" 
+			scope="prototype" /> -->
+
+	</spring:beans>
+	<notifications>
+		<notification event="CONTEXT" />
+		<notification-listener ref="uiaFlowContextListenerBean" />
+	</notifications>
+
+	<quartz:connector name="Quartz" validateConnections="true"
+		doc:name="Quartz" />
+
+
+	<configuration doc:name="Configuration">
+		<expression-language>
+			<global-functions>
+				def getReferenceData(type){
+				return new
+				com.uia.component.UIACacheComponent().getLovCache();
+				}
+
+				def
+				getLovsData(type){
+				return "testData"
+				}
+			</global-functions>
+
+		</expression-language>
+
+	</configuration>
+
+
+	<http:listener-config name="Lovs_HTTP_Listener_Configuration"
+		host="${quotelovs.http.host}" port="${quotelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Listener Configuration" />
+	<http:listener-config name="Lovs_Cache_HTTP_Listener_Configuration"
+		host="${cachelovs.http.host}" port="${cachelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Listener Configuration" />
+	<http:request-config name="Lovs_HTTP_Request_Configuration"
+		host="${quotelovs.http.host}" port="${quotelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Request Configuration" />
+	<http:request-config name="Cache1_HTTP_Request_Configuration"
+		host="${cachelovs.http.host}" port="${cachelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Request Configuration" />
+	<ee:object-store-caching-strategy
+		name="Caching_Strategy" keyGenerationExpression="#[app.registry.uiaCacheBean.lovCache]"
+		doc:name="Caching Strategy">
+		<in-memory-store />
+	</ee:object-store-caching-strategy>
+	<http:listener-config name="ReferenceData_Cache_HTTP_Listener_Configuration"
+		host="${cachereferencedata.http.host}" port="${cachereferencedata.http.port}"
+		basePath="${uia.http.basepath}" doc:name="HTTP Listener Configuration" />
+	<http:listener-config name="ReferenceData_HTTP_Listener_Configuration"
+		host="${referencedata.http.host}" port="${referencedata.http.port}"
+		basePath="${uia.http.basepath}" doc:name="HTTP Listener Configuration" />
+	<http:request-config name="ReferenceData_HTTP_Request_Configuration"
+		host="${referencedata.http.host}" port="${http.port}"
+		basePath="${uia.http.basepath}" doc:name="HTTP Request Configuration" />
+	<ee:object-store-caching-strategy
+		name="ReferenceData_Caching_Strategy" keyGenerationExpression="#[app.registry.uiaCacheBean.referenceDataCache]"
+		doc:name="Caching Strategy">
+		<in-memory-store />
+	</ee:object-store-caching-strategy>
+	<http:request-config name="Lovs_Cache_HTTP_Request_Configuration"
+		host="${cachelovs.http.host}" port="${cachelovs.http.port}" basePath="${uia.http.basepath}"
+		doc:name="HTTP Request Configuration" />
+	<flow name="dataweaveMapperFlow">
+		<set-variable variableName="quoteKey" value="#[payload.quoteKey]"
+			doc:name="Quote Key" />
+		<set-variable variableName="quoteValue" value="#[payload.quoteValue]"
+			doc:name="Quote Value" />
+		<set-variable variableName="keyType" value="#[payload.keyType]"
+			doc:name="Key Type" />
+
+		<object-to-string-transformer doc:name="Object to String" />
+        <set-payload value="#[app.registry.uiaCacheBean.getId(flowVars.keyType,flowVars.quoteKey,flowVars.quoteValue)]" doc:name="Set Payload"/>
+
+	</flow>
+
+	<flow name="quoteReferenceDataCacheFlow">
+		<http:listener config-ref="ReferenceData_Cache_HTTP_Listener_Configuration"
+			path="/${cachereferencedata.http.path}" allowedMethods="GET"
+			doc:name="HTTP" />
+		<ee:cache doc:name="Quote Reference Data Cache"
+			cachingStrategy-ref="ReferenceData_Caching_Strategy">
+			<http:request config-ref="ReferenceData_HTTP_Request_Configuration"
+				path="/${http.path.lov}" method="GET" doc:name="HTTP" />
+			<byte-array-to-string-transformer
+				doc:name="Byte Array to String" />
+			<set-payload value="#[payload]" doc:name="Set Payload" />
+		</ee:cache>
+	</flow>
+
+
+
+
+
+
+</mule>

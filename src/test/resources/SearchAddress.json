@@ -1,0 +1,33 @@
+{
+   "SearchResult": {
+      "Picklist": {
+         "FullPicklistMoniker": "APR|1436fe4e-04d3-441d-b476-d91dd6588938|08SAPRHgzgBwAAAAABAUc0NSAwUFkAKgMAAA--",
+         "PicklistEntry": [
+            {
+               "FullAddress": "true",
+               "Moniker": "APR|1436fe4e-04d3-441d-b476-d91dd6588938|0sOAPRHgzgBwAAAAABAwEAAAADHNaVkgAgAAAAAAAAMjU4AAD..2QAAAAA.....wAAAAAAAAAAAAAAAABHNDUgMFBZAA--",
+               "PartialAddress": "258 Ardencraig Road, Glasgow G45 0PY",
+               "Picklist": "258 Ardencraig Road, Glasgow",
+               "Postcode": "G45 0PY",
+               "Score": "100"
+            },
+            {
+               "FullAddress": "true",
+               "Moniker": "APR|1436fe4e-04d3-441d-b476-d91dd6588938|0POAPRHgzgBwAAAAABAwEAAAADJkYYkgAhAIYQCaEAAhABYAAAAAAAAAAA..9kAAAAAP....8AAAAAAAAAAAAAAAAARzQ1IDBQWQA-",
+               "PartialAddress": "Flat 0/1, 258 Ardencraig Road, Glasgow G45 0PY",
+               "Picklist": "Flat 0/1, 258 Ardencraig Road, Glasgow",
+               "Postcode": "G45 0PY",
+               "Score": "100"
+            },
+            {
+               "FullAddress": "true",
+               "Moniker": "APR|1436fe4e-04d3-441d-b476-d91dd6588938|09OAPRHgzgBwAAAAABAwEAAAADJkYb0gAhAIYQCaEAAhABYAAAAAAAAAAA..9kAAAAAP....8AAAAAAAAAAAAAAAAARzQ1IDBQWQA-",
+               "PartialAddress": "Flat 0/2, 258 Ardencraig Road, Glasgow G45 0PY",
+               "Picklist": "Flat 0/2, 258 Ardencraig Road, Glasgow",
+               "Postcode": "G45 0PY",
+               "Score": "100"
+            }
+         ]
+      }
+   }
+}

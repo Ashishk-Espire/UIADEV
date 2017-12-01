@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+	<flow name="qnb_retrievequoteQDBFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="/${uia.http.basepath}/${quote.http.path.qnb.retrievequoteagg}/{quoteid}/{token}"
+			allowedMethods="GET" doc:name="HTTP" />
+		<set-variable variableName="quid"
+			value="#[message.inboundProperties.'http.uri.params'.quoteid]"
+			doc:name="quid" />
+		<set-variable variableName="sid"
+			value="#[message.inboundProperties.'http.uri.params'.token]"
+			doc:name="sid" />
+		<logger
+			message="The quid and sid for spGetSavedQuote #[flowVars.quid] and #[flowVars.sid]"
+			level="INFO" doc:name="Logger" />
+
+		<db:stored-procedure config-ref="Generic_Database_Configuration_QUOTEDB01"
+			doc:name="Database">
+			<db:parameterized-query><![CDATA[{:fncResult = call spGetSavedQuote(:input1,:input2, :fncResult)}]]></db:parameterized-query>
+			<db:in-param name="input1" type="INTEGER" value="#[flowVars.quid]" />
+			<db:in-param name="input2" type="VARCHAR" value="#[flowVars.sid]" />
+			<db:out-param name="fncResult" type="VARCHAR" />
+		</db:stored-procedure>
+		<logger message="the payload is #[payload] #[payload.toString().length()]"
+			level="INFO" doc:name="Logger" />
+		<set-payload value="#[payload.fncResult]" mimeType="application/json"
+			doc:name="Set Payload" />
+		<logger
+			message="the payload from retrievequoteQDBFlow after fetching fncResult #[payload]"
+			level="INFO" doc:name="Logger" />
+
+		<validation:is-true
+			message="Quote doesn't exist for quid : #[flowVars.quid] and sid :  #[flowVars.sid]"
+			expression="#[ payload != null]" doc:name="Validation" />
+	</flow>
+
+	<flow name="qnb_saveAndRetriveQuoteAGGFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="/${uia.http.basepath}/${quote.http.path.qnb.saveandretrivequoteagg}/{quoteid}/{token}"
+			doc:name="HTTP" />
+		<set-variable variableName="policy_no"
+			value="#[message.inboundProperties.'http.uri.params'.quoteid]"
+			doc:name="policy_no" />
+
+		<flow-ref name="qnb_retrievequoteQDBFlow" doc:name="qnb_retrievequoteQDBFlow" />
+		<set-variable variableName="retrieveresult" value="#[json:status]"
+			doc:name="retrieveresult" />
+		<logger message="the retrieve result : #[flowVars.retrieveresult]"
+			level="INFO" doc:name="Logger" />
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.retrieveresult != 'fail']">
+				<component class="com.uia.component.RetriveQuoteAgg"
+					doc:name="Java" />
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+				<logger
+					message="the payload going for getQuoteSubFlow to save and retrive new quote #[payload]"
+					level="INFO" doc:name="Logger" />
+				<flow-ref name="qnb_getQuoteSub_Flow" doc:name="qnb_getQuoteSub_Flow" />
+			</when>
+			<otherwise>
+				<set-payload value="#[payload]" doc:name="Set Payload" />
+			</otherwise>
+		</choice>
+
+
+	</flow>
+</mule>

@@ -1,0 +1,87 @@
+{
+	"quote_id": 900016298,
+	"security_token": "shilpi@espire.com",
+	"cover_start_date": "2017-09-29",
+	"tier": "SILVER",
+	"cover": {
+		"bld": {
+			"risk_yn": "Y",
+			"vol_xs": 0
+		},
+		"con": {
+			"risk_yn": "Y",
+			"vol_xs": 0
+		},
+		"legal": "N",
+		"he": "Y",
+		"travel": "N"
+	},
+	"risk_property": {
+		"perm_res": "Y",
+		"sole_occ": "Y",
+		"res_occ": "N",
+		"res_occ_type": 1,
+		"bus_use": "0",
+		"refused": "N",
+		"terms": "N",
+		"convs": "N",
+		"bank_ccj": "N",
+		"for_sale": "N",
+		"near_water": "N",
+		"flood": "N",
+		"trees": "N",
+		"subst": "N",
+		"rep_state": "Y",
+		"prop_type2": 3,
+		"no_storeys": 3,
+		"listed": 4,
+		"year_built": 1850,
+		"owner_type": 1,
+		"no_beds": 2,
+		"ext_prop": "N",
+		"wall_type": 1,
+		"roof_type": 2,
+		"alarm_type": 6,
+		"smokers": "N",
+		"smoke_al": "Y",
+		"win_lock": "Y",
+		"door_lock": "N",
+		"risk_address": {
+			"building_name": "Test BN ",
+			"street_no": "4",
+			"street": "Pound Avenue1",
+			"city": "Stevenage",
+			"postcode": "SG1 3JA",
+			"uprn": 100080892369
+		}
+	},
+	"persons_insured": [{
+			"title": "003",
+			"forename": "Ssss",
+			"surname": "ss",
+			"birth_date": "1999-02-01",
+			"phone_no": "12312312312",
+			"email_address": "shilpi@espire.com",
+			"occupation_code": 664,
+			"accept_mail": "N",
+			"accept_phone": "Y",
+			"accept_email": "Y"
+		},
+		{
+			"title": "003",
+			"forename": "Sshilpi",
+			"surname": "vverma",
+			"birth_date": "1962-02-01",
+			"occupation_code": 465,
+			"accept_mail": null,
+			"accept_phone": null,
+			"accept_email": null
+		}
+	],
+	"mail": {
+		"sendmail": 1,
+		"templates": [{
+			"template": "ET1"
+		}]
+	}
+}

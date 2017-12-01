@@ -1,0 +1,136 @@
+{
+  "QuoteResponse" : {
+    "bld" : {
+      "nsi" : 252508.0909824,
+      "risks" : {
+        "ad_std_prm" : 7.26256408,
+        "eow_prm" : 26.54757608,
+        "fire_prm" : 15.9458154,
+        "flood_prm" : 8.34567647,
+        "liability_prm" : 0.3294464,
+        "other_prm" : 4.03918604,
+        "storm_prm" : 15.94675176,
+        "subs_prm" : 5.29531046,
+        "theft_prm" : 10.6403582
+      },
+      "expenses" : 239.09250718,
+      "underwriting" : 16.6722596,
+      "adjustments" : {
+        "ncd_amt" : 0,
+        "combined_amt" : -80.52701389,
+        "affinity_amt" : 7.02525722
+      },
+      "manual_adjustment" : 0,
+      "cap_collar_mp" : 1.20050788836183443135317300027209807877,
+      "cap_collar_amt" : 55.46362889,
+      "flood_re" : 7.30574513,
+      "net_premium" : 339.39,
+      "ipt" : 33.94
+    },
+    "bld_ad" : {
+      "risks" : {
+        "all_prm" : 3.51725088
+      },
+      "expenses" : 13.69388872,
+      "adjustments" : {
+        "ncd_amt" : 0,
+        "combined_amt" : -3.95856211,
+        "affinity_amt" : 0.34534892
+      },
+      "manual_adjustment" : 0,
+      "cap_collar_mp" : 1.20050788836183443135317300027209807877,
+      "cap_collar_amt" : 2.72649151,
+      "flood_re" : 0.35913719,
+      "net_premium" : 16.68,
+      "ipt" : 1.67
+    },
+    "con" : {
+      "nsi" : 48000,
+      "risks" : {
+        "ad_std_prm" : 4.80023668,
+        "eow_prm" : 3.31634489,
+        "fire_prm" : 10.33082091,
+        "flood_prm" : 2.42679474,
+        "liability_prm" : 0.68891875,
+        "other_prm" : 1.710627,
+        "storm_prm" : 0.70764874,
+        "subs_prm" : 0,
+        "theft_prm" : 22.36696725
+      },
+      "expenses" : 136.7595734,
+      "underwriting" : 0,
+      "adjustments" : {
+        "ncd_amt" : 0,
+        "combined_amt" : -42.11482444,
+        "affinity_amt" : 3.6741394
+      },
+      "manual_adjustment" : 0,
+      "cap_collar_mp" : 1.20050788836183443135317300027209807877,
+      "cap_collar_amt" : 29.00692427,
+      "flood_re" : 3.82083177,
+      "net_premium" : 177.5,
+      "ipt" : 17.75
+    },
+    "con_ad" : {
+      "risks" : {
+        "all_prm" : 9.02425682
+      },
+      "expenses" : 35.13459027,
+      "adjustments" : {
+        "ncd_amt" : 0,
+        "combined_amt" : -10.15653483,
+        "affinity_amt" : 0.88606626
+      },
+      "manual_adjustment" : 0,
+      "cap_collar_mp" : 1.20050788836183443135317300027209807877,
+      "cap_collar_amt" : 6.9953951,
+      "flood_re" : 0.92144302,
+      "net_premium" : 42.81,
+      "ipt" : 4.28
+    },
+    "unspec" : {
+      "risks" : {
+        "all_prm" : 9.01470202
+      },
+      "expenses" : 43.91980854,
+      "adjustments" : {
+        "ncd_amt" : 0,
+        "combined_amt" : -12.17493743,
+        "affinity_amt" : 1.06215372
+      },
+      "manual_adjustment" : 0,
+      "cap_collar_mp" : 1.20050788836183443135317300027209807877,
+      "cap_collar_amt" : 8.38558614,
+      "flood_re" : 1.10456089,
+      "net_premium" : 51.31,
+      "ipt" : 5.13
+    },
+    "ncd_pct" : 0,
+    "legal" : {
+      "cost" : 3.5,
+      "comm" : 14.9,
+      "ipt" : 1.84
+    },
+    "he" : {
+      "cost" : 6,
+      "comm" : 22.3,
+      "ipt" : 2.83
+    },
+    "travel" : {
+      "cost" : 8.21,
+      "comm" : 11.79,
+      "ipt" : 4
+    },
+    "underwriting" : {
+      "subs_score" : 120,
+      "theft_index" : 2.11461912959837,
+      "storm_score" : 36.93,
+      "flood_score" : 0,
+      "mosaic_code" : "A"
+    },
+    "dd_installments" : {
+      "first_installment" : 12.50,
+      "subsequent_installments" : 14.99
+    }
+  }
+}

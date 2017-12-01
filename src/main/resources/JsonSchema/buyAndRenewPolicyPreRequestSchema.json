@@ -1,0 +1,161 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"id": "",
+	"properties": {
+		"quote_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "quote_id",
+			"title": "The quote_id of quote.",
+			"type": "integer"
+		},
+		"policy_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "policy_id",
+			"title": "The policy_no of quote.",
+			"type": "integer"
+		},
+		"trans_id": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "trans_id",
+			"title": "The trans_id of quote.",
+			"type": "string"
+		},
+		"transNo": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "transNo",
+			"title": "The transNo of quote.",
+			"type": "integer"
+		}, 
+		"security_token": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "security_token",
+			"title": "The security_token renew_policy or buy_policy",
+			"type": "string"
+		},
+		"transaction_type": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "transaction_type",
+			"title": "The transaction_type renew_policy or buy_policy",
+			"type": "string",
+			"enum": ["P", "R"]
+		},
+		"print_docs": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "print_docs",
+			"title": "The print_docs renew_policy or buy_policy",
+			"type": "string",
+			"default": "N",
+			"enum": ["Y", "N"]
+		},
+		"payment_method": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "payment_method",
+			"title": "The payment_method in the bank.",
+			"type": "string",
+			"enum": ["CC", "DD"]
+		},
+		"dd_details": {
+			"additionalProperties": false,
+			"id": "dd_details",
+			"properties": {
+				"account_holder_name": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/account_holder_name",
+					"title": "The Account_holder_name schema.",
+					"type": "string"
+				},
+				"bank_account_no": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/bank_account_no",
+					"title": "The Bank_account_no schema.",
+					"type": "string"
+				},
+				"bank_sort_code": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/bank_sort_code",
+					"title": "The Bank_sort_code schema.",
+					"type": "string"
+				},
+				"ddi_collection_day": {
+
+					"description": "An explanation about the purpose of this instance.",
+					"id": "dd_details/ddi_collection_day",
+					"title": "The Ddi_collection_day schema.",
+					"type": "integer"
+				}
+			},
+			"required": [
+				"account_holder_name",
+				"bank_account_no",
+				"bank_sort_code",
+				"ddi_collection_day"
+
+			],
+			"type": "object"
+		}
+
+	},
+	"required": [
+		"security_token",
+		"payment_method",
+		"transaction_type"
+
+	],
+	"type": "object",
+	"allOf": [{
+			"oneOf": [{
+					"properties": {
+						"payment_method": {
+							"enum": ["CC"]
+						}
+					},
+					"required": ["trans_id","transNo"]
+				},
+				{
+					"properties": {
+						"payment_method": {
+							"enum": ["DD"]
+						}
+					},
+					"required": ["dd_details"]
+				}
+			]
+		},
+
+		{
+			"oneOf": [{
+					"properties": {
+						"transaction_type": {
+							"enum": ["P"]
+						}
+					},
+					"required": ["quote_id"]
+				},
+				{
+					"properties": {
+						"transaction_type": {
+							"enum": ["R"]
+						}
+					},
+					"required": ["policy_id"]
+				}
+			]
+
+
+		}
+	]
+
+
+}

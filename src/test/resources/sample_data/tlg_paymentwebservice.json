@@ -1,0 +1,15 @@
+{
+	"policyNo":"1234567",
+	"transNo":"123456",
+	"billingAddress":{
+	   "firstname": "abc",
+	   "lastname" : "def",
+	   "addressline1":"",
+	   "addressline2":"",
+	   "postcode":""
+	},
+	"merchantTransactionID":"00234",
+	"purchaseAmount":3324,
+	"purchaseDescription":"something",
+	"storeResultPage":"qnbUrl"
+}

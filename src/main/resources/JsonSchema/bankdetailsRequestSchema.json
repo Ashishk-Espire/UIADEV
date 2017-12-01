@@ -1,0 +1,27 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"id": "",
+	"properties": {
+		"sortcode": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "sortcode",
+			"title": "The sortcode of bank.",
+			"type": "string"
+		},
+		"accountno": {
+
+			"description": "An explanation about the purpose of this instance.",
+			"id": "accountno",
+			"title": "The accountno in the bank.",
+			"type": "string"
+		}
+	},
+	"required": [
+		"sortcode",
+		"accountno"
+
+	],
+	"type": "object"
+}

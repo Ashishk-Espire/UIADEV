@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <spring:beans>
+        <spring:bean id="UIABlowfish" name="UIABlowfish" class="com.uia.encrypt.blowfish.UIABlofishEncryption" scope="prototype"/>
+    </spring:beans>
+
+	<flow name="qnb_loginFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.qnb.login}" doc:name="HTTP"
+			allowedMethods="post" />
+
+		<json:validate-schema schemaLocation="/JsonSchema/UserLogin.schema.json"
+			doc:name="Validate JSON Schema" />
+        <set-variable variableName="username" value="#[json:username]" doc:name="username"/>
+        <flow-ref name="qnb_validateUserPasswordSub_Flow" doc:name="qnb_validateUserPasswordSub_Flow"/>
+			
+		<set-variable variableName="validlogin"
+			value="#[json:call_validate_user_pwd/Valid]" doc:name="validlogin" />
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.validlogin == &quot;1&quot; ]">
+				<flow-ref name="qnb_postlogin_summary_Sub_Flow" doc:name="qnb_postlogin_summary_Sub_Flow" />
+			</when>
+			<otherwise>
+				<set-payload
+					value="{   &quot;status&quot;:&quot;failure&quot;,  &quot;error&quot;:&quot;username and password mismatch&quot;}"
+					doc:name="Set failure Payload" mimeType="application/json" />
+			</otherwise>
+		</choice>
+
+	</flow>
+    <flow name="qnb_getCoverSummary">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${http.path.qnb.login.coversummary}" doc:name="HTTP" allowedMethods="post"/>
+        <json:validate-schema schemaLocation="/JsonSchema/CoverSummaryScehma.json"
+			doc:name="Validate JSON Schema" />
+        <set-variable variableName="username" value="#[json:username]" doc:name="username"/>
+        <flow-ref name="qnb_postlogin_summary_Sub_Flow" doc:name="qnb_postlogin_summary_Sub_Flow"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	"QuoteSummary" : payload.QuoteSummary
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+	<sub-flow name="qnb_postlogin_summary_Sub_Flow">
+		<set-variable variableName="functionCall"
+			value="{&quot;function&quot;: &quot;tia_mule.get_cover_summary&quot;, &quot;args&quot; :{&quot;email&quot; : &quot;#[flowVars.username]&quot;}}"
+			doc:name="functionCall" />
+        <logger message="post login summary : #[flowVars.functionCall]" level="INFO" doc:name="Logger"/>
+		<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+			doc:name="Database">
+			<db:parameterized-query><![CDATA[{:fncResult = call APPS.APPS_CORE.dispatch_CLOB(:inputJSON,'MULE')}]]></db:parameterized-query>
+			<db:in-param name="inputJSON" value="#[flowVars.functionCall]" />
+			<db:out-param name="fncResult" type="VARCHAR" />
+		</db:stored-procedure>
+        <logger message="postlogin result #[payload]" level="INFO" doc:name="Logger"/>
+		<set-variable variableName="quoteResult"
+			value="#[payload['fncResult'].substring(0,payload['fncResult'].length()-1).replaceFirst(&quot;\\{&quot;,&quot;&quot;).replaceFirst(&quot;\&quot;result\&quot;:&quot;,&quot;&quot;)]"
+			doc:name="quoteResult" />
+		<set-payload
+			value="{&quot;login&quot;:&quot;success&quot;,
+ &quot;error&quot;:null,
+ &quot;QuoteSummary&quot;:#[flowVars.quoteResult] }"
+			mimeType="application/json" doc:name="Set Payload" />
+
+	</sub-flow>
+	<sub-flow name="qnb_validateUserPasswordSub_Flow">
+
+		<json:json-to-object-transformer
+			doc:name="JSON to Object" returnClass="java.lang.Object" />
+		<set-variable variableName="originalPayload" value="#[payload]"
+			doc:name="originalPayload" />
+        <set-variable variableName="blowfishpassword" value="" doc:name="blowfishpassword"/>
+        <enricher target="#[flowVars.blowfishpassword]" doc:name="Message Enricher">
+            <flow-ref name="qnb_createBlowFishPassowrdEncryption" doc:name="qnb_createBlowFishPassowrdEncryption"/>
+        </enricher>
+        <logger message="password encrypted from blowfish : #[flowVars.blowfishpassword]" level="INFO" doc:name="Logger"/>
+
+		<scripting:component doc:name="SHA256">
+			<scripting:script engine="Groovy"
+				file="qnb_loginScript/SHA256.groovy">
+				<property key="inputpassword" value="#[flowVars.originalPayload.password]" />
+			</scripting:script>
+		</scripting:component>
+
+		<set-variable variableName="validatUserPasswordFunction"
+			value="{&quot;function&quot;: &quot;tia_mule.validate_user_pwd&quot;, &quot;args&quot; :{&quot;email_address&quot; : &quot;#[flowVars.originalPayload.username]&quot;,&quot;hash&quot; : &quot;#[payload]&quot;, &quot;hasho&quot; : &quot;#[flowVars.blowfishpassword]&quot;}}"
+			doc:name="validatUserPasswordFunction" />
+        <logger message="validate user password function #[flowVars.validatUserPasswordFunction]" level="INFO" doc:name="Logger"/>
+
+
+		<transactional action="ALWAYS_BEGIN" doc:name="Transactional">
+			<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+				doc:name="Database">
+                <db:parameterized-query><![CDATA[{:fncResult = call APPS.apps_core.dispatch_clob(:inputJSON,'MULE')}]]></db:parameterized-query>
+                <db:in-param name="inputJSON" type="VARCHAR" value="#[flowVars.validatUserPasswordFunction]"/>
+                <db:out-param name="fncResult" type="CLOB"/>
+
+			</db:stored-procedure>
+			<custom-transformer class="com.uia.transformer.ClobTransformer"
+				doc:name="Java Transformer (oracle.sql.CLOB to String) " />
+            <set-payload value="#[payload]" mimeType="application/json" doc:name="Set Payload"/>
+            <logger message="validate user password result #[payload]" level="INFO" doc:name="Logger"/>
+		</transactional>
+	</sub-flow>
+    <flow name="qnb_createBlowFishPassowrdEncryption">
+        <set-payload value="#[flowVars.originalPayload.password]" doc:name="Set Payload"/>
+        <set-variable variableName="method" value="encodePassword" doc:name="method"/>
+        <component doc:name="Java">
+            <spring-object bean="UIABlowfish"/>
+        </component>
+    </flow>
+
+</mule>

@@ -1,0 +1,92 @@
+{
+	"arg0": {
+		"customer": {
+			"birthDate": 1032805800000,
+			"custType": null,
+			"customerTitle": "MR",
+			"emailAddress": "ashish0221@gmail.com",
+			"forename": "Ashish",
+			"gender": "MALE",
+			"maritalState": "MARRIED",
+			"occupationCode": "",
+			"phoneNo": "9999999999",
+			"surname": "Kumar"
+		},
+		"htCycObject": {
+			"pedalCycles": {
+				"pedalCycle": [{
+					"description": "desc",
+					"value": 5
+				}]
+			}
+		},
+		"htItmObject": {
+			"specifiedItems": {
+				"specifiedItem": [{
+					"description": "",
+					"itemType": "",
+					"value": 6
+				}]
+			}
+		},
+		"htPreviousClaimObject": {
+			"previousClaims": {
+				"previousClaim": [{
+					"cause": null,
+					"claimDate": 1032805800000,
+					"claimValue": 7,
+					"type": null,
+					"wasAtThisAddress": false
+				}]
+			}
+		},
+		"jointCustomer": {
+			"birthDate": 1032805800000,
+			"custType": null,
+			"customerTitle": "MR",
+			"emailAddress": "",
+			"forename": "",
+			"gender": null,
+			"maritalState": null,
+			"occupationCode": "",
+			"phoneNo": "",
+			"surname": ""
+		},
+		"object": {
+			"addressLine1": "",
+			"addressLine2": "",
+			"alarmType": "NO_ALARM",
+			"buildingName": "",
+			"buildingNumber": "",
+			"buildingsAD": null,
+			"buildingsCover": null,
+			"buildingsVolExcess": null,
+			"busUse": "USED_FOR_MANUFACTORING_OR_REPAIR",
+			"contentsAD": null,
+			"contentsCover": null,
+			"contentsVolExcess": null,
+			"county": "",
+			"coverStartDate": 1477852200000,
+			"doorLock": null,
+			"extProp": null,
+			"homeEmergencyCover": null,
+			"legalCover": null,
+			"listed": "GRADE_II_LISTED",
+			"nativeQuoteReference": "?",
+			"noBeds": 5,
+			"ownerType": "OWNED_AND_OCCUPIED_BY_YOU",
+			"postcode": "",
+			"prevPay": null,
+			"propType": "MID_TERRACED_BUNGALOW",
+			"roofType": "TILE",
+			"smokeAl": null,
+			"smokers": false,
+			"town": "",
+			"unspecItems": null,
+			"uprn": 12,
+			"wallType": "STONE",
+			"winLock": null,
+			"yearBuilt": 1999
+		}
+	}
+}

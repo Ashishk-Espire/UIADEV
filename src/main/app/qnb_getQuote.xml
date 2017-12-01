@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	<flow name="saveUpdateQuote">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${quote.savequote.http.path}" doc:name="HTTP"
+			allowedMethods="POST" />
+		<json:validate-schema schemaLocation="/JsonSchema/saveQuoteAddl.schema.json"
+			doc:name="Validate JSON Schema" />
+		<flow-ref name="qnb_sendMailTemplateSub_Flow" doc:name="qnb_sendMailTemplateSub_Flow" />
+		<!-- <set-variable variableName="sendmail" value="#[json:mail/sendmail]" 
+			doc:name="sendmail" /> <set-variable variableName="templates" value="#[json:mail/templates]" 
+			mimeType="application/json" doc:name="templates" /> <json:json-to-object-transformer 
+			returnClass="java.lang.Object" doc:name="JSON to Object" /> <expression-component 
+			doc:name="Expression"><![CDATA[#[ payload.remove('mail'); ]]]></expression-component> 
+			<json:object-to-json-transformer doc:name="Object to JSON" /> -->
+
+		<set-variable variableName="saveUpdateQuotePayload"
+			value="#[payload]" doc:name="saveUpdateQuotePayload" />
+		<set-variable variableName="policy_no" value="#[json:quote_id]"
+			doc:name="policy_no" />
+		<set-variable variableName="email_address" value="#[json:security_token]"
+			doc:name="email_address" />
+
+
+		<flow-ref name="security_validate_user_quoteFlow" doc:name="security_validate_user_quoteFlow" />
+		<set-variable variableName="quoteValidation" value="#[payload.valid.toString()]"
+			doc:name="quoteValidation" />
+        <flow-ref name="qnb_validateAndSaveQuoteSub_Flow" doc:name="qnb_validateAndSaveQuoteSub_Flow"/>
+
+
+	</flow>
+	<sub-flow name="qnb_validateAndSaveQuoteSub_Flow">
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.quoteValidation != &quot;0&quot;]">
+				<set-payload value="#[flowVars.saveUpdateQuotePayload]"
+					doc:name="Set Payload" />
+				<flow-ref name="qnb_getQuoteSub_Flow" doc:name="qnb_getQuoteSub_Flow" />
+				<choice doc:name="Choice">
+					<when expression="#[flowVars.result == &quot;SUCCESS&quot;]">
+						<set-payload value="#[payload]" mimeType="application/json"
+							doc:name="Set Payload" />
+						<set-variable variableName="policy_id"
+							value="#[json:retrieve_quote_result/quote_id]" doc:name="policy_id" />
+						<async doc:name="Async Send Mail">
+							<set-payload value="#[flowVars.templates]" mimeType="application/json"
+								doc:name="Set Payload" />
+							<json:json-to-object-transformer
+								returnClass="java.lang.Object" doc:name="JSON to Object" />
+
+							<flow-ref name="qnb_saveQuoteMailSub_Flow" doc:name="qnb_saveQuoteMailSub_Flow" />
+
+						</async>
+					</when>
+					<otherwise>
+						<set-payload value="#[payload]" doc:name="resultFinal"
+							mimeType="application/json" />
+					</otherwise>
+				</choice>
+			</when>
+			<otherwise>
+				<set-payload value="#[payload]" doc:name="Set Payload" />
+				<json:object-to-json-transformer
+					returnClass="java.lang.String" doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+
+
+	</sub-flow>
+
+	<flow name="qnb_getQuoteFlow">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="${uia.http.basepath}/${http.path.qnb.getquote}" allowedMethods="POST"
+			doc:name="HTTP" />
+		<flow-ref name="qnb_sendMailTemplateSub_Flow" doc:name="qnb_sendMailTemplateSub_Flow" />
+		<logger message="the payload for getQuote #[payload]" level="INFO"
+			doc:name="Logger" />
+		<set-variable variableName="policy_id" value="#[json:quote_id]"
+			doc:name="policy_id" />
+		<flow-ref name="qnb_getQuoteSub_Flow" doc:name="qnb_getQuoteSub_Flow" />
+
+		<choice doc:name="Choice">
+			<when expression="#[flowVars.result == &quot;SUCCESS&quot;]">
+				<set-payload value="#[payload]" mimeType="application/json"
+					doc:name="Set Payload" />
+				<async doc:name="Async Send Mail">
+					<set-payload value="#[flowVars.templates]" mimeType="application/json"
+						doc:name="Set Payload" />
+					<logger message="The template is #[payload]" level="INFO"
+						doc:name="Logger" />
+					<json:json-to-object-transformer
+						returnClass="java.lang.Object" doc:name="JSON to Object" />
+
+					<flow-ref name="qnb_saveQuoteMailSub_Flow" doc:name="qnb_saveQuoteMailSub_Flow" />
+
+				</async>
+			</when>
+			<otherwise>
+				<set-payload value="#[payload]" doc:name="resultFinal"
+					mimeType="application/json" />
+			</otherwise>
+		</choice>
+
+
+
+
+
+	</flow>
+	<sub-flow name="qnb_getQuoteSub_Flow">
+		<!-- <json:validate-schema schemaLocation="/JsonSchema/saveQuoteSchemaV08.json" 
+			doc:name="Validate JSON Schema"/> -->
+		<!-- <json:validate-schema schemaLocation="/JsonSchema/getQuote.schema.json" 
+			doc:name="Validate JSON Schema"/> -->
+		<byte-array-to-string-transformer
+			doc:name="Byte Array to String" />
+		<set-variable variableName="argument"
+			value="{&quot;function&quot;:&quot;tia_mule.save_quote&quot;,&quot;args&quot;:#[payload]}"
+			doc:name="args" />
+		<flow-ref name="qnb_saveQuoteSub_Flow" doc:name="qnb_saveQuoteSub_Flow" />
+		<set-variable variableName="result"
+			value="#[payload.header.result_status]" doc:name="result" />
+		<choice doc:name="Choice">
+			<when expression="#[payload.header.result_status == &quot;SUCCESS&quot; and null !=payload.save_quote_result.quote_id]">
+				<set-variable variableName="retriveQuoteFunction"
+					value="{&quot;function&quot;: &quot;tia_mule.retrieve_quote&quot;,&quot;args&quot;: {&quot;quote_id&quot; :#[payload.save_quote_result.quote_id],&quot;level&quot;: &quot;ALL&quot;}}"
+					doc:name="retriveQuoteFunction" />
+				<logger message="retrive quote function #[flowVars.retriveQuoteFunction]"
+					level="INFO" doc:name="Logger" />
+				<flow-ref name="qnb_retrievequoteTIAPrivateFlow" doc:name="qnb_retrievequoteTIAPrivateFlow" />
+				<logger message="Retrive quote response #[payload]" level="INFO"
+					doc:name="Logger" />
+			</when>
+			<when expression="#[payload.header.result_status == &quot;FAIL&quot; and payload.header.err_reason == &quot;CAUGHT_EXCEPTION&quot;]">
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <async doc:name="Async">
+                    <set-payload value="Hi ,  &lt;br/&gt; &lt;br/&gt; Database SID name is  ${tia.db.database} &lt;br/&gt;  &lt;br/&gt; Timestamp : #[server.dateTime]  &lt;br/&gt;&lt;br/&gt; Exception Message : &lt;br/&gt;&lt;br/&gt; #[payload] &lt;br/&gt;&lt;br/&gt; &lt;br/&gt; &lt;br/&gt;Thanks and Regards &lt;br/&gt;&lt;br/&gt;UIA ESB Exception handling &lt;br/&gt;" mimeType="text/plain" doc:name="Set Payload"/>
+                    <flow-ref name="global_notifyOnExceptionSub_Flow" doc:name="global_notifyOnExceptionSub_Flow"/>
+                </async>
+			</when>
+			<otherwise>
+				<json:object-to-json-transformer
+					doc:name="Object to JSON" />
+			</otherwise>
+		</choice>
+	</sub-flow>
+
+	<sub-flow name="qnb_saveQuoteSub_Flow">
+		<logger message="input payload for save quote #[flowVars.argument]"
+			level="INFO" doc:name="Logger" />
+		<db:stored-procedure config-ref="TIADB_Oracle_Configuration"
+			doc:name="Database">
+			<db:parameterized-query><![CDATA[{:v_result = call apps.apps_core.dispatch_clob(:argument ,'MULE')}]]></db:parameterized-query>
+			<db:in-param name="argument" type="VARCHAR" value="#[flowVars.argument]" />
+			<db:out-param name="v_result" type="VARCHAR" />
+		</db:stored-procedure>
+		<set-payload value="#[payload.v_result]" doc:name="Set Payload" />
+		<logger message="the payload after save_quote #[payload]"
+			level="INFO" doc:name="Logger" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+	</sub-flow>
+	<sub-flow name="qnb_sendMailTemplateSub_Flow">
+		<logger
+			message="loginng mail template : quote_id : #[json:quote_id] mail:  #[json:mail] and send mail #[json:mail/sendmail] and templates : #[json:mail/templates]"
+			level="INFO" doc:name="Logger" />
+
+		<set-variable variableName="sendmail" value="#[json:mail/sendmail]"
+			doc:name="sendmail" />
+		<set-variable variableName="templates" value="#[json:mail/templates]"
+			mimeType="application/json" doc:name="templates" />
+		<json:json-to-object-transformer
+			returnClass="java.lang.Object" doc:name="JSON to Object" />
+		<expression-component doc:name="Expression"><![CDATA[#[
+	if(null != payload. mail) { payload.remove('mail'); }
+]]]></expression-component>
+		<json:object-to-json-transformer
+			doc:name="Object to JSON" />
+
+	</sub-flow>
+
+	<sub-flow name="qnb_saveQuoteMailSub_Flow">
+
+		<logger
+			message="The policy id is #[flowVars.policy_id] send mail #[flowVars.sendmail == 1]  and template #[null !=flowVars.templates] and final #[flowVars.sendmail == 1 and null !=flowVars.templates]"
+			level="INFO" doc:name="Logger" />
+		<expression-filter
+			expression="#[flowVars.sendmail == 1 and null !=flowVars.templates and null!= flowVars.policy_id]"
+			nullReturnsTrue="true" doc:name="Expression" />
+		<foreach rootMessageVariableName="#[payload]" doc:name="For Each">
+			<logger
+				message="THe payload in foreach is #[payload] and template is #[json:template]"
+				level="INFO" doc:name="Logger" />
+			<set-variable variableName="template" value="#[json:template]"
+				doc:name="template" />
+
+			<logger
+				message="The sendmail endpoint is /${http.path.send.email}/#[flowVars.policy_id]/#[flowVars.template]/uia "
+				level="INFO" doc:name="Logger" />
+
+			<http:request config-ref="EmailService"
+				path="/${http.path.send.email}/#[flowVars.policy_id]/#[flowVars.template]/uia "
+				method="GET" doc:name="HTTP" />
+
+		</foreach>
+
+
+
+	</sub-flow>
+
+</mule>

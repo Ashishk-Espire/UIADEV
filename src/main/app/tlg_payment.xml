@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    
+    <http:request-config name="TLG_HTTP_request_Configuration"
+		host="${tlg_webservice_https_url}" port="443" usePersistentConnections="false"
+		doc:name="HTTP Request Configuration" protocol="HTTPS" >
+    </http:request-config>
+    <flow name="tlg_beginPaymentFlow" doc:description="URL : localhost:5081/UIA/tlgWebPayment
+
+POST : 
+
+{
+	&quot;transNo&quot;:&quot;123456&quot;,
+	&quot;billingAddress&quot;:{
+	   &quot;firstname&quot;: &quot;abc&quot;,
+	   &quot;lastname&quot; : &quot;def&quot;,
+	   &quot;addressline1&quot;:&quot;123 High Street&quot;,
+	   &quot;addressline2&quot;:&quot;&quot;,
+	   &quot;postcode&quot;:&quot;GU51 3SB&quot;
+	},
+    &quot;merchantTransactionID&quot;:&quot;00234&quot;,
+	&quot;purchaseAmount&quot;:3324,
+	&quot;purchaseDescription&quot;:&quot;something&quot;,
+	&quot;storeResultPage&quot;:&quot;https://etestws1.secure-payment-processing.com/DemoShop/response.jsf&quot;
+}">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${tlgpaymnet.tlgWebPayment.http.path}" doc:name="HTTP" allowedMethods="POST"/>
+        <json:validate-schema schemaLocation="/JsonSchema/tlg_payment.schema.json" doc:name="Validate Payment JSON Schema"/>
+        <logger message="begin paymnet payload before transfomration #[payload]" level="INFO" doc:name="Logger"/>
+        <set-variable variableName="authToken" value="" doc:name="authToken"/>
+        <scripting:component doc:name="buildAuthTokenGroovy">
+            <scripting:script engine="Groovy" file="tlg_scripts/authToken.groovy">
+                <property key="hmacKey" value="${tlg_HmacKey}"/>
+                <property key="enterpriseID" value="${tlg_enterpriseID}"/>
+                <property key="clientID" value="${tlg_clientID}"/>
+                <property key="lookIn" value="payload"/>
+            </scripting:script>
+        </scripting:component>
+        <dw:transform-message doc:name="Transform Message" metadata:id="93757b05-bdbe-486f-874f-9fb1f4272b42">
+            <dw:input-payload doc:sample="sample_data\tlg_paymentwebservice.json" mimeType="application/json"/>
+            <dw:input-variable variableName="authToken"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0
+%namespace ns01 http://schemas.xmlsoap.org/soap/envelope/
+%var policyNo = payload.policyNo as :string
+%var transNo = payload.transNo as :string
+---
+{
+	ns01#Envelope: {
+		ns01#Body: {
+			ns0#beginWebPayment: {
+				arg0: {
+					requester: {
+						authToken: flowVars.authToken,
+						enterpriseID: p('tlg_enterpriseID'),
+						clientID: p('tlg_clientID'),
+						environment: p('tlg_environment'),
+						transNo: payload.transNo,
+						version: p('tlg_version')
+					},
+					authType: p('tlg_authType'),
+					authenticate: p('tlg_authenticate'),
+					billingAddress: {
+						firstName: payload.billingAddress.firstname,
+						lastName: payload.billingAddress.lastname,
+						line1: payload.billingAddress.addressline1,
+						line2: payload.billingAddress.addressline2,
+						postcode: payload.billingAddress.postcode
+					},
+					merchantTransactionID: payload.merchantTransactionID,
+					currencyCode: p('tlg_currencyCode'),
+					purchaseAmount: payload.purchaseAmount,
+					purchaseDescription: payload.purchaseDescription,
+					storeResultPage: payload.storeResultPage,
+					salesDetails:"UIA"  ++ policyNo ++ "/" ++ transNo when (null==payload.style_sheet_id or (sizeOf (trim payload.style_sheet_id))==0) otherwise payload.style_sheet_id ++ policyNo ++ "/" ++ transNo,
+					([styleSheetID: payload.style_sheet_id] when (null!=payload.style_sheet_id) otherwise ({}))
+					
+				}
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <logger level="INFO" doc:name="Logger"/>
+
+
+        <http:request config-ref="TLG_HTTP_request_Configuration" path="/UIAInsurance/EMISws/WebPayment_1_0" method="POST" doc:name="HTTP"/>
+        <logger message="The paylaoad from tlg : #[message]" level="INFO" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload.Envelope.Body.beginWebPaymentResponse]]></dw:set-payload>
+        </dw:transform-message>
+
+        <choice-exception-strategy doc:name="Choice Exception Strategy">
+        <catch-exception-strategy doc:name="Catch Exception Strategy" when="#[exception.causedBy(org.mule.module.json.validation.JsonSchemaValidationException)]">
+            <set-payload value="Invalid Json payload #[exception]" doc:name="Set Payload"/>
+            <set-property propertyName="http.status" value="400" doc:name="Property"/>
+        </catch-exception-strategy>
+        </choice-exception-strategy>
+        
+    </flow>
+    <!-- <flow name="tlg_getPaymentFlow" doc:description="URL :  localhost:5081/UIA/tlgWebPayment?transactionRef=271a74ac-1510-4e72-97db-fc10c0ff4676&amp;transNo=123456">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="${uia.http.basepath}/${tlgpaymnet.tlgWebPayment.http.path}" allowedMethods="GET" doc:name="HTTP"/>
+        <set-variable variableName="transNo" value="#[message.inboundProperties.'http.query.params'.transactionRef]" doc:name="transNo"/>
+        <flow-ref name="tlg_getPaymentStatusSubFlow" doc:name="tlg_getPaymentStatusSubFlow"/>
+        <json:xml-to-json-transformer doc:name="XML to JSON"/>
+
+    </flow> -->
+    
+    <sub-flow name="tlg_getPaymentStatusSubFlow">
+ 
+        <set-variable variableName="authToken" value="" doc:name="authToken"/>
+        <scripting:component doc:name="buildAuthToken Groovy">
+            <scripting:script engine="Groovy" file="tlg_scripts/authToken.groovy">
+                <property key="hmacKey" value="${tlg_HmacKey}"/>
+                <property key="enterpriseID" value="${tlg_enterpriseID}"/>
+                <property key="clientID" value="${tlg_clientID}"/>
+                <property key="lookIn" value="flowVar"/>
+                <property key="transNo" value="#[flowVars.transNo]"/>
+            </scripting:script>
+        </scripting:component>
+        <set-payload value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:emis=&quot;http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0&quot;&gt;    &lt;soapenv:Header/&gt;    &lt;soapenv:Body&gt;       &lt;emis:getWebPayment&gt;          &lt;arg0&gt;        &lt;requester&gt;         &lt;authToken&gt;#[flowVars.authToken]&lt;/authToken&gt; &lt;!-- &lt;authToken&gt;6b73869497f495468afad8458997d13b4d002d647018b846f8c8b0c56eeb5118&lt;/authToken&gt; --&gt;        &lt;enterpriseID&gt;${tlg_enterpriseID}&lt;/enterpriseID&gt;         &lt;clientID&gt;${tlg_clientID}&lt;/clientID&gt; &lt;transNo&gt;#[flowVars.transNo]&lt;/transNo&gt;         &lt;environment&gt;${tlg_environment}&lt;/environment&gt;          &lt;/requester&gt;             &lt;transactionReference&gt;#[flowVars.trans_id]&lt;/transactionReference&gt;          &lt;/arg0&gt;       &lt;/emis:getWebPayment&gt;    &lt;/soapenv:Body&gt; &lt;/soapenv:Envelope&gt;" doc:name="Set Payload"/>
+        <logger message="Going to call getWebPayment, the payload to get webPayment Status is #[payload] the second #[server.dateTime.seconds]" level="INFO" doc:name="Logger"/>
+              
+        
+        <until-successful maxRetries="5"  synchronous="true" doc:name="Until Successful" failureExpression="#[message.inboundProperties['http.status'] != 200]" millisBetweenRetries="5000">
+            <!-- <logger message="Calling untill success ...." level="INFO" doc:name="Logger"/> -->
+        	<http:request config-ref="TLG_HTTP_request_Configuration" path="/UIAInsurance/EMISws/WebPayment_1_0" method="POST" doc:name="HTTP"/>
+        	 
+        
+        </until-successful>
+        
+        <logger message="After getWebPaymentStatus,  http ststus : #[message.inboundProperties['http.status']] the second  #[server.dateTime.seconds]" level="INFO" doc:name="Logger"/>
+              
+        
+    </sub-flow>
+    
+</mule>

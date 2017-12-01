@@ -1,0 +1,64 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emis="http://services.thelogicgroup.biz/EMIS_WEBPAYMENT_1_0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <emis:beginWebPayment>
+         <!--Optional:-->
+         <arg0>
+            <requester>
+               <!--Required if using HMAC-->
+               <authToken>0f923723918a80a906527bcfecefae4e1d48d6ce4f6769a4ffa56095af6ca899</authToken>
+               <!--Required-->
+               <enterpriseID>UIA</enterpriseID>
+               <clientID>DE01</clientID>
+               <environment>ECommerce</environment>
+               <transNo>123456</transNo>
+               <!--Required if you need something in this response which is version dependant-->
+               <version>6</version>
+            </requester>
+            <!--Mandatory-->
+            <authType>AuthAndSettle</authType>
+            <!--Mandatory if 3DS required-->
+            <authenticate>true</authenticate>
+            <!--Recommended if performing AVS (see CARD too)-->
+            <billingAddress>
+               <!--Optional:-->
+               <firstName>?</firstName>
+               <!--Optional:-->
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <line1>?</line1>
+               <!--Optional:-->
+               <line2>?</line2>
+               <!--Optional:-->
+               <postcode>?</postcode>
+
+            </billingAddress>
+               <!--card-->
+               <!--Mandatory - if you are passing a token-->
+               <!--onlineToken></onlineToken-->
+               <!--Optional.  Stored value in our database is used if not passed.-->
+               <!--expiry></expiry-->
+               <!--Recommended if performing AVS and BillingAddress not used-->
+               <!--cvData-->
+                  <!--Recommended if performing AVS and BillingAddress not used-->     
+                  <!--addressNumerics>123</addressNumerics-->
+                  <!--Recommended if performing AVS and BillingAddress not used-->
+                  <!--postcodeNumerics>123</postcodeNumerics-->
+               <!--/cvData-->
+            <!--/card-->
+            <!--Mandatory:-->
+            <merchantTransactionID>0009</merchantTransactionID>
+            <!--Mandatory:-->            
+            <currencyCode>GBP</currencyCode>
+            <!--Mandatory: (sample value provided-->            
+            <purchaseAmount>32228</purchaseAmount>
+            <!--Mandatory:-->
+            <purchaseDescription>Something</purchaseDescription>
+            <!--Mandatory if using PayPage-->
+            <storeResultPage>https://etestws1.secure-payment-processing.com/DemoShop/response.jsf</storeResultPage>
+            <!--Optional - but defaults to DESKTOP - useful if used -->
+            <!--styleSheetID>DESKTOP</styleSheetID-->
+         </arg0>
+      </emis:beginWebPayment>
+   </soapenv:Body>
+</soapenv:Envelope>

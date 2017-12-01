@@ -1,0 +1,3074 @@
+{  
+   "result":{  
+      "ref_data":[  
+         {  
+            "product_ver_date_map":[  
+               {  
+                  "id":"2017-02-22",
+                  "description":20
+               }
+            ],
+            "affinity_channel_map":[  
+               {  
+                  "id":"WEBINB",
+                  "description":"0071"
+               },
+               {  
+                  "id":"AGGROR",
+                  "description":"0072"
+               }
+            ],
+            "together_campaign_date_map":[  
+               {  
+                  "id":"2013-11-27",
+                  "description":"12859"
+               }
+            ],
+            "uia_campaign_date_map":[  
+               {  
+                  "id":"2016-02-01",
+                  "description":"16701"
+               }
+            ],
+            "qtzone_campaign_date_map":[  
+               {  
+                  "id":"2013-05-01",
+                  "description":"16381"
+               }
+            ],
+            "confsd_campaign_date_map":[  
+               {  
+                  "id":"2013-05-01",
+                  "description":"15799"
+               }
+            ],
+            "gocomp_campaign_date_map":[  
+               {  
+                  "id":"2013-05-01",
+                  "description":"15779"
+               }
+            ]
+         }
+      ],
+      "lov_data":[  
+         {  
+            "alarm_type":[  
+               {  
+                  "id":"1",
+                  "description":"NACOSS"
+               },
+               {  
+                  "id":"2",
+                  "description":"AISC/SSAIB"
+               },
+               {  
+                  "id":"3",
+                  "description":"Non-Approved"
+               },
+               {  
+                  "id":"4",
+                  "description":"NSI"
+               },
+               {  
+                  "id":"5",
+                  "description":"Unknown"
+               },
+               {  
+                  "id":"0",
+                  "description":"No Alarm"
+               }
+            ],
+            "cla_cause":[  
+               {  
+                  "id":"31",
+                  "description":"Theft away from home"
+               },
+               {  
+                  "id":"30",
+                  "description":"Theft from outbuilding"
+               },
+               {  
+                  "id":"3",
+                  "description":"AD to TVs & Home Computer"
+               },
+               {  
+                  "id":"29",
+                  "description":"Theft from Home"
+               },
+               {  
+                  "id":"28",
+                  "description":"Subsidence, Landslip or Heave"
+               },
+               {  
+                  "id":"27",
+                  "description":"Storm"
+               },
+               {  
+                  "id":"26",
+                  "description":"Smoke"
+               },
+               {  
+                  "id":"25",
+                  "description":"Riot and civil commotion"
+               },
+               {  
+                  "id":"24",
+                  "description":"Replacement Locks"
+               },
+               {  
+                  "id":"23",
+                  "description":"Plants in the garden"
+               },
+               {  
+                  "id":"22",
+                  "description":"Personal or Occupiers Liabilit"
+               },
+               {  
+                  "id":"21",
+                  "description":"Owners Liability"
+               },
+               {  
+                  "id":"20",
+                  "description":"Malicious Damage"
+               },
+               {  
+                  "id":"2",
+                  "description":"AD at Home (extended cover)"
+               },
+               {  
+                  "id":"19",
+                  "description":"Loss of metered Water or Oil"
+               },
+               {  
+                  "id":"18",
+                  "description":"Loss"
+               },
+               {  
+                  "id":"17",
+                  "description":"Food in Freezer"
+               },
+               {  
+                  "id":"16",
+                  "description":"Flood"
+               },
+               {  
+                  "id":"15",
+                  "description":"Fire"
+               },
+               {  
+                  "id":"14",
+                  "description":"Falling Trees"
+               },
+               {  
+                  "id":"13",
+                  "description":"Falling Ariels"
+               },
+               {  
+                  "id":"12",
+                  "description":"Explosion"
+               },
+               {  
+                  "id":"11",
+                  "description":"Escape of Oil"
+               },
+               {  
+                  "id":"10",
+                  "description":"Escape of Water (d.t. freezing"
+               },
+               {  
+                  "id":"1",
+                  "description":"AD at Home (standard cover)"
+               },
+               {  
+                  "id":"32",
+                  "description":"Lightning"
+               },
+               {  
+                  "id":"4",
+                  "description":"AD to undergr Pipes & Drains"
+               },
+               {  
+                  "id":"5",
+                  "description":"AD away from Home"
+               },
+               {  
+                  "id":"6",
+                  "description":"Arson"
+               },
+               {  
+                  "id":"7",
+                  "description":"Collission"
+               },
+               {  
+                  "id":"9",
+                  "description":"Escape of Water"
+               },
+               {  
+                  "id":"8",
+                  "description":"Earthquake"
+               }
+            ],
+            "cla_type":[  
+               {  
+                  "id":"7",
+                  "description":"Sport & Camping"
+               },
+               {  
+                  "id":"6",
+                  "description":"Money & Credit Cards"
+               },
+               {  
+                  "id":"5",
+                  "description":"Cycle Cover"
+               },
+               {  
+                  "id":"4",
+                  "description":"Unspecified Items"
+               },
+               {  
+                  "id":"3",
+                  "description":"Specified Items"
+               },
+               {  
+                  "id":"2",
+                  "description":"Contents"
+               },
+               {  
+                  "id":"1",
+                  "description":"Buildings"
+               }
+            ],
+            "listed":[  
+               {  
+                  "id":"2",
+                  "description":"Grade II Listed"
+               },
+               {  
+                  "id":"4",
+                  "description":"Not Listed"
+               },
+               {  
+                  "id":"1",
+                  "description":"Grade I Listed"
+               }
+            ],
+            "owner_type":[  
+               {  
+                  "id":"1",
+                  "description":"Mortgaged and occupied by You"
+               },
+               {  
+                  "id":"2",
+                  "description":"Owned Outright"
+               },
+               {  
+                  "id":"3",
+                  "description":"Owned, shared equity"
+               },
+               {  
+                  "id":"4",
+                  "description":"Rented - Private Landlord"
+               },
+               {  
+                  "id":"5",
+                  "description":"Rented - Council/Housing Ass."
+               }
+            ],
+            "prop_type":[  
+               {  
+                  "id":"20",
+                  "description":"4 Storey Semi-Detached House"
+               },
+               {  
+                  "id":"1",
+                  "description":"Flat in Converted House"
+               },
+               {  
+                  "id":"10",
+                  "description":"Converted Barn"
+               },
+               {  
+                  "id":"11",
+                  "description":"Mid-Terraced Bungalow"
+               },
+               {  
+                  "id":"12",
+                  "description":"3 Storey Mid-Terraced House"
+               },
+               {  
+                  "id":"13",
+                  "description":"3 Storey Semi-Detached House"
+               },
+               {  
+                  "id":"14",
+                  "description":"3 Storey Detached House"
+               },
+               {  
+                  "id":"15",
+                  "description":"End of Terrace Bungalow"
+               },
+               {  
+                  "id":"16",
+                  "description":"2 Storey End of Terrace House"
+               },
+               {  
+                  "id":"17",
+                  "description":"3 Storey End of Terrace House"
+               },
+               {  
+                  "id":"18",
+                  "description":"4 Storey Mid-Terraced House"
+               },
+               {  
+                  "id":"19",
+                  "description":"4 Storey End of Terrace House"
+               },
+               {  
+                  "id":"8",
+                  "description":"Detached Bungalow"
+               },
+               {  
+                  "id":"7",
+                  "description":"Semi-Detached Bungalow"
+               },
+               {  
+                  "id":"6",
+                  "description":"2 Storey Detached House"
+               },
+               {  
+                  "id":"5",
+                  "description":"2 Storey Semi-Detached House"
+               },
+               {  
+                  "id":"4",
+                  "description":"2 Storey Mid-Terraced House"
+               },
+               {  
+                  "id":"3",
+                  "description":"Maisonette"
+               },
+               {  
+                  "id":"21",
+                  "description":"4 Storey Detached House"
+               },
+               {  
+                  "id":"2",
+                  "description":"Flat in Purpose Built Block"
+               }
+            ],
+            "roof_type":[  
+               {  
+                  "id":"1",
+                  "description":"Slate"
+               },
+               {  
+                  "id":"2",
+                  "description":"Tile"
+               }
+            ],
+            "wall_type":[  
+               {  
+                  "id":"4",
+                  "description":"Timber framed - brick or stone"
+               },
+               {  
+                  "id":"999",
+                  "description":"Other"
+               },
+               {  
+                  "id":"9",
+                  "description":"Metal"
+               },
+               {  
+                  "id":"2",
+                  "description":"Stone"
+               },
+               {  
+                  "id":"7",
+                  "description":"Wattle & Daub"
+               },
+               {  
+                  "id":"6",
+                  "description":"Timber"
+               },
+               {  
+                  "id":"1",
+                  "description":"Brick"
+               },
+               {  
+                  "id":"5",
+                  "description":"Timber framed - other material"
+               },
+               {  
+                  "id":"3",
+                  "description":"Concrete"
+               },
+               {  
+                  "id":"8",
+                  "description":"Cob"
+               }
+            ],
+            "cust_title":[  
+               {  
+                  "id":"002",
+                  "description":"Miss"
+               },
+               {  
+                  "id":"003",
+                  "description":"Mr"
+               },
+               {  
+                  "id":"004",
+                  "description":"Mrs"
+               },
+               {  
+                  "id":"005",
+                  "description":"Ms"
+               }
+            ],
+            "occupation_code":[  
+               {  
+                  "id":"1",
+                  "description":"Accountant"
+               },
+               {  
+                  "id":"10",
+                  "description":"Aerobic/Keep Fit Instructor"
+               },
+               {  
+                  "id":"100",
+                  "description":"Clerk of works"
+               },
+               {  
+                  "id":"101",
+                  "description":"Club Employee "
+               },
+               {  
+                  "id":"102",
+                  "description":"Club Owner"
+               },
+               {  
+                  "id":"103",
+                  "description":"Coach"
+               },
+               {  
+                  "id":"104",
+                  "description":"Coastguard"
+               },
+               {  
+                  "id":"105",
+                  "description":"Collector Door to Door"
+               },
+               {  
+                  "id":"106",
+                  "description":"Commission Agent"
+               },
+               {  
+                  "id":"107",
+                  "description":"Commissionaire"
+               },
+               {  
+                  "id":"108",
+                  "description":"Commodity broker"
+               },
+               {  
+                  "id":"109",
+                  "description":"Commodity dealer"
+               },
+               {  
+                  "id":"11",
+                  "description":"Air force (other ranks)"
+               },
+               {  
+                  "id":"110",
+                  "description":"Communications Officer"
+               },
+               {  
+                  "id":"111",
+                  "description":"Communications Worker"
+               },
+               {  
+                  "id":"112",
+                  "description":"Community Nurse"
+               },
+               {  
+                  "id":"113",
+                  "description":"Community Worker"
+               },
+               {  
+                  "id":"114",
+                  "description":"Company secretary"
+               },
+               {  
+                  "id":"115",
+                  "description":"Compositor"
+               },
+               {  
+                  "id":"116",
+                  "description":"Computer Consultant"
+               },
+               {  
+                  "id":"117",
+                  "description":"Computer Operator"
+               },
+               {  
+                  "id":"118",
+                  "description":"Computer Programmer"
+               },
+               {  
+                  "id":"119",
+                  "description":"Computer Technician"
+               },
+               {  
+                  "id":"12",
+                  "description":"Air force nco"
+               },
+               {  
+                  "id":"120",
+                  "description":"Computing"
+               },
+               {  
+                  "id":"121",
+                  "description":"Conference Manager"
+               },
+               {  
+                  "id":"122",
+                  "description":"Construction worker"
+               },
+               {  
+                  "id":"123",
+                  "description":"Consultant Engineer"
+               },
+               {  
+                  "id":"124",
+                  "description":"Consultant medical"
+               },
+               {  
+                  "id":"125",
+                  "description":"Contractor"
+               },
+               {  
+                  "id":"126",
+                  "description":"Coroner"
+               },
+               {  
+                  "id":"127",
+                  "description":"Courier"
+               },
+               {  
+                  "id":"128",
+                  "description":"Courier driver"
+               },
+               {  
+                  "id":"129",
+                  "description":"Courier motorcycle"
+               },
+               {  
+                  "id":"13",
+                  "description":"Air traffic controller"
+               },
+               {  
+                  "id":"130",
+                  "description":"Courier parcel delivery"
+               },
+               {  
+                  "id":"131",
+                  "description":"Craftsman/woman"
+               },
+               {  
+                  "id":"132",
+                  "description":"Crane operator"
+               },
+               {  
+                  "id":"133",
+                  "description":"Credit Control"
+               },
+               {  
+                  "id":"134",
+                  "description":"Credit Controller"
+               },
+               {  
+                  "id":"135",
+                  "description":"Croupier"
+               },
+               {  
+                  "id":"136",
+                  "description":"Curator"
+               },
+               {  
+                  "id":"137",
+                  "description":"Customs and excise"
+               },
+               {  
+                  "id":"138",
+                  "description":"Dairy worker"
+               },
+               {  
+                  "id":"139",
+                  "description":"Dealer"
+               },
+               {  
+                  "id":"14",
+                  "description":"Aircraft Cabin  Crew"
+               },
+               {  
+                  "id":"140",
+                  "description":"Dealer - General"
+               },
+               {  
+                  "id":"141",
+                  "description":"Dealer-Scrap/Waste"
+               },
+               {  
+                  "id":"142",
+                  "description":"Debt Collector"
+               },
+               {  
+                  "id":"143",
+                  "description":"Delivery Roundsman"
+               },
+               {  
+                  "id":"144",
+                  "description":"Demolition worker"
+               },
+               {  
+                  "id":"145",
+                  "description":"Dentist dentition"
+               },
+               {  
+                  "id":"146",
+                  "description":"Designer"
+               },
+               {  
+                  "id":"147",
+                  "description":"Designer - fashion"
+               },
+               {  
+                  "id":"148",
+                  "description":"Designer - graphic"
+               },
+               {  
+                  "id":"149",
+                  "description":"Designer - industrial"
+               },
+               {  
+                  "id":"15",
+                  "description":"Aircraft Flightdeck Crew"
+               },
+               {  
+                  "id":"150",
+                  "description":"Designer interior"
+               },
+               {  
+                  "id":"151",
+                  "description":"Diplomatic staff   ireland"
+               },
+               {  
+                  "id":"152",
+                  "description":"Diplomatic staff british"
+               },
+               {  
+                  "id":"153",
+                  "description":"Diplomatic staff foreign"
+               },
+               {  
+                  "id":"154",
+                  "description":"Director Performing Arts"
+               },
+               {  
+                  "id":"155",
+                  "description":"Director/company director"
+               },
+               {  
+                  "id":"156",
+                  "description":"Disc Jockey"
+               },
+               {  
+                  "id":"157",
+                  "description":"Disc Jockey Mobile"
+               },
+               {  
+                  "id":"158",
+                  "description":"Disco Staff"
+               },
+               {  
+                  "id":"159",
+                  "description":"District valuer"
+               },
+               {  
+                  "id":"16",
+                  "description":"Airline Crew"
+               },
+               {  
+                  "id":"160",
+                  "description":"Diver"
+               },
+               {  
+                  "id":"161",
+                  "description":"Docker"
+               },
+               {  
+                  "id":"162",
+                  "description":"Doctor - GP"
+               },
+               {  
+                  "id":"163",
+                  "description":"Doctor - Medical"
+               },
+               {  
+                  "id":"164",
+                  "description":"Domestic Assistant"
+               },
+               {  
+                  "id":"165",
+                  "description":"Doorman"
+               },
+               {  
+                  "id":"166",
+                  "description":"Double Glazing Fitter"
+               },
+               {  
+                  "id":"167",
+                  "description":"Draughtsman/woman"
+               },
+               {  
+                  "id":"168",
+                  "description":"Dressmaker"
+               },
+               {  
+                  "id":"169",
+                  "description":"Driver"
+               },
+               {  
+                  "id":"17",
+                  "description":"Airline Employee Airport"
+               },
+               {  
+                  "id":"170",
+                  "description":"Driver - HGV"
+               },
+               {  
+                  "id":"171",
+                  "description":"Driver - Hire car"
+               },
+               {  
+                  "id":"172",
+                  "description":"Driver - light goods"
+               },
+               {  
+                  "id":"173",
+                  "description":"Driver - plant"
+               },
+               {  
+                  "id":"174",
+                  "description":"Driver - Van"
+               },
+               {  
+                  "id":"175",
+                  "description":"Driver (ambulance)"
+               },
+               {  
+                  "id":"176",
+                  "description":"Driver car delivery"
+               },
+               {  
+                  "id":"177",
+                  "description":"Driver fork lift"
+               },
+               {  
+                  "id":"178",
+                  "description":"Driver Hot Food Delivery"
+               },
+               {  
+                  "id":"179",
+                  "description":"Driver psv"
+               },
+               {  
+                  "id":"18",
+                  "description":"Airline Employee non Airport"
+               },
+               {  
+                  "id":"180",
+                  "description":"Driver Taxi"
+               },
+               {  
+                  "id":"181",
+                  "description":"Driver-train"
+               },
+               {  
+                  "id":"182",
+                  "description":"Driver-wholesale newspapers"
+               },
+               {  
+                  "id":"183",
+                  "description":"Driving Examiner"
+               },
+               {  
+                  "id":"184",
+                  "description":"Driving instructor"
+               },
+               {  
+                  "id":"185",
+                  "description":"Earth Moving Contractor"
+               },
+               {  
+                  "id":"186",
+                  "description":"Economist"
+               },
+               {  
+                  "id":"187",
+                  "description":"Editor"
+               },
+               {  
+                  "id":"188",
+                  "description":"Editor - TV/Films (NUJ)"
+               },
+               {  
+                  "id":"189",
+                  "description":"Editor- TV/Films"
+               },
+               {  
+                  "id":"19",
+                  "description":"Ambulance crew"
+               },
+               {  
+                  "id":"190",
+                  "description":"Electrician"
+               },
+               {  
+                  "id":"191",
+                  "description":"Electrician vehicle"
+               },
+               {  
+                  "id":"192",
+                  "description":"Electricity"
+               },
+               {  
+                  "id":"193",
+                  "description":"Embassy staff (Rep of Ireland)"
+               },
+               {  
+                  "id":"194",
+                  "description":"Embassy staff-British"
+               },
+               {  
+                  "id":"195",
+                  "description":"Embassy staff-foreign"
+               },
+               {  
+                  "id":"196",
+                  "description":"Emergency service staff"
+               },
+               {  
+                  "id":"197",
+                  "description":"Engineer"
+               },
+               {  
+                  "id":"198",
+                  "description":"Engineer-aeronautical"
+               },
+               {  
+                  "id":"199",
+                  "description":"Engineer-broadcasting/record"
+               },
+               {  
+                  "id":"2",
+                  "description":"Accounts staff"
+               },
+               {  
+                  "id":"20",
+                  "description":"Amusement Arcade Owner"
+               },
+               {  
+                  "id":"200",
+                  "description":"Engineer-chemical"
+               },
+               {  
+                  "id":"201",
+                  "description":"Engineer-civil"
+               },
+               {  
+                  "id":"202",
+                  "description":"Engineer-electrical"
+               },
+               {  
+                  "id":"203",
+                  "description":"Engineer-heating/ventilation"
+               },
+               {  
+                  "id":"204",
+                  "description":"Engineer-marine"
+               },
+               {  
+                  "id":"205",
+                  "description":"Engineer-mechanical"
+               },
+               {  
+                  "id":"206",
+                  "description":"Engineer-mining"
+               },
+               {  
+                  "id":"207",
+                  "description":"Engineer-sales"
+               },
+               {  
+                  "id":"208",
+                  "description":"Engineer-service(mobile)"
+               },
+               {  
+                  "id":"209",
+                  "description":"Engineer-service(non mobile)"
+               },
+               {  
+                  "id":"21",
+                  "description":"Amusement Arcade Staff"
+               },
+               {  
+                  "id":"210",
+                  "description":"Engineer-vehicle"
+               },
+               {  
+                  "id":"211",
+                  "description":"Engraver"
+               },
+               {  
+                  "id":"212",
+                  "description":"Enquiry agent"
+               },
+               {  
+                  "id":"213",
+                  "description":"Entertainer"
+               },
+               {  
+                  "id":"214",
+                  "description":"Environmental Health Officer"
+               },
+               {  
+                  "id":"215",
+                  "description":"Estate agent"
+               },
+               {  
+                  "id":"216",
+                  "description":"Estimator"
+               },
+               {  
+                  "id":"217",
+                  "description":"Excutors of Insured (Deceased)"
+               },
+               {  
+                  "id":"218",
+                  "description":"Executive"
+               },
+               {  
+                  "id":"219",
+                  "description":"Executive-advertising"
+               },
+               {  
+                  "id":"22",
+                  "description":"Antique Dealer"
+               },
+               {  
+                  "id":"220",
+                  "description":"Factory worker"
+               },
+               {  
+                  "id":"221",
+                  "description":"Fairground Worker"
+               },
+               {  
+                  "id":"222",
+                  "description":"Farm worker"
+               },
+               {  
+                  "id":"223",
+                  "description":"Farmer"
+               },
+               {  
+                  "id":"224",
+                  "description":"Fast Food Caterer"
+               },
+               {  
+                  "id":"225",
+                  "description":"Financial advisor"
+               },
+               {  
+                  "id":"226",
+                  "description":"Financier"
+               },
+               {  
+                  "id":"227",
+                  "description":"Fire Safety Officer"
+               },
+               {  
+                  "id":"228",
+                  "description":"Fireman/woman"
+               },
+               {  
+                  "id":"229",
+                  "description":"Fisherman"
+               },
+               {  
+                  "id":"23",
+                  "description":"Arboriculturalist"
+               },
+               {  
+                  "id":"230",
+                  "description":"Fishmonger"
+               },
+               {  
+                  "id":"231",
+                  "description":"Fitter"
+               },
+               {  
+                  "id":"232",
+                  "description":"Fitter-tyre/exhaust"
+               },
+               {  
+                  "id":"233",
+                  "description":"Fitter-windscreen"
+               },
+               {  
+                  "id":"234",
+                  "description":"Florist"
+               },
+               {  
+                  "id":"235",
+                  "description":"Forces - foreign"
+               },
+               {  
+                  "id":"236",
+                  "description":"Forces - H.M."
+               },
+               {  
+                  "id":"237",
+                  "description":"Forces - U.S."
+               },
+               {  
+                  "id":"238",
+                  "description":"Forester"
+               },
+               {  
+                  "id":"239",
+                  "description":"Forwarding agent"
+               },
+               {  
+                  "id":"24",
+                  "description":"Archaeologist"
+               },
+               {  
+                  "id":"240",
+                  "description":"Fraud Officer"
+               },
+               {  
+                  "id":"241",
+                  "description":"Fund Raiser"
+               },
+               {  
+                  "id":"242",
+                  "description":"Furnaceman"
+               },
+               {  
+                  "id":"243",
+                  "description":"Furniture remover"
+               },
+               {  
+                  "id":"244",
+                  "description":"Furniture Restorer"
+               },
+               {  
+                  "id":"245",
+                  "description":"Furrier"
+               },
+               {  
+                  "id":"246",
+                  "description":"Gamekeeper"
+               },
+               {  
+                  "id":"247",
+                  "description":"Gaming Club Staff Licensed"
+               },
+               {  
+                  "id":"248",
+                  "description":"Gaming Club Staff Unlicensed"
+               },
+               {  
+                  "id":"249",
+                  "description":"Gardener"
+               },
+               {  
+                  "id":"25",
+                  "description":"Architect"
+               },
+               {  
+                  "id":"250",
+                  "description":"Gas"
+               },
+               {  
+                  "id":"251",
+                  "description":"General Dealer "
+               },
+               {  
+                  "id":"252",
+                  "description":"General Worker"
+               },
+               {  
+                  "id":"253",
+                  "description":"Geologist"
+               },
+               {  
+                  "id":"254",
+                  "description":"Glass worker"
+               },
+               {  
+                  "id":"255",
+                  "description":"Goldsmith"
+               },
+               {  
+                  "id":"256",
+                  "description":"Grave digger"
+               },
+               {  
+                  "id":"257",
+                  "description":"Greengrocer"
+               },
+               {  
+                  "id":"258",
+                  "description":"Groom"
+               },
+               {  
+                  "id":"259",
+                  "description":"Groundsman"
+               },
+               {  
+                  "id":"26",
+                  "description":"Archivist"
+               },
+               {  
+                  "id":"260",
+                  "description":"Guest House Owner Licensed"
+               },
+               {  
+                  "id":"261",
+                  "description":"Guest Hse Owner Unlicensed"
+               },
+               {  
+                  "id":"262",
+                  "description":"Hairdresser"
+               },
+               {  
+                  "id":"263",
+                  "description":"Hairdresser-mobile"
+               },
+               {  
+                  "id":"264",
+                  "description":"Hawker"
+               },
+               {  
+                  "id":"265",
+                  "description":"Headteacher"
+               },
+               {  
+                  "id":"266",
+                  "description":"Health (auxilliary)"
+               },
+               {  
+                  "id":"267",
+                  "description":"Health (clerical)"
+               },
+               {  
+                  "id":"268",
+                  "description":"Health (Medical)"
+               },
+               {  
+                  "id":"269",
+                  "description":"Health service employee"
+               },
+               {  
+                  "id":"27",
+                  "description":"Army nco"
+               },
+               {  
+                  "id":"270",
+                  "description":"Health visitor"
+               },
+               {  
+                  "id":"271",
+                  "description":"Higher Education"
+               },
+               {  
+                  "id":"272",
+                  "description":"Holiday Camp Staff Licensed"
+               },
+               {  
+                  "id":"273",
+                  "description":"Holiday Camp Staff Unlicensed"
+               },
+               {  
+                  "id":"274",
+                  "description":"Home help"
+               },
+               {  
+                  "id":"275",
+                  "description":"Home Warden"
+               },
+               {  
+                  "id":"276",
+                  "description":"Horse Riding Instructor"
+               },
+               {  
+                  "id":"277",
+                  "description":"Horticulturalist"
+               },
+               {  
+                  "id":"278",
+                  "description":"Hostess"
+               },
+               {  
+                  "id":"279",
+                  "description":"Housekeeper"
+               },
+               {  
+                  "id":"28",
+                  "description":"Army other ranks"
+               },
+               {  
+                  "id":"280",
+                  "description":"Household Duties"
+               },
+               {  
+                  "id":"281",
+                  "description":"Housing Officer"
+               },
+               {  
+                  "id":"282",
+                  "description":"Ice Cream Vendor"
+               },
+               {  
+                  "id":"283",
+                  "description":"Independent Means"
+               },
+               {  
+                  "id":"284",
+                  "description":"Industrial chemist"
+               },
+               {  
+                  "id":"285",
+                  "description":"Inland revenue officer"
+               },
+               {  
+                  "id":"286",
+                  "description":"Inspector"
+               },
+               {  
+                  "id":"287",
+                  "description":"Inspector - H M Tax"
+               },
+               {  
+                  "id":"288",
+                  "description":"Inspector-customs and excise"
+               },
+               {  
+                  "id":"289",
+                  "description":"Inspector-factory"
+               },
+               {  
+                  "id":"29",
+                  "description":"Art Dealer"
+               },
+               {  
+                  "id":"290",
+                  "description":"Inspector-insurance"
+               },
+               {  
+                  "id":"291",
+                  "description":"Instrument maker"
+               },
+               {  
+                  "id":"292",
+                  "description":"Insurance agent"
+               },
+               {  
+                  "id":"293",
+                  "description":"Insurance broker"
+               },
+               {  
+                  "id":"294",
+                  "description":"Insurance Staff"
+               },
+               {  
+                  "id":"295",
+                  "description":"Interpreter"
+               },
+               {  
+                  "id":"296",
+                  "description":"Ironmonger"
+               },
+               {  
+                  "id":"297",
+                  "description":"Itinerant-labourer"
+               },
+               {  
+                  "id":"298",
+                  "description":"Itinerant-trader"
+               },
+               {  
+                  "id":"299",
+                  "description":"Jeweller"
+               },
+               {  
+                  "id":"3",
+                  "description":"Actor/Actress"
+               },
+               {  
+                  "id":"30",
+                  "description":"Artist"
+               },
+               {  
+                  "id":"300",
+                  "description":"Jockey"
+               },
+               {  
+                  "id":"301",
+                  "description":"Joiner"
+               },
+               {  
+                  "id":"302",
+                  "description":"Journalist"
+               },
+               {  
+                  "id":"303",
+                  "description":"Journalist (NUJ)"
+               },
+               {  
+                  "id":"304",
+                  "description":"Judge"
+               },
+               {  
+                  "id":"305",
+                  "description":"Junk Shop Proprietor"
+               },
+               {  
+                  "id":"306",
+                  "description":"Kennels/Cattery Employee"
+               },
+               {  
+                  "id":"307",
+                  "description":"Kennels/Cattery Owner"
+               },
+               {  
+                  "id":"308",
+                  "description":"Knitter"
+               },
+               {  
+                  "id":"309",
+                  "description":"Laboratory technician"
+               },
+               {  
+                  "id":"31",
+                  "description":"Artist (NUJ)"
+               },
+               {  
+                  "id":"310",
+                  "description":"Labourer"
+               },
+               {  
+                  "id":"311",
+                  "description":"Land Agent"
+               },
+               {  
+                  "id":"312",
+                  "description":"Landscape gardener"
+               },
+               {  
+                  "id":"313",
+                  "description":"Laundry staff"
+               },
+               {  
+                  "id":"314",
+                  "description":"Lawyer"
+               },
+               {  
+                  "id":"315",
+                  "description":"Lecturer"
+               },
+               {  
+                  "id":"316",
+                  "description":"Legal secretary"
+               },
+               {  
+                  "id":"317",
+                  "description":"Liaison Officer"
+               },
+               {  
+                  "id":"318",
+                  "description":"Librarian"
+               },
+               {  
+                  "id":"319",
+                  "description":"Lifeguard"
+               },
+               {  
+                  "id":"32",
+                  "description":"Asphalter/roadworker"
+               },
+               {  
+                  "id":"320",
+                  "description":"Lithographer"
+               },
+               {  
+                  "id":"321",
+                  "description":"Local government (Libraries)"
+               },
+               {  
+                  "id":"322",
+                  "description":"Local Government (misc)"
+               },
+               {  
+                  "id":"323",
+                  "description":"Local government (town hall)"
+               },
+               {  
+                  "id":"324",
+                  "description":"Local Government Officer"
+               },
+               {  
+                  "id":"325",
+                  "description":"Locksmith"
+               },
+               {  
+                  "id":"326",
+                  "description":"Machine operator"
+               },
+               {  
+                  "id":"327",
+                  "description":"Machinist"
+               },
+               {  
+                  "id":"328",
+                  "description":"Magistrate"
+               },
+               {  
+                  "id":"329",
+                  "description":"Maintenance staff"
+               },
+               {  
+                  "id":"33",
+                  "description":"Assembly worker"
+               },
+               {  
+                  "id":"330",
+                  "description":"Management consultant"
+               },
+               {  
+                  "id":"331",
+                  "description":"Manager"
+               },
+               {  
+                  "id":"332",
+                  "description":"Manager - accounting"
+               },
+               {  
+                  "id":"333",
+                  "description":"Manager - administration"
+               },
+               {  
+                  "id":"334",
+                  "description":"Manager - airport"
+               },
+               {  
+                  "id":"335",
+                  "description":"Manager - area"
+               },
+               {  
+                  "id":"336",
+                  "description":"Manager - branch"
+               },
+               {  
+                  "id":"337",
+                  "description":"Manager - cinema"
+               },
+               {  
+                  "id":"338",
+                  "description":"Manager - investment"
+               },
+               {  
+                  "id":"339",
+                  "description":"Manager - Production"
+               },
+               {  
+                  "id":"34",
+                  "description":"Assessor"
+               },
+               {  
+                  "id":"340",
+                  "description":"Manager - Retail Shop"
+               },
+               {  
+                  "id":"341",
+                  "description":"Manager - Ring Sports"
+               },
+               {  
+                  "id":"342",
+                  "description":"Manager - sales (non travel)"
+               },
+               {  
+                  "id":"343",
+                  "description":"Manager - sales (travel)"
+               },
+               {  
+                  "id":"344",
+                  "description":"Manager - station"
+               },
+               {  
+                  "id":"345",
+                  "description":"Manager - transport"
+               },
+               {  
+                  "id":"346",
+                  "description":"Manager Sports"
+               },
+               {  
+                  "id":"347",
+                  "description":"Manager Unlicensed  Premises"
+               },
+               {  
+                  "id":"348",
+                  "description":"Manager-Licensed Premises"
+               },
+               {  
+                  "id":"349",
+                  "description":"Manufacturing agent"
+               },
+               {  
+                  "id":"35",
+                  "description":"Attorney (of insured)"
+               },
+               {  
+                  "id":"350",
+                  "description":"Market gardener"
+               },
+               {  
+                  "id":"351",
+                  "description":"Market research"
+               },
+               {  
+                  "id":"352",
+                  "description":"Market Trader"
+               },
+               {  
+                  "id":"353",
+                  "description":"Marketing - non travel"
+               },
+               {  
+                  "id":"354",
+                  "description":"Marketing - travel"
+               },
+               {  
+                  "id":"355",
+                  "description":"Mechanic"
+               },
+               {  
+                  "id":"356",
+                  "description":"Mechanic - airport"
+               },
+               {  
+                  "id":"357",
+                  "description":"Mechanic - vehicle"
+               },
+               {  
+                  "id":"358",
+                  "description":"Merchant"
+               },
+               {  
+                  "id":"359",
+                  "description":"Merchant Navy"
+               },
+               {  
+                  "id":"36",
+                  "description":"Au pair"
+               },
+               {  
+                  "id":"360",
+                  "description":"Messenger"
+               },
+               {  
+                  "id":"361",
+                  "description":"Metallurgist"
+               },
+               {  
+                  "id":"362",
+                  "description":"Metalworker"
+               },
+               {  
+                  "id":"363",
+                  "description":"Meteorologist"
+               },
+               {  
+                  "id":"364",
+                  "description":"Meter reader"
+               },
+               {  
+                  "id":"365",
+                  "description":"Midwife"
+               },
+               {  
+                  "id":"366",
+                  "description":"Milliner"
+               },
+               {  
+                  "id":"367",
+                  "description":"Miner"
+               },
+               {  
+                  "id":"368",
+                  "description":"Minister of religion"
+               },
+               {  
+                  "id":"369",
+                  "description":"Model"
+               },
+               {  
+                  "id":"37",
+                  "description":"Auctioneer"
+               },
+               {  
+                  "id":"370",
+                  "description":"Money Lender"
+               },
+               {  
+                  "id":"371",
+                  "description":"Motor Racing Organiser"
+               },
+               {  
+                  "id":"372",
+                  "description":"Motor Trader"
+               },
+               {  
+                  "id":"373",
+                  "description":"MP"
+               },
+               {  
+                  "id":"374",
+                  "description":"Musician"
+               },
+               {  
+                  "id":"375",
+                  "description":"Musician - Classical"
+               },
+               {  
+                  "id":"376",
+                  "description":"Musician - Dance Band"
+               },
+               {  
+                  "id":"377",
+                  "description":"Musician - Pop Group"
+               },
+               {  
+                  "id":"378",
+                  "description":"Nanny"
+               },
+               {  
+                  "id":"379",
+                  "description":"Navy - other ranks"
+               },
+               {  
+                  "id":"38",
+                  "description":"Auditor"
+               },
+               {  
+                  "id":"380",
+                  "description":"Navy-NCO/Commissioned Officer"
+               },
+               {  
+                  "id":"381",
+                  "description":"Negotiator"
+               },
+               {  
+                  "id":"382",
+                  "description":"Newsagent"
+               },
+               {  
+                  "id":"383",
+                  "description":"Night Club Staff"
+               },
+               {  
+                  "id":"384",
+                  "description":"Nun"
+               },
+               {  
+                  "id":"385",
+                  "description":"Nurse"
+               },
+               {  
+                  "id":"386",
+                  "description":"Nurse - district"
+               },
+               {  
+                  "id":"387",
+                  "description":"Nurse - student"
+               },
+               {  
+                  "id":"388",
+                  "description":"Nursery Nurse"
+               },
+               {  
+                  "id":"389",
+                  "description":"Nurseryman"
+               },
+               {  
+                  "id":"39",
+                  "description":"Author"
+               },
+               {  
+                  "id":"390",
+                  "description":"Nursing Sister"
+               },
+               {  
+                  "id":"391",
+                  "description":"Office Worker"
+               },
+               {  
+                  "id":"392",
+                  "description":"Optician"
+               },
+               {  
+                  "id":"393",
+                  "description":"Osteopath"
+               },
+               {  
+                  "id":"394",
+                  "description":"Other Unknown"
+               },
+               {  
+                  "id":"395",
+                  "description":"Packer"
+               },
+               {  
+                  "id":"396",
+                  "description":"Paint Sprayer - Motor Trade"
+               },
+               {  
+                  "id":"397",
+                  "description":"Paint Sprayer-Non Motor Trade"
+               },
+               {  
+                  "id":"398",
+                  "description":"Painter"
+               },
+               {  
+                  "id":"399",
+                  "description":"Painter/decorator"
+               },
+               {  
+                  "id":"4",
+                  "description":"Actuary"
+               },
+               {  
+                  "id":"40",
+                  "description":"Baggage handler"
+               },
+               {  
+                  "id":"400",
+                  "description":"Parents of member"
+               },
+               {  
+                  "id":"401",
+                  "description":"Park/recreational attendant"
+               },
+               {  
+                  "id":"402",
+                  "description":"Party planner"
+               },
+               {  
+                  "id":"403",
+                  "description":"Patrolman"
+               },
+               {  
+                  "id":"404",
+                  "description":"Pattern maker"
+               },
+               {  
+                  "id":"405",
+                  "description":"Pawnbroker"
+               },
+               {  
+                  "id":"406",
+                  "description":"Personal assistant"
+               },
+               {  
+                  "id":"407",
+                  "description":"Personnel administrator"
+               },
+               {  
+                  "id":"408",
+                  "description":"Pest control"
+               },
+               {  
+                  "id":"409",
+                  "description":"Petrol Station Attendant"
+               },
+               {  
+                  "id":"41",
+                  "description":"Bailiff"
+               },
+               {  
+                  "id":"410",
+                  "description":"Pharmacist"
+               },
+               {  
+                  "id":"411",
+                  "description":"Photographer"
+               },
+               {  
+                  "id":"412",
+                  "description":"Photographer - Fashion"
+               },
+               {  
+                  "id":"413",
+                  "description":"Photographer - Fashion (NUJ)"
+               },
+               {  
+                  "id":"414",
+                  "description":"Photographer - Location"
+               },
+               {  
+                  "id":"415",
+                  "description":"Photographer - Location (NUJ)"
+               },
+               {  
+                  "id":"416",
+                  "description":"Photographer - Studio"
+               },
+               {  
+                  "id":"417",
+                  "description":"Photographer - Studio (NUJ)"
+               },
+               {  
+                  "id":"418",
+                  "description":"Photographer (NUJ)"
+               },
+               {  
+                  "id":"419",
+                  "description":"Physiotherapist"
+               },
+               {  
+                  "id":"42",
+                  "description":"Baker"
+               },
+               {  
+                  "id":"420",
+                  "description":"Piano tuner"
+               },
+               {  
+                  "id":"421",
+                  "description":"Pipe Layer"
+               },
+               {  
+                  "id":"422",
+                  "description":"Planning officer"
+               },
+               {  
+                  "id":"423",
+                  "description":"Plasterer"
+               },
+               {  
+                  "id":"424",
+                  "description":"Plumber"
+               },
+               {  
+                  "id":"425",
+                  "description":"Podiatrist"
+               },
+               {  
+                  "id":"426",
+                  "description":"Police officer"
+               },
+               {  
+                  "id":"427",
+                  "description":"Police Support Staff"
+               },
+               {  
+                  "id":"428",
+                  "description":"Pools Collector"
+               },
+               {  
+                  "id":"429",
+                  "description":"Porter"
+               },
+               {  
+                  "id":"43",
+                  "description":"Bank staff"
+               },
+               {  
+                  "id":"430",
+                  "description":"Post office staff"
+               },
+               {  
+                  "id":"431",
+                  "description":"Postman/woman"
+               },
+               {  
+                  "id":"432",
+                  "description":"Potter"
+               },
+               {  
+                  "id":"433",
+                  "description":"Printer"
+               },
+               {  
+                  "id":"434",
+                  "description":"Prison officer"
+               },
+               {  
+                  "id":"435",
+                  "description":"Private Investigator"
+               },
+               {  
+                  "id":"436",
+                  "description":"Pro Racing Motor Cyclist"
+               },
+               {  
+                  "id":"437",
+                  "description":"Probation officer"
+               },
+               {  
+                  "id":"438",
+                  "description":"Process worker"
+               },
+               {  
+                  "id":"439",
+                  "description":"Producer Performing Arts"
+               },
+               {  
+                  "id":"44",
+                  "description":"Bar staff"
+               },
+               {  
+                  "id":"440",
+                  "description":"Professional Boxer"
+               },
+               {  
+                  "id":"441",
+                  "description":"Professional Racing Driver"
+               },
+               {  
+                  "id":"442",
+                  "description":"Professional Sportsperson"
+               },
+               {  
+                  "id":"443",
+                  "description":"Professional Wrestler"
+               },
+               {  
+                  "id":"444",
+                  "description":"Projectionist"
+               },
+               {  
+                  "id":"445",
+                  "description":"Promoter"
+               },
+               {  
+                  "id":"446",
+                  "description":"Promoter - Racing"
+               },
+               {  
+                  "id":"447",
+                  "description":"Promoter - Ring Sports"
+               },
+               {  
+                  "id":"448",
+                  "description":"Property Developer"
+               },
+               {  
+                  "id":"449",
+                  "description":"Public relations officer"
+               },
+               {  
+                  "id":"45",
+                  "description":"Barrister"
+               },
+               {  
+                  "id":"450",
+                  "description":"Publican"
+               },
+               {  
+                  "id":"451",
+                  "description":"Publisher"
+               },
+               {  
+                  "id":"452",
+                  "description":"Quality controller"
+               },
+               {  
+                  "id":"453",
+                  "description":"Quantity surveyor"
+               },
+               {  
+                  "id":"454",
+                  "description":"Racing Organiser"
+               },
+               {  
+                  "id":"455",
+                  "description":"Radiographer"
+               },
+               {  
+                  "id":"456",
+                  "description":"Railway staff"
+               },
+               {  
+                  "id":"457",
+                  "description":"Receptionist"
+               },
+               {  
+                  "id":"458",
+                  "description":"Recruitment Consultant"
+               },
+               {  
+                  "id":"459",
+                  "description":"Refuse collector"
+               },
+               {  
+                  "id":"46",
+                  "description":"BBC Employee (clerical)"
+               },
+               {  
+                  "id":"460",
+                  "description":"Registrar"
+               },
+               {  
+                  "id":"461",
+                  "description":"Rent Officer"
+               },
+               {  
+                  "id":"462",
+                  "description":"Reporter"
+               },
+               {  
+                  "id":"463",
+                  "description":"Reporter (NUJ)"
+               },
+               {  
+                  "id":"464",
+                  "description":"Researcher"
+               },
+               {  
+                  "id":"465",
+                  "description":"Retired"
+               },
+               {  
+                  "id":"466",
+                  "description":"Rig Worker"
+               },
+               {  
+                  "id":"467",
+                  "description":"Rig Worker Off Shore"
+               },
+               {  
+                  "id":"468",
+                  "description":"Road Safety Officer"
+               },
+               {  
+                  "id":"469",
+                  "description":"Roofer"
+               },
+               {  
+                  "id":"47",
+                  "description":"BBC Stage Mover"
+               },
+               {  
+                  "id":"470",
+                  "description":"Sales - non travelling"
+               },
+               {  
+                  "id":"471",
+                  "description":"Sales - telephone"
+               },
+               {  
+                  "id":"472",
+                  "description":"Sales - Travelling"
+               },
+               {  
+                  "id":"473",
+                  "description":"Sales assistant"
+               },
+               {  
+                  "id":"474",
+                  "description":"Scaffolder"
+               },
+               {  
+                  "id":"475",
+                  "description":"Scientist"
+               },
+               {  
+                  "id":"476",
+                  "description":"Script writer"
+               },
+               {  
+                  "id":"477",
+                  "description":"Sculptor"
+               },
+               {  
+                  "id":"478",
+                  "description":"Secretary"
+               },
+               {  
+                  "id":"479",
+                  "description":"Security Guard"
+               },
+               {  
+                  "id":"48",
+                  "description":"Beautician"
+               },
+               {  
+                  "id":"480",
+                  "description":"Security Officer"
+               },
+               {  
+                  "id":"481",
+                  "description":"Semi-Pro Sportsperson"
+               },
+               {  
+                  "id":"482",
+                  "description":"Shipyard worker"
+               },
+               {  
+                  "id":"483",
+                  "description":"Shop assistant"
+               },
+               {  
+                  "id":"484",
+                  "description":"Shop proprietor"
+               },
+               {  
+                  "id":"485",
+                  "description":"Shop proprietor - mobile"
+               },
+               {  
+                  "id":"486",
+                  "description":"Shopfitter"
+               },
+               {  
+                  "id":"487",
+                  "description":"Showman/Person"
+               },
+               {  
+                  "id":"488",
+                  "description":"Signwriter"
+               },
+               {  
+                  "id":"489",
+                  "description":"Social worker"
+               },
+               {  
+                  "id":"49",
+                  "description":"Benefits Officer"
+               },
+               {  
+                  "id":"490",
+                  "description":"Solicitor (Occupation)"
+               },
+               {  
+                  "id":"491",
+                  "description":"Solicitor -acting for Insured"
+               },
+               {  
+                  "id":"492",
+                  "description":"Son/daughter of member"
+               },
+               {  
+                  "id":"493",
+                  "description":"Sorter"
+               },
+               {  
+                  "id":"494",
+                  "description":"Special Needs Assistant"
+               },
+               {  
+                  "id":"495",
+                  "description":"Sports admin - other sports"
+               },
+               {  
+                  "id":"496",
+                  "description":"Sports admin - ring sports"
+               },
+               {  
+                  "id":"497",
+                  "description":"Sports Centre Attendant"
+               },
+               {  
+                  "id":"498",
+                  "description":"Stable hand"
+               },
+               {  
+                  "id":"499",
+                  "description":"STAFF"
+               },
+               {  
+                  "id":"5",
+                  "description":"Administration staff"
+               },
+               {  
+                  "id":"50",
+                  "description":"Betting Shop Employee "
+               },
+               {  
+                  "id":"500",
+                  "description":"Stationer"
+               },
+               {  
+                  "id":"501",
+                  "description":"Statistician"
+               },
+               {  
+                  "id":"502",
+                  "description":"Steel Worker"
+               },
+               {  
+                  "id":"503",
+                  "description":"Steeplejack"
+               },
+               {  
+                  "id":"504",
+                  "description":"Stevedore"
+               },
+               {  
+                  "id":"505",
+                  "description":"Steward/Stewardess"
+               },
+               {  
+                  "id":"506",
+                  "description":"Stock controller"
+               },
+               {  
+                  "id":"507",
+                  "description":"Stockbroker"
+               },
+               {  
+                  "id":"508",
+                  "description":"Stonemason"
+               },
+               {  
+                  "id":"509",
+                  "description":"Storeman/woman"
+               },
+               {  
+                  "id":"51",
+                  "description":"Betting Shop Owner"
+               },
+               {  
+                  "id":"510",
+                  "description":"Street Trader"
+               },
+               {  
+                  "id":"511",
+                  "description":"Student"
+               },
+               {  
+                  "id":"512",
+                  "description":"Student - Foreign"
+               },
+               {  
+                  "id":"513",
+                  "description":"Supervisor"
+               },
+               {  
+                  "id":"514",
+                  "description":"Surgeon"
+               },
+               {  
+                  "id":"515",
+                  "description":"Surveyor"
+               },
+               {  
+                  "id":"516",
+                  "description":"Surveyor - chartered"
+               },
+               {  
+                  "id":"517",
+                  "description":"Tailor"
+               },
+               {  
+                  "id":"518",
+                  "description":"Taxidermist"
+               },
+               {  
+                  "id":"519",
+                  "description":"Teacher"
+               },
+               {  
+                  "id":"52",
+                  "description":"Blacksmith"
+               },
+               {  
+                  "id":"520",
+                  "description":"Technician Performing Arts"
+               },
+               {  
+                  "id":"521",
+                  "description":"Telephone Engineer"
+               },
+               {  
+                  "id":"522",
+                  "description":"Telephonist"
+               },
+               {  
+                  "id":"523",
+                  "description":"Textile worker"
+               },
+               {  
+                  "id":"524",
+                  "description":"Ticket inspector"
+               },
+               {  
+                  "id":"525",
+                  "description":"Tiler"
+               },
+               {  
+                  "id":"526",
+                  "description":"Tobacconist"
+               },
+               {  
+                  "id":"527",
+                  "description":"Tool maker"
+               },
+               {  
+                  "id":"528",
+                  "description":"Town Clerk"
+               },
+               {  
+                  "id":"529",
+                  "description":"Toy maker"
+               },
+               {  
+                  "id":"53",
+                  "description":"Boatbuilder"
+               },
+               {  
+                  "id":"530",
+                  "description":"Trade union official"
+               },
+               {  
+                  "id":"531",
+                  "description":"Traffic warden"
+               },
+               {  
+                  "id":"532",
+                  "description":"Trainer"
+               },
+               {  
+                  "id":"533",
+                  "description":"Trainer - Animal"
+               },
+               {  
+                  "id":"534",
+                  "description":"Trainer - Greyhound"
+               },
+               {  
+                  "id":"535",
+                  "description":"Trainer - Race Horse"
+               },
+               {  
+                  "id":"536",
+                  "description":"Trainer (NUJ)"
+               },
+               {  
+                  "id":"537",
+                  "description":"Training officer"
+               },
+               {  
+                  "id":"538",
+                  "description":"Translator"
+               },
+               {  
+                  "id":"539",
+                  "description":"Transport"
+               },
+               {  
+                  "id":"54",
+                  "description":"Boilerman"
+               },
+               {  
+                  "id":"540",
+                  "description":"Travel agent"
+               },
+               {  
+                  "id":"541",
+                  "description":"Travelling Showman"
+               },
+               {  
+                  "id":"542",
+                  "description":"Tree surgeon"
+               },
+               {  
+                  "id":"543",
+                  "description":"Trinity House Pilot"
+               },
+               {  
+                  "id":"544",
+                  "description":"Turf Accountant"
+               },
+               {  
+                  "id":"545",
+                  "description":"Typist"
+               },
+               {  
+                  "id":"546",
+                  "description":"UIA staff"
+               },
+               {  
+                  "id":"547",
+                  "description":"Undertaker"
+               },
+               {  
+                  "id":"548",
+                  "description":"Underwriter"
+               },
+               {  
+                  "id":"549",
+                  "description":"Unemployed"
+               },
+               {  
+                  "id":"55",
+                  "description":"Bookmaker"
+               },
+               {  
+                  "id":"550",
+                  "description":"UNISON staff"
+               },
+               {  
+                  "id":"551",
+                  "description":"Unison Welfare (for Insured)"
+               },
+               {  
+                  "id":"552",
+                  "description":"Unity scheme"
+               },
+               {  
+                  "id":"553",
+                  "description":"Unknown - DO NOT USE"
+               },
+               {  
+                  "id":"554",
+                  "description":"UNKNOWN - Use for coupons only"
+               },
+               {  
+                  "id":"555",
+                  "description":"Upholsterer"
+               },
+               {  
+                  "id":"556",
+                  "description":"Usher"
+               },
+               {  
+                  "id":"557",
+                  "description":"Valuer"
+               },
+               {  
+                  "id":"558",
+                  "description":"Vdu operator"
+               },
+               {  
+                  "id":"559",
+                  "description":"Vehicle body worker"
+               },
+               {  
+                  "id":"56",
+                  "description":"Breeder"
+               },
+               {  
+                  "id":"560",
+                  "description":"Vehicle Valet"
+               },
+               {  
+                  "id":"561",
+                  "description":"Veterinary surgeon"
+               },
+               {  
+                  "id":"562",
+                  "description":"Voluntary Worker"
+               },
+               {  
+                  "id":"563",
+                  "description":"Waiter/Waitress (Licensed)"
+               },
+               {  
+                  "id":"564",
+                  "description":"Waiter/Waitress (Unlicensed)"
+               },
+               {  
+                  "id":"565",
+                  "description":"Warehouseman/woman"
+               },
+               {  
+                  "id":"566",
+                  "description":"Watchmaker"
+               },
+               {  
+                  "id":"567",
+                  "description":"Water industry worker"
+               },
+               {  
+                  "id":"568",
+                  "description":"Welder"
+               },
+               {  
+                  "id":"569",
+                  "description":"Welfare Officer"
+               },
+               {  
+                  "id":"57",
+                  "description":"Brewery worker"
+               },
+               {  
+                  "id":"570",
+                  "description":"Window cleaner"
+               },
+               {  
+                  "id":"571",
+                  "description":"Writer"
+               },
+               {  
+                  "id":"572",
+                  "description":"Youth Worker"
+               },
+               {  
+                  "id":"573",
+                  "description":"Zoo keeper"
+               },
+               {  
+                  "id":"574",
+                  "description":"Adminstrator (of dec'd insrd)"
+               },
+               {  
+                  "id":"575",
+                  "description":"Administratrix (of dec'd ins)"
+               },
+               {  
+                  "id":"576",
+                  "description":"Children's entertainer"
+               },
+               {  
+                  "id":"578",
+                  "description":"Administrator"
+               },
+               {  
+                  "id":"579",
+                  "description":"Anaesthetist"
+               },
+               {  
+                  "id":"58",
+                  "description":"Bricklayer"
+               },
+               {  
+                  "id":"580",
+                  "description":"Biochemist"
+               },
+               {  
+                  "id":"581",
+                  "description":"Biologist"
+               },
+               {  
+                  "id":"582",
+                  "description":"Careers Officer"
+               },
+               {  
+                  "id":"583",
+                  "description":"Charity worker"
+               },
+               {  
+                  "id":"584",
+                  "description":"Consultant"
+               },
+               {  
+                  "id":"585",
+                  "description":"Conveyancer"
+               },
+               {  
+                  "id":"586",
+                  "description":"Cook"
+               },
+               {  
+                  "id":"587",
+                  "description":"Council worker"
+               },
+               {  
+                  "id":"588",
+                  "description":"Counsellor"
+               },
+               {  
+                  "id":"589",
+                  "description":"Dental Hygienist"
+               },
+               {  
+                  "id":"59",
+                  "description":"Broadcaster tv/radio"
+               },
+               {  
+                  "id":"590",
+                  "description":"Dental Nurse"
+               },
+               {  
+                  "id":"591",
+                  "description":"Dental Technician"
+               },
+               {  
+                  "id":"592",
+                  "description":"Dietician"
+               },
+               {  
+                  "id":"594",
+                  "description":"Glazier"
+               },
+               {  
+                  "id":"595",
+                  "description":"Lavatory Attendant"
+               },
+               {  
+                  "id":"596",
+                  "description":"Manager - Marketing"
+               },
+               {  
+                  "id":"597",
+                  "description":"Office Manager"
+               },
+               {  
+                  "id":"598",
+                  "description":"Operations Manager"
+               },
+               {  
+                  "id":"599",
+                  "description":"Park Keeper"
+               },
+               {  
+                  "id":"60",
+                  "description":"Builder"
+               },
+               {  
+                  "id":"600",
+                  "description":"Occupational Therapist"
+               },
+               {  
+                  "id":"601",
+                  "description":"Teaching Assistant"
+               },
+               {  
+                  "id":"602",
+                  "description":"Personnel Officer"
+               },
+               {  
+                  "id":"603",
+                  "description":"Physicist"
+               },
+               {  
+                  "id":"604",
+                  "description":"Project Manager"
+               },
+               {  
+                  "id":"605",
+                  "description":"Psychotherapist"
+               },
+               {  
+                  "id":"606",
+                  "description":"Sales - account executive"
+               },
+               {  
+                  "id":"607",
+                  "description":"Sales - representative"
+               },
+               {  
+                  "id":"608",
+                  "description":"Speech Therapist"
+               },
+               {  
+                  "id":"609",
+                  "description":"Telecommunications Engineer"
+               },
+               {  
+                  "id":"61",
+                  "description":"Building Control Officer"
+               },
+               {  
+                  "id":"610",
+                  "description":"Theatre Manager"
+               },
+               {  
+                  "id":"611",
+                  "description":"Trading Standards Officer"
+               },
+               {  
+                  "id":"612",
+                  "description":"Tutor"
+               },
+               {  
+                  "id":"613",
+                  "description":"Health and Safety Officer"
+               },
+               {  
+                  "id":"614",
+                  "description":"Dark Room Technician"
+               },
+               {  
+                  "id":"615",
+                  "description":"Road Sweeper"
+               },
+               {  
+                  "id":"616",
+                  "description":"Accommodation Officer"
+               },
+               {  
+                  "id":"617",
+                  "description":"Assistant Manager"
+               },
+               {  
+                  "id":"618",
+                  "description":"Care Manager"
+               },
+               {  
+                  "id":"619",
+                  "description":"Classroom Assistant"
+               },
+               {  
+                  "id":"62",
+                  "description":"Bursar"
+               },
+               {  
+                  "id":"620",
+                  "description":"Laboratory Assistant"
+               },
+               {  
+                  "id":"621",
+                  "description":"Legal Executive"
+               },
+               {  
+                  "id":"622",
+                  "description":"Matron"
+               },
+               {  
+                  "id":"623",
+                  "description":"Nursery Assistant"
+               },
+               {  
+                  "id":"624",
+                  "description":"Playgroup Leader"
+               },
+               {  
+                  "id":"625",
+                  "description":"Practice Manager"
+               },
+               {  
+                  "id":"627",
+                  "description":"Therapist"
+               },
+               {  
+                  "id":"628",
+                  "description":"Town Planner"
+               },
+               {  
+                  "id":"629",
+                  "description":"Staff Nurse"
+               },
+               {  
+                  "id":"63",
+                  "description":"Bus Company Employee"
+               },
+               {  
+                  "id":"630",
+                  "description":"Loader"
+               },
+               {  
+                  "id":"631",
+                  "description":"Clerical Officer"
+               },
+               {  
+                  "id":"632",
+                  "description":"Contracts Manager"
+               },
+               {  
+                  "id":"633",
+                  "description":"Foreman/woman"
+               },
+               {  
+                  "id":"634",
+                  "description":"Legal Assistant"
+               },
+               {  
+                  "id":"635",
+                  "description":"Safety Officer"
+               },
+               {  
+                  "id":"636",
+                  "description":"Creche worker"
+               },
+               {  
+                  "id":"637",
+                  "description":"Day Care Officer"
+               },
+               {  
+                  "id":"638",
+                  "description":"Handyman/woman"
+               },
+               {  
+                  "id":"639",
+                  "description":"Landscape Architect"
+               },
+               {  
+                  "id":"64",
+                  "description":"Bus conductor"
+               },
+               {  
+                  "id":"640",
+                  "description":"Payroll Assistant"
+               },
+               {  
+                  "id":"641",
+                  "description":"Assistant Caretaker"
+               },
+               {  
+                  "id":"642",
+                  "description":"Assistant Cook"
+               },
+               {  
+                  "id":"643",
+                  "description":"Building Manager"
+               },
+               {  
+                  "id":"644",
+                  "description":"Manager - catering"
+               },
+               {  
+                  "id":"645",
+                  "description":"Clerical Assistant"
+               },
+               {  
+                  "id":"646",
+                  "description":"Medical Secretary"
+               },
+               {  
+                  "id":"647",
+                  "description":"Debt Councellor"
+               },
+               {  
+                  "id":"648",
+                  "description":"Deputy Manager"
+               },
+               {  
+                  "id":"649",
+                  "description":"Finance Officer"
+               },
+               {  
+                  "id":"65",
+                  "description":"Business consultant"
+               },
+               {  
+                  "id":"650",
+                  "description":"Aromatherapist"
+               },
+               {  
+                  "id":"651",
+                  "description":"Health Care Assistant"
+               },
+               {  
+                  "id":"652",
+                  "description":"Orthoptist"
+               },
+               {  
+                  "id":"653",
+                  "description":"Letting Officer"
+               },
+               {  
+                  "id":"654",
+                  "description":"Medical Assistant"
+               },
+               {  
+                  "id":"655",
+                  "description":"Nursing Auxiliary"
+               },
+               {  
+                  "id":"656",
+                  "description":"Outreach worker"
+               },
+               {  
+                  "id":"657",
+                  "description":"Payroll Clerk"
+               },
+               {  
+                  "id":"658",
+                  "description":"Pharmacy Assistant"
+               },
+               {  
+                  "id":"659",
+                  "description":"Plant attendant"
+               },
+               {  
+                  "id":"66",
+                  "description":"Business Prop Licensed Premise"
+               },
+               {  
+                  "id":"660",
+                  "description":"Project worker"
+               },
+               {  
+                  "id":"661",
+                  "description":"Technical Clerk"
+               },
+               {  
+                  "id":"662",
+                  "description":"Manager - technical"
+               },
+               {  
+                  "id":"663",
+                  "description":"Employed"
+               },
+               {  
+                  "id":"664",
+                  "description":"Self Employed"
+               },
+               {  
+                  "id":"665",
+                  "description":"Not Known"
+               },
+               {  
+                  "id":"666",
+                  "description":"<Please translate>"
+               },
+               {  
+                  "id":"67",
+                  "description":"Business Proprietor"
+               },
+               {  
+                  "id":"68",
+                  "description":"Butcher"
+               },
+               {  
+                  "id":"69",
+                  "description":"Buyer"
+               },
+               {  
+                  "id":"70",
+                  "description":"Cameraman TV/Films"
+               },
+               {  
+                  "id":"71",
+                  "description":"Cameraman TV/Films (NUJ)"
+               },
+               {  
+                  "id":"72",
+                  "description":"Car park attendant"
+               },
+               {  
+                  "id":"73",
+                  "description":"Care Assistant"
+               },
+               {  
+                  "id":"74",
+                  "description":"Caretaker"
+               },
+               {  
+                  "id":"75",
+                  "description":"Carpenter"
+               },
+               {  
+                  "id":"76",
+                  "description":"Carpetfitter"
+               },
+               {  
+                  "id":"77",
+                  "description":"Cartographer"
+               },
+               {  
+                  "id":"78",
+                  "description":"Cashier"
+               },
+               {  
+                  "id":"79",
+                  "description":"Casual worker"
+               },
+               {  
+                  "id":"8",
+                  "description":"Advertising agent"
+               },
+               {  
+                  "id":"80",
+                  "description":"Caterer"
+               },
+               {  
+                  "id":"81",
+                  "description":"Caterer Mobile"
+               },
+               {  
+                  "id":"82",
+                  "description":"Catering staff"
+               },
+               {  
+                  "id":"83",
+                  "description":"Chambermaid"
+               },
+               {  
+                  "id":"84",
+                  "description":"Chart/cert accountant"
+               },
+               {  
+                  "id":"85",
+                  "description":"Charterer"
+               },
+               {  
+                  "id":"86",
+                  "description":"Chauffeur"
+               },
+               {  
+                  "id":"87",
+                  "description":"Chef"
+               },
+               {  
+                  "id":"88",
+                  "description":"Child minder"
+               },
+               {  
+                  "id":"9",
+                  "description":"Advertising staff"
+               },
+               {  
+                  "id":"90",
+                  "description":"Chimney sweep"
+               },
+               {  
+                  "id":"91",
+                  "description":"Chiropodist"
+               },
+               {  
+                  "id":"92",
+                  "description":"Circus Worker"
+               },
+               {  
+                  "id":"93",
+                  "description":"Civil servant"
+               },
+               {  
+                  "id":"94",
+                  "description":"Claims/loss adjuster"
+               },
+               {  
+                  "id":"95",
+                  "description":"Cleaner"
+               },
+               {  
+                  "id":"96",
+                  "description":"Clerk"
+               },
+               {  
+                  "id":"97",
+                  "description":"Clerk - booking"
+               },
+               {  
+                  "id":"98",
+                  "description":"Clerk - shipping"
+               },
+               {  
+                  "id":"99",
+                  "description":"Clerk - wages"
+               }
+            ]
+         }
+      ]
+   }
+}

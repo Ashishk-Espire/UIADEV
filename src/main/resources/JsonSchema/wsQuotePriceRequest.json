@@ -1,0 +1,117 @@
+{
+	"quote_id": 1234567,
+	"affinity": "0072",
+	"cover_start_date": "2016-10-31",
+	"first_start_date": "2016-10-31",
+	"year_start_date": "2016-10-31",
+	"payment_method": "DD",
+	"dd_details": {
+		"account_holder_name": "Mr I Jones",
+		"bank_account_no": "11111111",
+		"bank_sort_code": "160001",
+		"ddi_collection_day": 15
+	},
+	"cc_details": {
+		"cc_token": "ASDF1234"
+	},
+	"product_line_ver_no": 19,
+	"campaign": 15779,
+	"eligibility": {
+		"hol_home": "N",
+		"lodger": "N",
+		"nanny": "N",
+		"tall_trees": "N",
+		"ten_fam": "N",
+		"ten_nonfam": "N",
+		"unoc_ten": "N",
+		"unoc_uia": "N"
+	},
+	"risk_property": {
+		"perm_res": "Y",
+		"res_occ": "1",
+		"sole_occ": "Y",
+		"bus_use": 0,
+		"refused": "N",
+		"terms": "N",
+		"convs": "N",
+		"bank_ccj": "N",
+		"for_sale": "N",
+		"flood": "N",
+		"subst": "N",
+		"rep_state": "Y",
+		"prop_type": 6,
+		"prop_type2": 3,
+		"no_storeys": 2,
+		"listed": 4,
+		"year_built": 1987,
+		"owner_type": 1,
+		"no_beds": 5,
+		"ext_prop": "N",
+		"wall_type": 1,
+		"roof_type": 2,
+		"alarm_type": 0,
+		"smokers": "Y",
+		"smoke_al": "Y",
+		"win_lock": "Y",
+		"door_lock": "Y",
+		"risk_address": {
+			"street": ", ",
+			"building_name": "",
+			"building_no": "",
+			"postcode": "BT48 0EG",
+			"uprn": null
+		}
+	},
+	"persons_insured": [{
+		"title": "003",
+		"forename": "Batch",
+		"surname": "Ta-Aitc-Gocn0055",
+		"birth_date": "1990-01-01"
+	}],
+	"tier": "SILVER",
+	"zzchannel_yr": "AGGREGATOR",
+	"channel_yr": "INBOUND",
+	"together": "Y",
+	"prev_claims": [{
+		"cla_date": "2012-12-20",
+		"cla_type": 2,
+		"cla_cause": 17,
+		"cla_amt": 100,
+		"risk_addr": "Y",
+		"cla_desc": "Pulled the plug!"
+	}],
+	"cover": {
+		"bld": {
+			"risk_yn": "Y",
+			"vol_xs": 250
+		},
+		"bld_ad": {
+			"risk_yn": "Y"
+		},
+		"con": {
+			"risk_yn": "Y",
+			"vol_xs": 250
+		},
+		"con_ad": {
+			"risk_yn": "Y"
+		},
+		"unspec": {
+			"risk_sum": 2000
+		},
+
+		"spec_items": [{
+			"itm_type": 75,
+			"itm_desc": "Dell Venue 11 Pro",
+			"itm_value": 650
+		}],
+		"cycles": [{
+			"cyc_make": 21,
+			"cyc_model": "VT2",
+			"value": 750
+		}],
+
+		"legal": "Y",
+		"he": "Y",
+		"travel": "Y"
+	}
+}
