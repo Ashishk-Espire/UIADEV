@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.uia.esb</groupId>
-	<artifactId>uiadev</artifactId>
+	<artifactId>uia</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
 	<name>Mule uia Application</name>
@@ -129,7 +129,7 @@
           </goals>
           <configuration>
             <files>
-              <file>src/main/resources/pom-DEV.properties</file>
+              <file>src/main/resources/pom-TEST.properties</file>
             </files>
           </configuration>
         </execution>
@@ -381,6 +381,14 @@
 		</pluginRepository>
 
 	</pluginRepositories>
+	
+	<!-- <distributionManagement>
+       <repository>
+         <id>local</id>
+         <name>Internal repo</name>
+         <url>file:///root/.m2/repository/</url>
+       </repository>
+   </distributionManagement> -->
 	
 	<distributionManagement>
 	    <repository>
